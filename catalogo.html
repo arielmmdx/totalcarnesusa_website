@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catalog — Total Carnes USA</title>
+<meta name="description" content="Full Total Carnes USA catalog: beef, chicken, pork, lamb, grill staples and pantry items, with real prices per pound.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="lang-toggle">
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <button id="btn-es" onclick="setLang('es')">ES</button>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo">TOTAL <span>CARNES</span></div>
+    <div class="nav-links">
+      <a href="index.html" data-i18n="nav_home">Home</a>
+      <a href="catalogo.html" class="current" data-i18n="nav_catalog">Catalog</a>
+      <a href="best-sellers.html" data-i18n="nav_best">Best Sellers</a>
+      <a href="nosotros.html" data-i18n="nav_about">Our Story</a>
+      <a href="contacto.html" data-i18n="nav_contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="contacto.html" data-i18n="cta_contact">📍 Find a store</a>
+    <button class="nav-burger" id="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html" data-i18n="nav_home">Home</a>
+    <a href="catalogo.html" data-i18n="nav_catalog">Catalog</a>
+    <a href="best-sellers.html" data-i18n="nav_best">Best Sellers</a>
+    <a href="nosotros.html" data-i18n="nav_about">Our Story</a>
+    <a href="contacto.html" data-i18n="nav_contact">Contact</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="hero-content">
+      <span class="eyebrow" data-i18n="ph_eyebrow">FULL CATALOG</span>
+      <h1 data-i18n="ph_title">Every cut, every category, one <span class="grad">price list</span>.</h1>
+      <p class="subhead" data-i18n="ph_sub">Beef, chicken, pork, lamb, grill staples and pantry — organized the way our butchers organize the counter.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="container">
+
+    <div class="category-block fade-in">
+      <div class="category-head">
+        <h2 data-i18n="cb1_title">Beef</h2>
+        <span class="category-count" data-i18n="cb1_count">37 products</span>
+      </div>
+      <div class="grid" id="grid-beef"></div>
+    </div>
+
+    <div class="category-block fade-in">
+      <div class="category-head">
+        <h2 data-i18n="cb2_title">Chicken</h2>
+        <span class="category-count" data-i18n="cb2_count">4 products</span>
+      </div>
+      <div class="grid" id="grid-chicken"></div>
+    </div>
+
+    <div class="category-block fade-in">
+      <div class="category-head">
+        <h2 data-i18n="cb3_title">Pork</h2>
+        <span class="category-count" data-i18n="cb3_count">6 products</span>
+      </div>
+      <div class="grid" id="grid-pork"></div>
+    </div>
+
+    <div class="category-block fade-in">
+      <div class="category-head">
+        <h2 data-i18n="cb4_title">Lamb</h2>
+        <span class="category-count" data-i18n="cb4_count">4 products</span>
+      </div>
+      <div class="grid" id="grid-lamb"></div>
+    </div>
+
+    <div class="category-block fade-in">
+      <div class="category-head">
+        <h2 data-i18n="cb5_title">Grill &amp; Prepared</h2>
+        <span class="category-count" data-i18n="cb5_count">11 products</span>
+      </div>
+      <div class="grid" id="grid-grill"></div>
+    </div>
+
+    <div class="category-block fade-in">
+      <div class="category-head">
+        <h2 data-i18n="cb6_title">Pantry</h2>
+        <span class="category-count" data-i18n="cb6_count">1 product</span>
+      </div>
+      <div class="grid" id="grid-pantry"></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="story-section" style="text-align:center;">
+  <div class="container">
+    <div class="fade-in">
+      <span class="section-tag" data-i18n="cc_tag">CAN'T FIND THE CUT</span>
+      <h2 class="section-title" style="margin:0 auto 16px;" data-i18n="cc_title">Tell us the cut and we'll get it ready.</h2>
+      <p class="section-desc" style="margin:0 auto 36px;" data-i18n="cc_desc">Custom cut requests, special orders and case quantities are handled directly through our contact form.</p>
+      <a class="btn btn-primary" href="contacto.html" data-i18n="cc_cta">✉️ Request a cut</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:14px;">TOTAL <span>CARNES</span></div>
+        <p data-i18n="footer_brand_desc">Premium Argentine beef and cuts, shipped nationwide in under 24h, with four stores across Miami-Dade.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_shop">Shop</h4>
+        <a href="catalogo.html" data-i18n="nav_catalog">Catalog</a>
+        <a href="best-sellers.html" data-i18n="nav_best">Best Sellers</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_locations_title">Our stores</h4>
+        <p data-i18n="addr_northmiami">North Miami — 12420 Biscayne Blvd</p>
+        <p data-i18n="addr_aventura">Aventura — 19087 West Dixie Highway</p>
+        <p data-i18n="addr_pinecrest">Pinecrest — 9563 S Dixie Hwy #04A</p>
+        <p data-i18n="addr_keybiscayne">Key Biscayne — 328 Crandon Blvd</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footer_rights">© 2026 Total Carnes USA. All rights reserved.</span>
+      <span data-i18n="footer_credit">Site redesign by BBSOFT LLC</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/common.js"></script>
+<script src="assets/catalog-data.js"></script>
+<script>
+initSite({
+  en:{
+    cta_contact:"📍 Find a store",
+    ph_eyebrow:"FULL CATALOG",
+    ph_title:'Every cut, every category, one <span class="grad">price list</span>.',
+    ph_sub:"Beef, chicken, pork, lamb, grill staples and pantry — organized the way our butchers organize the counter.",
+    cb1_title:"Beef", cb1_count:"37 products",
+    cb2_title:"Chicken", cb2_count:"4 products",
+    cb3_title:"Pork", cb3_count:"6 products",
+    cb4_title:"Lamb", cb4_count:"4 products",
+    cb5_title:"Grill & Prepared", cb5_count:"11 products",
+    cb6_title:"Pantry", cb6_count:"1 product",
+    cc_tag:"CAN'T FIND THE CUT",
+    cc_title:"Tell us the cut and we'll get it ready.",
+    cc_desc:"Custom cut requests, special orders and case quantities are handled directly through our contact form.",
+    cc_cta:"✉️ Request a cut",
+    unit_lb:"/lb"
+  },
+  es:{
+    cta_contact:"📍 Buscar un local",
+    ph_eyebrow:"CATÁLOGO COMPLETO",
+    ph_title:'Cada corte, cada categoría, una sola <span class="grad">lista de precios</span>.',
+    ph_sub:"Res, pollo, cerdo, cordero, parrilla y almacén — organizado como lo organizan nuestros carniceros en el mostrador.",
+    cb1_title:"Res", cb1_count:"37 productos",
+    cb2_title:"Pollo", cb2_count:"4 productos",
+    cb3_title:"Cerdo", cb3_count:"6 productos",
+    cb4_title:"Cordero", cb4_count:"4 productos",
+    cb5_title:"Parrilla y preparados", cb5_count:"11 productos",
+    cb6_title:"Almacén", cb6_count:"1 producto",
+    cc_tag:"¿NO ENCONTRÁS EL CORTE?",
+    cc_title:"Decinos el corte y te lo preparamos.",
+    cc_desc:"Pedidos de corte especial, encargos y cantidades por caja se coordinan directamente por el formulario de contacto.",
+    cc_cta:"✉️ Pedir un corte",
+    unit_lb:"/lb"
+  }
+});
+renderCatalog();
+</script>
+</body>
+</html>

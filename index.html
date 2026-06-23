@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Total Carnes USA — Premium Argentine Beef, Shipped Nationwide</title>
+<meta name="description" content="Premium Argentine beef and cuts, hand-selected and shipped nationwide in under 24h. Four stores across Miami-Dade. Born in Bahía Blanca, built for the USA.">
+<meta property="og:title" content="Total Carnes USA — Premium Argentine Beef">
+<meta property="og:description" content="Argentine beef. Built on quality. Nationwide shipping in under 24h, four Miami-Dade stores.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="lang-toggle">
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <button id="btn-es" onclick="setLang('es')">ES</button>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo">TOTAL <span>CARNES</span></div>
+    <div class="nav-links">
+      <a href="index.html" class="current" data-i18n="nav_home">Home</a>
+      <a href="catalogo.html" data-i18n="nav_catalog">Catalog</a>
+      <a href="best-sellers.html" data-i18n="nav_best">Best Sellers</a>
+      <a href="nosotros.html" data-i18n="nav_about">Our Story</a>
+      <a href="contacto.html" data-i18n="nav_contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="catalogo.html" data-i18n="nav_cta">Shop the catalog</a>
+    <button class="nav-burger" id="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html" data-i18n="nav_home">Home</a>
+    <a href="catalogo.html" data-i18n="nav_catalog">Catalog</a>
+    <a href="best-sellers.html" data-i18n="nav_best">Best Sellers</a>
+    <a href="nosotros.html" data-i18n="nav_about">Our Story</a>
+    <a href="contacto.html" data-i18n="nav_contact">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <span class="eyebrow" data-i18n="hero_eyebrow">ARGENTINE BEEF, BUILT ON QUALITY</span>
+      <h1 data-i18n="hero_title">Premium Argentine beef, on your table in <span class="grad">less than 24h</span>.</h1>
+      <p class="subhead" data-i18n="hero_sub">Hand-selected cuts, USDA-ready refrigerated logistics and four stores across Miami-Dade. Born from a butcher shop in Bahía Blanca, built for how the USA eats.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="catalogo.html" data-i18n="cta_catalog">🥩 Browse the catalog</a>
+        <a class="btn btn-secondary" href="contacto.html" data-i18n="cta_contact">📍 Find a store</a>
+      </div>
+      <div class="trust-line">
+        <span data-i18n="hero_trust">📦 Nationwide shipping · 🏬 North Miami · Aventura · Pinecrest · Key Biscayne</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="highlight-strip">
+  <div class="container">
+    <div class="highlight-grid">
+      <div class="highlight-item">
+        <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><path d="M16 8h4l3 3v5h-7V8z"></path><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg></div>
+        <div class="highlight-text"><strong data-i18n="hl1_title">Under 24h shipping</strong><span data-i18n="hl1_sub">Nationwide, refrigerated</span></div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+        <div class="highlight-text"><strong data-i18n="hl2_title">4 Miami-Dade stores</strong><span data-i18n="hl2_sub">North Miami, Aventura, Pinecrest, Key Biscayne</span></div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+        <div class="highlight-text"><strong data-i18n="hl3_title">USDA-ready logistics</strong><span data-i18n="hl3_sub">Cold chain from cut to door</span></div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c2-5 6-8 9-8s7 3 9 8c-2 5-6 8-9 8s-7-3-9-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></div>
+        <div class="highlight-text"><strong data-i18n="hl4_title">Born in Bahía Blanca</strong><span data-i18n="hl4_sub">Argentine know-how since the start</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="best-sellers">
+  <div class="container">
+    <div class="fade-in">
+      <span class="section-tag" data-i18n="best_tag">CUSTOMER FAVORITES</span>
+      <h2 class="section-title" data-i18n="best_title">The cuts people keep reordering.</h2>
+      <p class="section-desc" data-i18n="best_desc">Four best sellers that show exactly why customers trust Total Carnes for their next parrillada.</p>
+    </div>
+    <div class="grid">
+      <div class="product-card fade-in">
+        <div class="product-cut"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14c0-5 4-9 9-9s7 4 5 8-8 7-12 5-2-4-2-4z"></path></svg></div>
+        <span class="product-tag" data-i18n="tag_beef">Beef cuts</span>
+        <span class="product-name">Short Ribs (Banderita)</span>
+        <span class="product-price">$36.26<span class="product-unit"> /lb</span></span>
+      </div>
+      <div class="product-card fade-in">
+        <div class="product-cut"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14c0-5 4-9 9-9s7 4 5 8-8 7-12 5-2-4-2-4z"></path></svg></div>
+        <span class="product-tag" data-i18n="tag_beef">Beef cuts</span>
+        <span class="product-name">Entraña Arg</span>
+        <span class="product-price">$37.60<span class="product-unit"> /lb</span></span>
+      </div>
+      <div class="product-card fade-in">
+        <div class="product-cut"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14c0-5 4-9 9-9s7 4 5 8-8 7-12 5-2-4-2-4z"></path></svg></div>
+        <span class="product-tag" data-i18n="tag_beef">Beef cuts</span>
+        <span class="product-name">Ground Beef Premium</span>
+        <span class="product-price">$11.54<span class="product-unit"> /lb</span></span>
+      </div>
+      <div class="product-card fade-in">
+        <div class="product-cut"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14c0-5 4-9 9-9s7 4 5 8-8 7-12 5-2-4-2-4z"></path></svg></div>
+        <span class="product-tag" data-i18n="tag_beef">Beef cuts</span>
+        <span class="product-name">Tenderloin</span>
+        <span class="product-price">$77.40<span class="product-unit"> /lb</span></span>
+      </div>
+    </div>
+    <div class="fade-in" style="margin-top:36px;">
+      <a class="btn btn-secondary" href="best-sellers.html" data-i18n="best_cta">See all best sellers →</a>
+    </div>
+  </div>
+</section>
+
+<section id="categories" class="story-section">
+  <div class="container">
+    <div class="fade-in">
+      <span class="section-tag" data-i18n="cat_tag">FULL CATALOG</span>
+      <h2 class="section-title" data-i18n="cat_title">Beef, chicken, pork, lamb and the grill staples.</h2>
+      <p class="section-desc" data-i18n="cat_desc">Everything for a full parrillada, sourced and prepared with the same standard across every category.</p>
+    </div>
+    <div class="grid">
+      <div class="card fade-in">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14c0-5 4-9 9-9s7 4 5 8-8 7-12 5-2-4-2-4z"></path></svg></div>
+        <h3 data-i18n="catc1_title">Beef</h3>
+        <p data-i18n="catc1_desc">37 cuts, from ribeye and tomahawk to offal and bones — the largest selection in the catalog.</p>
+      </div>
+      <div class="card fade-in">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a4 4 0 1 0-8 0c0 1.5.5 2.5 1.5 3.5L8 22h8l-1.5-10.5C15.5 10.5 16 9.5 16 8z"></path></svg></div>
+        <h3 data-i18n="catc2_title">Chicken</h3>
+        <p data-i18n="catc2_desc">All-natural breast and leg, plus ready-to-cook milanesas and empanadas.</p>
+      </div>
+      <div class="card fade-in">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="9" cy="10" r="1"></circle><circle cx="15" cy="10" r="1"></circle></svg></div>
+        <h3 data-i18n="catc3_title">Pork</h3>
+        <p data-i18n="catc3_desc">Baby ribs, bondiola, pork tender and milanesas for every cut of the table.</p>
+      </div>
+      <div class="card fade-in">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c4-10 6-15 7-15s3 5 7 15"></path><path d="M5 19h14"></path></svg></div>
+        <h3 data-i18n="catc4_title">Lamb</h3>
+        <p data-i18n="catc4_desc">Leg, rack and burgers — New Zealand and local, for special occasions.</p>
+      </div>
+      <div class="card fade-in">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 8h18M3 16h18"></path></svg></div>
+        <h3 data-i18n="catc5_title">Grill &amp; prepared</h3>
+        <p data-i18n="catc5_desc">Chorizo, morcilla, burgers, empanadas and provoleta — the rest of the parrillada, ready to go.</p>
+      </div>
+      <div class="card fade-in">
+        <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6L5 8z"></path><path d="M9 8V5a3 3 0 0 1 6 0v3"></path></svg></div>
+        <h3 data-i18n="catc6_title">Pantry &amp; more</h3>
+        <p data-i18n="catc6_desc">Argentine snacks and pantry staples to round out the order.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="container">
+    <div class="fade-in">
+      <span class="section-tag" data-i18n="test_tag">WHAT CUSTOMERS SAY</span>
+      <h2 class="section-title" data-i18n="test_title">The best meat they've found in Miami.</h2>
+    </div>
+    <div class="grid">
+      <div class="testimonial-card fade-in">
+        <p data-i18n="test1">"The best meat they found in Miami — every cut is exactly what you'd expect from a real Argentine butcher."</p>
+        <strong data-i18n="test1_name">Verified customer</strong>
+      </div>
+      <div class="testimonial-card fade-in">
+        <p data-i18n="test2">"Attentive staff, strong product knowledge — they actually know the cuts and help you pick the right one."</p>
+        <strong data-i18n="test2_name">Verified customer</strong>
+      </div>
+      <div class="testimonial-card fade-in">
+        <p data-i18n="test3">"Wider selection than I expected — not just meat, the pantry and prepared items round out the order."</p>
+        <strong data-i18n="test3_name">Verified customer</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact-cta" class="story-section" style="text-align:center;">
+  <div class="container">
+    <div class="fade-in">
+      <span class="section-tag" data-i18n="cta2_tag">READY TO ORDER?</span>
+      <h2 class="section-title" style="margin:0 auto 16px;" data-i18n="cta2_title">Visit a store, or have it shipped to your door.</h2>
+      <p class="section-desc" style="margin:0 auto 40px;" data-i18n="cta2_desc">Four Miami-Dade locations, or nationwide shipping in under 24h. Tell us what you're craving.</p>
+      <div class="cta-row" style="justify-content:center;">
+        <a class="btn btn-primary" href="catalogo.html" data-i18n="cta_catalog">🥩 Browse the catalog</a>
+        <a class="btn btn-secondary" href="contacto.html" data-i18n="cta_contact">📍 Find a store</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:14px;">TOTAL <span>CARNES</span></div>
+        <p data-i18n="footer_brand_desc">Premium Argentine beef and cuts, shipped nationwide in under 24h, with four stores across Miami-Dade.</p>
+        <div class="social-row" style="margin-top:14px;">
+          <a href="https://www.instagram.com/totalcarnes.usa/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg></a>
+          <a href="https://www.youtube.com/@totalcarnes" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="3"></rect><polygon points="10 9 15 12 10 15 10 9"></polygon></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_shop">Shop</h4>
+        <a href="catalogo.html" data-i18n="nav_catalog">Catalog</a>
+        <a href="best-sellers.html" data-i18n="nav_best">Best Sellers</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_locations_title">Our stores</h4>
+        <p data-i18n="addr_northmiami">North Miami — 12420 Biscayne Blvd</p>
+        <p data-i18n="addr_aventura">Aventura — 19087 West Dixie Highway</p>
+        <p data-i18n="addr_pinecrest">Pinecrest — 9563 S Dixie Hwy #04A</p>
+        <p data-i18n="addr_keybiscayne">Key Biscayne — 328 Crandon Blvd</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footer_rights">© 2026 Total Carnes USA. All rights reserved.</span>
+      <span data-i18n="footer_credit">Site redesign by BBSOFT LLC</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/common.js"></script>
+<script>
+initSite({
+  en:{
+    hero_eyebrow:"ARGENTINE BEEF, BUILT ON QUALITY",
+    hero_title:'Premium Argentine beef, on your table in <span class="grad">less than 24h</span>.',
+    hero_sub:"Hand-selected cuts, USDA-ready refrigerated logistics and four stores across Miami-Dade. Born from a butcher shop in Bahía Blanca, built for how the USA eats.",
+    cta_catalog:"🥩 Browse the catalog",
+    cta_contact:"📍 Find a store",
+    hero_trust:"📦 Nationwide shipping · 🏬 North Miami · Aventura · Pinecrest · Key Biscayne",
+    hl1_title:"Under 24h shipping", hl1_sub:"Nationwide, refrigerated",
+    hl2_title:"4 Miami-Dade stores", hl2_sub:"North Miami, Aventura, Pinecrest, Key Biscayne",
+    hl3_title:"USDA-ready logistics", hl3_sub:"Cold chain from cut to door",
+    hl4_title:"Born in Bahía Blanca", hl4_sub:"Argentine know-how since the start",
+    best_tag:"CUSTOMER FAVORITES",
+    best_title:"The cuts people keep reordering.",
+    best_desc:"Four best sellers that show exactly why customers trust Total Carnes for their next parrillada.",
+    tag_beef:"Beef cuts",
+    best_cta:"See all best sellers →",
+    cat_tag:"FULL CATALOG",
+    cat_title:"Beef, chicken, pork, lamb and the grill staples.",
+    cat_desc:"Everything for a full parrillada, sourced and prepared with the same standard across every category.",
+    catc1_title:"Beef", catc1_desc:"37 cuts, from ribeye and tomahawk to offal and bones — the largest selection in the catalog.",
+    catc2_title:"Chicken", catc2_desc:"All-natural breast and leg, plus ready-to-cook milanesas and empanadas.",
+    catc3_title:"Pork", catc3_desc:"Baby ribs, bondiola, pork tender and milanesas for every cut of the table.",
+    catc4_title:"Lamb", catc4_desc:"Leg, rack and burgers — New Zealand and local, for special occasions.",
+    catc5_title:"Grill & prepared", catc5_desc:"Chorizo, morcilla, burgers, empanadas and provoleta — the rest of the parrillada, ready to go.",
+    catc6_title:"Pantry & more", catc6_desc:"Argentine snacks and pantry staples to round out the order.",
+    test_tag:"WHAT CUSTOMERS SAY",
+    test_title:"The best meat they've found in Miami.",
+    test1:'"The best meat they found in Miami — every cut is exactly what you\'d expect from a real Argentine butcher."',
+    test1_name:"Verified customer",
+    test2:'"Attentive staff, strong product knowledge — they actually know the cuts and help you pick the right one."',
+    test2_name:"Verified customer",
+    test3:'"Wider selection than I expected — not just meat, the pantry and prepared items round out the order."',
+    test3_name:"Verified customer",
+    cta2_tag:"READY TO ORDER?",
+    cta2_title:"Visit a store, or have it shipped to your door.",
+    cta2_desc:"Four Miami-Dade locations, or nationwide shipping in under 24h. Tell us what you're craving."
+  },
+  es:{
+    hero_eyebrow:"CARNE ARGENTINA, HECHA CON CALIDAD",
+    hero_title:'Carne argentina premium, en tu mesa en <span class="grad">menos de 24h</span>.',
+    hero_sub:"Cortes seleccionados a mano, logística refrigerada lista para USDA y cuatro locales en Miami-Dade. Nacimos como carnicería en Bahía Blanca, hechos para la mesa de EE.UU.",
+    cta_catalog:"🥩 Ver el catálogo",
+    cta_contact:"📍 Buscar un local",
+    hero_trust:"📦 Envío a todo el país · 🏬 North Miami · Aventura · Pinecrest · Key Biscayne",
+    hl1_title:"Envío en menos de 24h", hl1_sub:"A todo el país, refrigerado",
+    hl2_title:"4 locales en Miami-Dade", hl2_sub:"North Miami, Aventura, Pinecrest, Key Biscayne",
+    hl3_title:"Logística lista para USDA", hl3_sub:"Cadena de frío del corte a tu puerta",
+    hl4_title:"Nacidos en Bahía Blanca", hl4_sub:"Saber hacer argentino desde el origen",
+    best_tag:"FAVORITOS DE LOS CLIENTES",
+    best_title:"Los cortes que la gente vuelve a pedir.",
+    best_desc:"Cuatro best sellers que muestran por qué los clientes confían en Total Carnes para su próxima parrillada.",
+    tag_beef:"Cortes de res",
+    best_cta:"Ver todos los más vendidos →",
+    cat_tag:"CATÁLOGO COMPLETO",
+    cat_title:"Res, pollo, cerdo, cordero y lo clásico de la parrilla.",
+    cat_desc:"Todo para una parrillada completa, con el mismo estándar en cada categoría.",
+    catc1_title:"Res", catc1_desc:"37 cortes, de ribeye y tomahawk a achuras y huesos — la selección más grande del catálogo.",
+    catc2_title:"Pollo", catc2_desc:"Pechuga y pata all-natural, más milanesas y empanadas listas para cocinar.",
+    catc3_title:"Cerdo", catc3_desc:"Baby ribs, bondiola, pork tender y milanesas para toda la mesa.",
+    catc4_title:"Cordero", catc4_desc:"Pata, costillar y hamburguesas — de Nueva Zelanda y local, para ocasiones especiales.",
+    catc5_title:"Parrilla y preparados", catc5_desc:"Chorizo, morcilla, hamburguesas, empanadas y provoleta — el resto de la parrillada, listo.",
+    catc6_title:"Almacén y más", catc6_desc:"Snacks y productos de almacén argentinos para completar el pedido.",
+    test_tag:"LO QUE DICEN LOS CLIENTES",
+    test_title:"La mejor carne que encontraron en Miami.",
+    test1:'"La mejor carne que encontraron en Miami — cada corte es exactamente lo que esperás de una carnicería argentina real."',
+    test1_name:"Cliente verificado",
+    test2:'"Personal atento, con mucho conocimiento del producto — realmente conocen los cortes y te ayudan a elegir."',
+    test2_name:"Cliente verificado",
+    test3:'"Más variedad de la que esperaba — no es solo carne, los productos de almacén y preparados completan el pedido."',
+    test3_name:"Cliente verificado",
+    cta2_tag:"¿LISTO PARA PEDIR?",
+    cta2_title:"Visitá un local, o recibilo en tu puerta.",
+    cta2_desc:"Cuatro locales en Miami-Dade, o envío a todo el país en menos de 24h. Contanos qué se te antoja."
+  }
+});
+</script>
+</body>
+</html>

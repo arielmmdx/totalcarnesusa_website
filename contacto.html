@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact &amp; Stores — Total Carnes USA</title>
+<meta name="description" content="Visit Total Carnes USA in North Miami, Aventura, Pinecrest or Key Biscayne, or send a cut request / order detail through our contact form.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="lang-toggle">
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <button id="btn-es" onclick="setLang('es')">ES</button>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo">TOTAL <span>CARNES</span></div>
+    <div class="nav-links">
+      <a href="index.html" data-i18n="nav_home">Home</a>
+      <a href="catalogo.html" data-i18n="nav_catalog">Catalog</a>
+      <a href="best-sellers.html" data-i18n="nav_best">Best Sellers</a>
+      <a href="nosotros.html" data-i18n="nav_about">Our Story</a>
+      <a href="contacto.html" class="current" data-i18n="nav_contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="catalogo.html" data-i18n="nav_cta">Shop the catalog</a>
+    <button class="nav-burger" id="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html" data-i18n="nav_home">Home</a>
+    <a href="catalogo.html" data-i18n="nav_catalog">Catalog</a>
+    <a href="best-sellers.html" data-i18n="nav_best">Best Sellers</a>
+    <a href="nosotros.html" data-i18n="nav_about">Our Story</a>
+    <a href="contacto.html" data-i18n="nav_contact">Contact</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="hero-content">
+      <span class="eyebrow" data-i18n="ph_eyebrow">VISIT US OR REACH OUT</span>
+      <h1 data-i18n="ph_title">Four stores in Miami-Dade, <span class="grad">one message away</span>.</h1>
+      <p class="subhead" data-i18n="ph_sub">Add your store, an order detail or a custom cut request — we'll follow up directly.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="container">
+    <div class="contact-grid">
+
+      <div class="fade-in">
+        <span class="section-tag" data-i18n="form_tag">SEND A REQUEST</span>
+        <h2 class="section-title" data-i18n="form_title">Add store, order detail or cut request.</h2>
+        <form class="contact-form" onsubmit="return handleContactSubmit(event)">
+          <label data-i18n="lbl_name">Name</label>
+          <input type="text" name="name" required>
+          <label data-i18n="lbl_email">Email</label>
+          <input type="email" name="email" required>
+          <label data-i18n="lbl_store">Store</label>
+          <select name="store">
+            <option value="north-miami">North Miami</option>
+            <option value="aventura">Aventura</option>
+            <option value="pinecrest">Pinecrest</option>
+            <option value="key-biscayne">Key Biscayne</option>
+            <option value="shipping" data-i18n="opt_shipping">Nationwide shipping</option>
+          </select>
+          <label data-i18n="lbl_message">Order detail / cut request</label>
+          <textarea name="message" required></textarea>
+          <button class="btn btn-primary" type="submit" data-i18n="btn_send">Send request</button>
+        </form>
+      </div>
+
+      <div class="fade-in">
+        <span class="section-tag" data-i18n="loc_tag">OUR STORES</span>
+        <h2 class="section-title" data-i18n="loc_title">Stop by any of our four locations.</h2>
+        <div style="display:flex; flex-direction:column; gap:16px; margin-top:24px;">
+          <div class="location-card">
+            <h3>North Miami</h3>
+            <p>12420 Biscayne Blvd, North Miami, FL 33181</p>
+          </div>
+          <div class="location-card">
+            <h3>Aventura</h3>
+            <p>19087 West Dixie Highway, Miami, FL 33180</p>
+          </div>
+          <div class="location-card">
+            <h3>Pinecrest</h3>
+            <p>9563 S Dixie Hwy Unit #04A, Pinecrest, FL 33156</p>
+          </div>
+          <div class="location-card">
+            <h3>Key Biscayne</h3>
+            <p>328 Crandon Blvd, Key Biscayne, FL 33149</p>
+          </div>
+        </div>
+        <div style="margin-top:24px;">
+          <span class="section-tag" data-i18n="social_tag">FOLLOW US</span>
+          <div class="social-row">
+            <a href="https://www.instagram.com/totalcarnes.usa/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg></a>
+            <a href="https://www.youtube.com/@totalcarnes" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="3"></rect><polygon points="10 9 15 12 10 15 10 9"></polygon></svg></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:14px;">TOTAL <span>CARNES</span></div>
+        <p data-i18n="footer_brand_desc">Premium Argentine beef and cuts, shipped nationwide in under 24h, with four stores across Miami-Dade.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_shop">Shop</h4>
+        <a href="catalogo.html" data-i18n="nav_catalog">Catalog</a>
+        <a href="best-sellers.html" data-i18n="nav_best">Best Sellers</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_locations_title">Our stores</h4>
+        <p data-i18n="addr_northmiami">North Miami — 12420 Biscayne Blvd</p>
+        <p data-i18n="addr_aventura">Aventura — 19087 West Dixie Highway</p>
+        <p data-i18n="addr_pinecrest">Pinecrest — 9563 S Dixie Hwy #04A</p>
+        <p data-i18n="addr_keybiscayne">Key Biscayne — 328 Crandon Blvd</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footer_rights">© 2026 Total Carnes USA. All rights reserved.</span>
+      <span data-i18n="footer_credit">Site redesign by BBSOFT LLC</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/common.js"></script>
+<script>
+function handleContactSubmit(e){
+  e.preventDefault();
+  const f = e.target;
+  const subject = encodeURIComponent('Total Carnes — ' + f.store.value);
+  const body = encodeURIComponent(`Name: ${f.name.value}\nEmail: ${f.email.value}\nStore: ${f.store.value}\n\n${f.message.value}`);
+  window.location.href = `mailto:hello@totalcarnesusa.com?subject=${subject}&body=${body}`;
+  return false;
+}
+
+initSite({
+  en:{
+    ph_eyebrow:"VISIT US OR REACH OUT",
+    ph_title:'Four stores in Miami-Dade, <span class="grad">one message away</span>.',
+    ph_sub:"Add your store, an order detail or a custom cut request — we'll follow up directly.",
+    form_tag:"SEND A REQUEST",
+    form_title:"Add store, order detail or cut request.",
+    lbl_name:"Name", lbl_email:"Email", lbl_store:"Store", lbl_message:"Order detail / cut request",
+    opt_shipping:"Nationwide shipping",
+    btn_send:"Send request",
+    loc_tag:"OUR STORES",
+    loc_title:"Stop by any of our four locations.",
+    social_tag:"FOLLOW US"
+  },
+  es:{
+    ph_eyebrow:"VISITANOS O ESCRIBINOS",
+    ph_title:'Cuatro locales en Miami-Dade, a <span class="grad">un mensaje de distancia</span>.',
+    ph_sub:"Sumá tu local, un detalle del pedido o un corte especial — te respondemos directamente.",
+    form_tag:"ENVIAR UN PEDIDO",
+    form_title:"Local, detalle del pedido o corte especial.",
+    lbl_name:"Nombre", lbl_email:"Email", lbl_store:"Local", lbl_message:"Detalle del pedido / corte especial",
+    opt_shipping:"Envío a todo el país",
+    btn_send:"Enviar pedido",
+    loc_tag:"NUESTROS LOCALES",
+    loc_title:"Visitá cualquiera de nuestros cuatro locales.",
+    social_tag:"SEGUINOS"
+  }
+});
+</script>
+</body>
+</html>

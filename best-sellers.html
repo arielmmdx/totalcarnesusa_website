@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Best Sellers — Total Carnes USA</title>
+<meta name="description" content="The cuts Total Carnes USA customers reorder most: Short Ribs, Entraña, Ground Beef Premium and Tenderloin.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="lang-toggle">
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <button id="btn-es" onclick="setLang('es')">ES</button>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo">TOTAL <span>CARNES</span></div>
+    <div class="nav-links">
+      <a href="index.html" data-i18n="nav_home">Home</a>
+      <a href="catalogo.html" data-i18n="nav_catalog">Catalog</a>
+      <a href="best-sellers.html" class="current" data-i18n="nav_best">Best Sellers</a>
+      <a href="nosotros.html" data-i18n="nav_about">Our Story</a>
+      <a href="contacto.html" data-i18n="nav_contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="catalogo.html" data-i18n="nav_cta">Shop the catalog</a>
+    <button class="nav-burger" id="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html" data-i18n="nav_home">Home</a>
+    <a href="catalogo.html" data-i18n="nav_catalog">Catalog</a>
+    <a href="best-sellers.html" data-i18n="nav_best">Best Sellers</a>
+    <a href="nosotros.html" data-i18n="nav_about">Our Story</a>
+    <a href="contacto.html" data-i18n="nav_contact">Contact</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="hero-content">
+      <span class="eyebrow" data-i18n="ph_eyebrow">CUSTOMER FAVORITES</span>
+      <h1 data-i18n="ph_title">The cuts people keep <span class="grad">reordering</span>.</h1>
+      <p class="subhead" data-i18n="ph_sub">No algorithm, no guesswork — these are the four products our customers buy again and again.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="container">
+    <div class="grid" id="grid-best"></div>
+  </div>
+</section>
+
+<section class="story-section">
+  <div class="container">
+    <div class="fade-in">
+      <span class="section-tag" data-i18n="why_tag">WHY THESE WIN</span>
+      <h2 class="section-title" data-i18n="why_title">Consistency, every single order.</h2>
+    </div>
+    <div class="grid">
+      <div class="card fade-in">
+        <h3 data-i18n="why1_title">Short Ribs (Banderita)</h3>
+        <p data-i18n="why1_desc">The classic for any parrillada — even marbling, cut the way an Argentine asador expects it.</p>
+      </div>
+      <div class="card fade-in">
+        <h3 data-i18n="why2_title">Entraña Arg</h3>
+        <p data-i18n="why2_desc">Skirt steak with the flavor and texture that's hard to find outside an Argentine butcher shop.</p>
+      </div>
+      <div class="card fade-in">
+        <h3 data-i18n="why3_title">Ground Beef Premium</h3>
+        <p data-i18n="why3_desc">The everyday staple — fresh-ground, no fillers, the right fat ratio for burgers or milanesas.</p>
+      </div>
+      <div class="card fade-in">
+        <h3 data-i18n="why4_title">Tenderloin</h3>
+        <p data-i18n="why4_desc">The cut for the occasion that matters — trimmed clean, consistent every time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom:14px;">TOTAL <span>CARNES</span></div>
+        <p data-i18n="footer_brand_desc">Premium Argentine beef and cuts, shipped nationwide in under 24h, with four stores across Miami-Dade.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_shop">Shop</h4>
+        <a href="catalogo.html" data-i18n="nav_catalog">Catalog</a>
+        <a href="best-sellers.html" data-i18n="nav_best">Best Sellers</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_locations_title">Our stores</h4>
+        <p data-i18n="addr_northmiami">North Miami — 12420 Biscayne Blvd</p>
+        <p data-i18n="addr_aventura">Aventura — 19087 West Dixie Highway</p>
+        <p data-i18n="addr_pinecrest">Pinecrest — 9563 S Dixie Hwy #04A</p>
+        <p data-i18n="addr_keybiscayne">Key Biscayne — 328 Crandon Blvd</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footer_rights">© 2026 Total Carnes USA. All rights reserved.</span>
+      <span data-i18n="footer_credit">Site redesign by BBSOFT LLC</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/common.js"></script>
+<script src="assets/catalog-data.js"></script>
+<script>
+initSite({
+  en:{
+    ph_eyebrow:"CUSTOMER FAVORITES",
+    ph_title:'The cuts people keep <span class="grad">reordering</span>.',
+    ph_sub:"No algorithm, no guesswork — these are the four products our customers buy again and again.",
+    why_tag:"WHY THESE WIN",
+    why_title:"Consistency, every single order.",
+    why1_title:"Short Ribs (Banderita)", why1_desc:"The classic for any parrillada — even marbling, cut the way an Argentine asador expects it.",
+    why2_title:"Entraña Arg", why2_desc:"Skirt steak with the flavor and texture that's hard to find outside an Argentine butcher shop.",
+    why3_title:"Ground Beef Premium", why3_desc:"The everyday staple — fresh-ground, no fillers, the right fat ratio for burgers or milanesas.",
+    why4_title:"Tenderloin", why4_desc:"The cut for the occasion that matters — trimmed clean, consistent every time.",
+    unit_lb:"/lb"
+  },
+  es:{
+    ph_eyebrow:"FAVORITOS DE LOS CLIENTES",
+    ph_title:'Los cortes que la gente vuelve a <span class="grad">pedir</span>.',
+    ph_sub:"Sin algoritmos ni adivinanzas — estos son los cuatro productos que nuestros clientes compran una y otra vez.",
+    why_tag:"POR QUÉ GANAN",
+    why_title:"Consistencia, en cada pedido.",
+    why1_title:"Short Ribs (Banderita)", why1_desc:"El clásico de toda parrillada — marmoleo uniforme, cortado como espera un asador argentino.",
+    why2_title:"Entraña Arg", why2_desc:"Con el sabor y la textura difíciles de encontrar fuera de una carnicería argentina.",
+    why3_title:"Ground Beef Premium", why3_desc:"El básico de todos los días — recién molido, sin rellenos, con la proporción de grasa justa.",
+    why4_title:"Tenderloin (Lomo)", why4_desc:"El corte para la ocasión especial — bien limpio, consistente siempre.",
+    unit_lb:"/lb"
+  }
+});
+renderBestSellers('grid-best', [
+  ["Short Ribs (Banderita)", 36.26],
+  ["Entraña Arg", 37.60],
+  ["Ground Beef Premium", 11.54],
+  ["Tenderloin", 77.40]
+]);
+</script>
+</body>
+</html>
