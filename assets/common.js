@@ -51,8 +51,18 @@ function initSite(pageI18n){
     if(btnEs) btnEs.classList.toggle('active', lang==='es');
     document.documentElement.setAttribute('lang', lang);
     localStorage.setItem('tc_lang', lang);
+    window.tcItemsLabel = i18n[lang].items_label || ' items';
+    if(typeof window.onLangChange === 'function') window.onLangChange(lang);
   }
   window.setLang = setLang;
+
+  window.applyI18nTo = function(root){
+    const lang = document.documentElement.getAttribute('lang') || 'en';
+    root.querySelectorAll('[data-i18n]').forEach(el=>{
+      const key = el.getAttribute('data-i18n');
+      if(i18n[lang][key] !== undefined) el.innerHTML = i18n[lang][key];
+    });
+  };
 
   function setTheme(theme){
     document.documentElement.setAttribute('data-theme', theme);

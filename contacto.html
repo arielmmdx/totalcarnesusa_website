@@ -9,14 +9,16 @@
 </head>
 <body>
 
-<div class="lang-toggle">
-  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
-  <button id="btn-es" onclick="setLang('es')">ES</button>
+<div class="top-controls">
+  <div class="lang-toggle">
+    <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+    <button id="btn-es" onclick="setLang('es')">ES</button>
+  </div>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark theme">
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.5A8.5 8.5 0 1 1 11.5 3 7 7 0 0 0 21 12.5z"></path></svg>
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg>
+  </button>
 </div>
-<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark theme" style="position:fixed; top:18px; right:96px; z-index:1000;">
-  <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.5A8.5 8.5 0 1 1 11.5 3 7 7 0 0 0 21 12.5z"></path></svg>
-  <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg>
-</button>
 
 <nav class="nav">
   <div class="nav-inner">
@@ -82,32 +84,11 @@
       </div>
 
       <div class="fade-in">
-        <span class="section-tag" data-i18n="loc_tag">OUR STORES</span>
+        <span class="section-tag" data-i18n="social_tag">FOLLOW US</span>
         <h2 class="section-title" data-i18n="loc_title">Stop by any of our four locations.</h2>
-        <div style="display:flex; flex-direction:column; gap:16px; margin-top:24px;">
-          <div class="location-card">
-            <h3>North Miami</h3>
-            <p>12420 Biscayne Blvd, North Miami, FL 33181</p>
-          </div>
-          <div class="location-card">
-            <h3>Aventura</h3>
-            <p>19087 West Dixie Highway, Miami, FL 33180</p>
-          </div>
-          <div class="location-card">
-            <h3>Pinecrest</h3>
-            <p>9563 S Dixie Hwy Unit #04A, Pinecrest, FL 33156</p>
-          </div>
-          <div class="location-card">
-            <h3>Key Biscayne</h3>
-            <p>328 Crandon Blvd, Key Biscayne, FL 33149</p>
-          </div>
-        </div>
-        <div style="margin-top:24px;">
-          <span class="section-tag" data-i18n="social_tag">FOLLOW US</span>
-          <div class="social-row">
-            <a href="https://www.instagram.com/totalcarnes.usa/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg></a>
-            <a href="https://www.youtube.com/@totalcarnes" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="3"></rect><polygon points="10 9 15 12 10 15 10 9"></polygon></svg></a>
-          </div>
+        <div class="social-row" style="margin-bottom:8px;">
+          <a href="https://www.instagram.com/totalcarnes.usa/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg></a>
+          <a href="https://www.youtube.com/@totalcarnes" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="3"></rect><polygon points="10 9 15 12 10 15 10 9"></polygon></svg></a>
         </div>
       </div>
 
@@ -118,42 +99,34 @@
 <section class="story-section">
   <div class="container">
     <div class="fade-in">
-      <span class="section-tag" data-i18n="map_tag">FIND US ON THE MAP</span>
+      <span class="section-tag" data-i18n="map_tag">OUR STORES ON THE MAP</span>
       <h2 class="section-title" data-i18n="map_title">Every store, mapped — with street view.</h2>
       <p class="section-desc" data-i18n="map_desc">Click into any map and drag the little orange pegman onto the street for a full street-view look at the storefront.</p>
     </div>
     <div class="map-grid">
-      <div class="map-card fade-in">
+      <div class="location-card map-card fade-in">
+        <h3>North Miami</h3>
+        <p>12420 Biscayne Blvd, North Miami, FL 33181</p>
         <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=12420+Biscayne+Blvd,+North+Miami,+FL+33181&output=embed"></iframe>
-        <div class="map-card-body">
-          <h3>North Miami</h3>
-          <p>12420 Biscayne Blvd, North Miami, FL 33181</p>
-          <a class="street-link" target="_blank" rel="noopener" href="https://www.google.com/maps?q=12420+Biscayne+Blvd,+North+Miami,+FL+33181&layer=c">🧭 <span data-i18n="street_view">Open street view</span></a>
-        </div>
+        <a class="street-link" target="_blank" rel="noopener" href="https://www.google.com/maps?q=12420+Biscayne+Blvd,+North+Miami,+FL+33181&layer=c">🧭 <span data-i18n="street_view">Open street view</span></a>
       </div>
-      <div class="map-card fade-in">
+      <div class="location-card map-card fade-in">
+        <h3>Aventura</h3>
+        <p>19087 West Dixie Highway, Miami, FL 33180</p>
         <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=19087+West+Dixie+Highway,+Miami,+FL+33180&output=embed"></iframe>
-        <div class="map-card-body">
-          <h3>Aventura</h3>
-          <p>19087 West Dixie Highway, Miami, FL 33180</p>
-          <a class="street-link" target="_blank" rel="noopener" href="https://www.google.com/maps?q=19087+West+Dixie+Highway,+Miami,+FL+33180&layer=c">🧭 <span data-i18n="street_view">Open street view</span></a>
-        </div>
+        <a class="street-link" target="_blank" rel="noopener" href="https://www.google.com/maps?q=19087+West+Dixie+Highway,+Miami,+FL+33180&layer=c">🧭 <span data-i18n="street_view">Open street view</span></a>
       </div>
-      <div class="map-card fade-in">
+      <div class="location-card map-card fade-in">
+        <h3>Pinecrest</h3>
+        <p>9563 S Dixie Hwy Unit #04A, Pinecrest, FL 33156</p>
         <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=9563+S+Dixie+Hwy+Unit+04A,+Pinecrest,+FL+33156&output=embed"></iframe>
-        <div class="map-card-body">
-          <h3>Pinecrest</h3>
-          <p>9563 S Dixie Hwy Unit #04A, Pinecrest, FL 33156</p>
-          <a class="street-link" target="_blank" rel="noopener" href="https://www.google.com/maps?q=9563+S+Dixie+Hwy+Unit+04A,+Pinecrest,+FL+33156&layer=c">🧭 <span data-i18n="street_view">Open street view</span></a>
-        </div>
+        <a class="street-link" target="_blank" rel="noopener" href="https://www.google.com/maps?q=9563+S+Dixie+Hwy+Unit+04A,+Pinecrest,+FL+33156&layer=c">🧭 <span data-i18n="street_view">Open street view</span></a>
       </div>
-      <div class="map-card fade-in">
+      <div class="location-card map-card fade-in">
+        <h3>Key Biscayne</h3>
+        <p>328 Crandon Blvd, Key Biscayne, FL 33149</p>
         <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=328+Crandon+Blvd,+Key+Biscayne,+FL+33149&output=embed"></iframe>
-        <div class="map-card-body">
-          <h3>Key Biscayne</h3>
-          <p>328 Crandon Blvd, Key Biscayne, FL 33149</p>
-          <a class="street-link" target="_blank" rel="noopener" href="https://www.google.com/maps?q=328+Crandon+Blvd,+Key+Biscayne,+FL+33149&layer=c">🧭 <span data-i18n="street_view">Open street view</span></a>
-        </div>
+        <a class="street-link" target="_blank" rel="noopener" href="https://www.google.com/maps?q=328+Crandon+Blvd,+Key+Biscayne,+FL+33149&layer=c">🧭 <span data-i18n="street_view">Open street view</span></a>
       </div>
     </div>
   </div>

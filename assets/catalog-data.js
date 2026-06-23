@@ -107,3 +107,72 @@ function renderBestSellers(targetId, items){
   if(!el) return;
   el.innerHTML = items.map(([name,price,slug])=>buildCard(name,price,slug)).join('');
 }
+
+const CATALOG_PRICE_MIN = 4;
+const CATALOG_PRICE_MAX = 190;
+
+const catalogState = { category:'beef', min:CATALOG_PRICE_MIN, max:CATALOG_PRICE_MAX, sort:'default' };
+
+function renderCatalogTab(){
+  const el = document.getElementById('catalog-grid');
+  if(!el) return;
+  let items = catalogData[catalogState.category].slice();
+  items = items.filter(([,price])=> price >= catalogState.min && price <= catalogState.max);
+
+  if(catalogState.sort === 'price-asc') items.sort((a,b)=>a[1]-b[1]);
+  else if(catalogState.sort === 'price-desc') items.sort((a,b)=>b[1]-a[1]);
+  else if(catalogState.sort === 'name-asc') items.sort((a,b)=>a[0].localeCompare(b[0]));
+
+  el.innerHTML = items.length
+    ? items.map(([name,price,slug])=>buildCard(name,price,slug)).join('')
+    : '<p style="color:var(--muted);">No products in this price range.</p>';
+
+  const counter = document.getElementById('items-count');
+  if(counter) counter.textContent = items.length + (window.tcItemsLabel || ' items');
+
+  document.querySelectorAll('.tab-btn').forEach(btn=>{
+    btn.classList.toggle('active', btn.dataset.cat === catalogState.category);
+  });
+
+  if(window.applyI18nTo) window.applyI18nTo(el);
+}
+
+function setCatalogTab(cat){
+  catalogState.category = cat;
+  renderCatalogTab();
+}
+
+function setCatalogSort(sort){
+  catalogState.sort = sort;
+  renderCatalogTab();
+}
+
+function setCatalogPriceRange(min, max){
+  catalogState.min = min;
+  catalogState.max = max;
+  renderCatalogTab();
+}
+
+function initPriceRangeSlider(){
+  const minInput = document.getElementById('price-min');
+  const maxInput = document.getElementById('price-max');
+  const display = document.getElementById('price-range-display');
+  const fill = document.getElementById('range-track-fill');
+  if(!minInput || !maxInput) return;
+
+  function update(){
+    let minVal = parseInt(minInput.value, 10);
+    let maxVal = parseInt(maxInput.value, 10);
+    if(minVal > maxVal - 2){ minVal = maxVal - 2; minInput.value = minVal; }
+    const lo = CATALOG_PRICE_MIN, hi = CATALOG_PRICE_MAX;
+    const pctMin = ((minVal - lo) / (hi - lo)) * 100;
+    const pctMax = ((maxVal - lo) / (hi - lo)) * 100;
+    if(fill){ fill.style.left = pctMin + '%'; fill.style.width = (pctMax - pctMin) + '%'; }
+    if(display) display.textContent = `$${minVal} – $${maxVal}`;
+    setCatalogPriceRange(minVal, maxVal);
+  }
+
+  minInput.addEventListener('input', update);
+  maxInput.addEventListener('input', update);
+  update();
+}
