@@ -39,6 +39,12 @@ function initSite(pageI18n){
         el.innerHTML = i18n[lang][key];
       }
     });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
+      const key = el.getAttribute('data-i18n-placeholder');
+      if(i18n[lang][key] !== undefined){
+        el.setAttribute('placeholder', i18n[lang][key]);
+      }
+    });
     const btnEn = document.getElementById('btn-en');
     const btnEs = document.getElementById('btn-es');
     if(btnEn) btnEn.classList.toggle('active', lang==='en');
@@ -48,9 +54,22 @@ function initSite(pageI18n){
   }
   window.setLang = setLang;
 
+  function setTheme(theme){
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('tc_theme', theme);
+  }
+  window.setTheme = setTheme;
+  window.toggleTheme = function(){
+    const current = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+    setTheme(current === 'light' ? 'dark' : 'light');
+  };
+
   document.addEventListener('DOMContentLoaded', ()=>{
     const saved = localStorage.getItem('tc_lang');
     if(saved === 'es') setLang('es'); else setLang('en');
+
+    const savedTheme = localStorage.getItem('tc_theme');
+    setTheme(savedTheme === 'light' ? 'light' : 'dark');
 
     const burger = document.getElementById('nav-burger');
     const menu = document.getElementById('mobile-menu');
