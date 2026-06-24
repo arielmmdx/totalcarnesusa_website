@@ -136,6 +136,10 @@
   </div>
 </div>
 
+<div class="offers-ticker">
+  <div class="offers-track"></div>
+</div>
+
 <section class="page-hero">
   <div class="container">
     <div class="hero-content">
@@ -198,6 +202,7 @@
 
 <script src="assets/cart.js"></script>
 <script src="assets/common.js?v=24"></script>
+<script src="assets/catalog-data.js?v=26"></script>
 <script>
 const realReviews = [
   ["Rodrigo Yuraszeck", "", "Excelente lugar, me encantó, no había estado ahí antes. Muy buena calidad de carnes y muy buena atención de su manager Carol. Volveré sin duda.", "Great place, I loved it, I hadn't been there before. Very good quality meat and great service from their manager Carol. I'll definitely be back.", "https://maps.app.goo.gl/UBnkjua7EHtHskxu8"],
@@ -243,7 +248,8 @@ initSite({
   }
 });
 renderReviewsCarousel();
-window.onLangChange = function(){ renderReviewsCarousel(); };
+renderOffersTicker();
+window.onLangChange = function(){ renderReviewsCarousel(); renderOffersTicker(); };
 </script>
 </body>
 </html>
