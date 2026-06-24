@@ -83,20 +83,47 @@ const catalogData = {
   ]
 };
 
-function buildCard(name, price, slug, inStock){
+const CATEGORY_LABELS = {
+  beef:{en:'Beef',es:'Res'}, chicken:{en:'Chicken',es:'Pollo'}, pork:{en:'Pork',es:'Cerdo'},
+  lamb:{en:'Lamb',es:'Cordero'}, grill:{en:'Grill & Prepared',es:'Parrilla y preparados'},
+  pantry:{en:'Pantry',es:'Almacén'}
+};
+function getCategoryLabel(key){
+  const lang = document.documentElement.getAttribute('lang') || 'en';
+  return (CATEGORY_LABELS[key] && CATEGORY_LABELS[key][lang]) || key;
+}
+
+function getAllProducts(){
+  const all = [];
+  Object.keys(catalogData).forEach(cat=>{
+    catalogData[cat].forEach(item=> all.push([...item, cat]));
+  });
+  return all;
+}
+
+function findProductBySlug(slug){
+  for(const cat of Object.keys(catalogData)){
+    const found = catalogData[cat].find(item=>item[2] === slug);
+    if(found) return { name:found[0], price:found[1], slug:found[2], inStock:found[3], category:cat };
+  }
+  return null;
+}
+
+function buildCard(name, price, slug, inStock, categoryKey){
   const img = slug
     ? `<img src="assets/images/products/${slug}.jpg" alt="${name}" loading="lazy" class="product-img">`
     : `<div class="product-cut"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14c0-5 4-9 9-9s7 4 5 8-8 7-12 5-2-4-2-4z"></path></svg></div>`;
   const stockBadge = inStock === false
     ? `<span class="stock-badge out" data-i18n="stock_out">Out of stock</span>`
     : (inStock === true ? `<span class="stock-badge in" data-i18n="stock_in">In stock</span>` : '');
+  const categoryTag = categoryKey ? `<span class="category-tag">${getCategoryLabel(categoryKey)}</span>` : '';
   const cardClass = inStock === false ? 'product-card out-of-stock fade-in' : 'product-card fade-in';
-  return `<div class="${cardClass}">
-    ${img}
-    ${stockBadge}
+  const inner = `${categoryTag}${img}${stockBadge}
     <span class="product-name">${name}</span>
-    <span class="product-price">$${price.toFixed(2)}<span class="product-unit" data-i18n="unit_lb"> /lb</span></span>
-  </div>`;
+    <span class="product-price">$${price.toFixed(2)}<span class="product-unit" data-i18n="unit_lb"> /lb</span></span>`;
+  return slug
+    ? `<a class="${cardClass}" href="product.html?slug=${slug}">${inner}</a>`
+    : `<div class="${cardClass}">${inner}</div>`;
 }
 
 function renderCatalog(){
@@ -118,14 +145,26 @@ function renderBestSellers(targetId, items){
 const CATALOG_PRICE_MIN = 4;
 const CATALOG_PRICE_MAX = 190;
 
-const catalogState = { category:'beef', min:CATALOG_PRICE_MIN, max:CATALOG_PRICE_MAX, sort:'default', stock:'all' };
+const catalogState = {
+  category:'beef', min:CATALOG_PRICE_MIN, max:CATALOG_PRICE_MAX, sort:'default', stock:'all',
+  mode:'category', query:''
+};
 
 function renderCatalogTab(){
   const el = document.getElementById('catalog-grid');
   if(!el) return;
-  let items = catalogData[catalogState.category].slice();
-  items = items.filter(([,price])=> price >= catalogState.min && price <= catalogState.max);
 
+  let items;
+  if(catalogState.mode === 'search'){
+    const q = catalogState.query.trim().toLowerCase();
+    items = q ? getAllProducts().filter(([name])=>name.toLowerCase().includes(q)) : [];
+  } else if(catalogState.mode === 'all'){
+    items = getAllProducts();
+  } else {
+    items = catalogData[catalogState.category].map(item=>[...item, catalogState.category]);
+  }
+
+  items = items.filter(([,price])=> price >= catalogState.min && price <= catalogState.max);
   if(catalogState.stock === 'in') items = items.filter(([,,,inStock])=> inStock !== false);
   else if(catalogState.stock === 'out') items = items.filter(([,,,inStock])=> inStock === false);
 
@@ -133,8 +172,10 @@ function renderCatalogTab(){
   else if(catalogState.sort === 'price-desc') items.sort((a,b)=>b[1]-a[1]);
   else if(catalogState.sort === 'name-asc') items.sort((a,b)=>a[0].localeCompare(b[0]));
 
+  const showTag = catalogState.mode !== 'category';
+
   el.innerHTML = items.length
-    ? items.map(([name,price,slug,inStock])=>buildCard(name,price,slug,inStock)).join('')
+    ? items.map(([name,price,slug,inStock,cat])=>buildCard(name,price,slug,inStock, showTag?cat:undefined)).join('')
     : '<p style="color:var(--muted);" data-i18n="no_results">No products match these filters.</p>';
 
   el.querySelectorAll('.fade-in').forEach(card=>card.classList.add('visible'));
@@ -142,8 +183,11 @@ function renderCatalogTab(){
   const counter = document.getElementById('items-count');
   if(counter) counter.textContent = items.length + (window.tcItemsLabel || ' items');
 
+  const tabRow = document.getElementById('catalog-tab-row');
+  if(tabRow) tabRow.style.display = catalogState.mode === 'category' ? '' : 'none';
+
   document.querySelectorAll('.tab-btn').forEach(btn=>{
-    btn.classList.toggle('active', btn.dataset.cat === catalogState.category);
+    btn.classList.toggle('active', catalogState.mode === 'category' && btn.dataset.cat === catalogState.category);
   });
   document.querySelectorAll('.stock-btn').forEach(btn=>{
     btn.classList.toggle('active', btn.dataset.stock === catalogState.stock);
@@ -151,13 +195,35 @@ function renderCatalogTab(){
   document.querySelectorAll('.sort-btn').forEach(btn=>{
     btn.classList.toggle('active', btn.dataset.sort === catalogState.sort);
   });
+  const viewAllBtn = document.getElementById('view-all-btn');
+  if(viewAllBtn) viewAllBtn.classList.toggle('active', catalogState.mode === 'all');
 
   if(window.applyI18nTo) window.applyI18nTo(el);
 }
 
 function setCatalogTab(cat){
   catalogState.category = cat;
+  catalogState.mode = 'category';
+  const searchInput = document.getElementById('catalog-search');
+  if(searchInput) searchInput.value = '';
   renderCatalogTab();
+}
+
+function setCatalogViewAll(){
+  catalogState.mode = catalogState.mode === 'all' ? 'category' : 'all';
+  const searchInput = document.getElementById('catalog-search');
+  if(searchInput) searchInput.value = '';
+  renderCatalogTab();
+}
+
+let catalogSearchDebounce = null;
+function onCatalogSearchInput(value){
+  clearTimeout(catalogSearchDebounce);
+  catalogSearchDebounce = setTimeout(()=>{
+    catalogState.query = value;
+    catalogState.mode = value.trim() ? 'search' : 'category';
+    renderCatalogTab();
+  }, 200);
 }
 
 function setCatalogSort(sort){

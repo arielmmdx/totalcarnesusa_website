@@ -5,9 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Story — Total Carnes USA</title>
 <meta name="description" content="Born from a simple idea in Bahía Blanca, Total Carnes USA entered the U.S. market in 2022 and grew from a butcher shop into a full retail concept.">
-<link rel="stylesheet" href="assets/style.css?v=9">
+<link rel="stylesheet" href="assets/style.css?v=10">
 </head>
 <body>
+
+<div class="cart-drawer-overlay" id="cart-overlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-drawer-header">
+    <h3 data-i18n="cart_title">Your cart</h3>
+    <button class="cart-drawer-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-drawer-body" id="cart-drawer-body"></div>
+  <div class="cart-drawer-footer">
+    <div class="cart-drawer-total-row"><span data-i18n="cart_total">Total</span><span id="cart-drawer-total">$0.00</span></div>
+    <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="checkoutCart()" data-i18n="cart_checkout">Request this order</button>
+  </div>
+</div>
 
 <div class="smoke-layer" aria-hidden="true">
   <div class="smoke-puff s1"></div>
@@ -33,7 +46,25 @@
         <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
         <button id="btn-es" onclick="setLang('es')">ES</button>
       </div>
-      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark theme">
+      <div class="account-dropdown">
+        <button class="icon-btn" onclick="toggleAccountPanel()" aria-label="Account">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4 4-6 8-6s8 2 8 6"></path></svg>
+        </button>
+        <div class="account-panel" id="account-panel">
+          <h4 data-i18n="account_title">Account</h4>
+          <button class="btn btn-primary" onclick="alert(window.tcAccountNote || 'Design preview — sign-in would connect to your real customer accounts system.')" data-i18n="account_signin">Sign in</button>
+          <div class="account-panel-grid">
+            <button data-i18n="account_orders">Orders</button>
+            <button data-i18n="account_profile">Profile</button>
+          </div>
+          <p class="account-note" data-i18n="account_note">Design preview — sign-in would connect to your real customer accounts system.</p>
+        </div>
+      </div>
+      <button class="icon-btn" onclick="toggleCart()" aria-label="Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 4h2l.4 2M7 14h10l3-9H6.4"></path><circle cx="9" cy="20" r="1.4"></circle><circle cx="17" cy="20" r="1.4"></circle></svg>
+        <span class="cart-badge" id="cart-badge">0</span>
+      </button>
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark theme">
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.5A8.5 8.5 0 1 1 11.5 3 7 7 0 0 0 21 12.5z"></path></svg>
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg>
       </button>
@@ -160,7 +191,8 @@
   </div>
 </footer>
 
-<script src="assets/common.js?v=9"></script>
+<script src="assets/cart.js"></script>
+<script src="assets/common.js?v=10"></script>
 <script>
 initSite({
   en:{

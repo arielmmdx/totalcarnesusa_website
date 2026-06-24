@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Best Sellers — Total Carnes USA</title>
-<meta name="description" content="The cuts Total Carnes USA customers reorder most: Short Ribs, Entraña, Ground Beef Premium and Tenderloin.">
+<title>Product — Total Carnes USA</title>
+<meta name="description" content="Product details — Total Carnes USA, premium Argentine beef and cuts.">
 <link rel="stylesheet" href="assets/style.css?v=10">
 </head>
 <body>
@@ -34,8 +34,8 @@
     <div class="logo">TOTAL <span>CARNES</span></div>
     <div class="nav-links">
       <a href="index.html" data-i18n="nav_home">Home</a>
-      <a href="catalogo.html" data-i18n="nav_catalog">Catalog</a>
-      <a href="best-sellers.html" class="current" data-i18n="nav_best">Best Sellers</a>
+      <a href="catalogo.html" class="current" data-i18n="nav_catalog">Catalog</a>
+      <a href="best-sellers.html" data-i18n="nav_best">Best Sellers</a>
       <a href="nosotros.html" data-i18n="nav_about">Our Story</a>
       <a href="contacto.html" data-i18n="nav_contact">Contact</a>
     </div>
@@ -64,7 +64,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 4h2l.4 2M7 14h10l3-9H6.4"></path><circle cx="9" cy="20" r="1.4"></circle><circle cx="17" cy="20" r="1.4"></circle></svg>
         <span class="cart-badge" id="cart-badge">0</span>
       </button>
-<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark theme">
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark theme">
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.5A8.5 8.5 0 1 1 11.5 3 7 7 0 0 0 21 12.5z"></path></svg>
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg>
       </button>
@@ -92,45 +92,13 @@
   </div>
 </div>
 
-<section class="page-hero">
+<section style="padding:140px 0 90px;">
   <div class="container">
-    <div class="hero-content">
-      <span class="eyebrow" data-i18n="ph_eyebrow">CUSTOMER FAVORITES</span>
-      <h1 data-i18n="ph_title">The cuts people keep <span class="grad">reordering</span>.</h1>
-      <p class="subhead" data-i18n="ph_sub">No algorithm, no guesswork — these are the four products our customers buy again and again.</p>
-    </div>
-  </div>
-</section>
-
-<section style="padding-top:0;">
-  <div class="container">
-    <div class="grid" id="grid-best"></div>
-  </div>
-</section>
-
-<section class="story-section">
-  <div class="container">
-    <div class="fade-in">
-      <span class="section-tag" data-i18n="why_tag">WHY THESE WIN</span>
-      <h2 class="section-title" data-i18n="why_title">Consistency, every single order.</h2>
-    </div>
-    <div class="grid">
-      <div class="card fade-in">
-        <h3 data-i18n="why1_title">Short Ribs (Banderita)</h3>
-        <p data-i18n="why1_desc">The classic for any parrillada — even marbling, cut the way an Argentine asador expects it.</p>
-      </div>
-      <div class="card fade-in">
-        <h3 data-i18n="why2_title">Entraña Arg</h3>
-        <p data-i18n="why2_desc">Skirt steak with the flavor and texture that's hard to find outside an Argentine butcher shop.</p>
-      </div>
-      <div class="card fade-in">
-        <h3 data-i18n="why3_title">Ground Beef Premium</h3>
-        <p data-i18n="why3_desc">The everyday staple — fresh-ground, no fillers, the right fat ratio for burgers or milanesas.</p>
-      </div>
-      <div class="card fade-in">
-        <h3 data-i18n="why4_title">Tenderloin</h3>
-        <p data-i18n="why4_desc">The cut for the occasion that matters — trimmed clean, consistent every time.</p>
-      </div>
+    <a href="catalogo.html" class="back-link" data-i18n="back_to_catalog">← Back to catalog</a>
+    <div id="product-detail" class="product-detail"></div>
+    <div id="product-not-found" style="display:none; text-align:center; padding:60px 0;">
+      <p style="color:var(--muted); margin-bottom:24px;" data-i18n="product_not_found">We couldn't find that product.</p>
+      <a class="btn btn-primary" href="catalogo.html" data-i18n="cta_catalog">🥩 Browse the catalog</a>
     </div>
   </div>
 </section>
@@ -166,38 +134,116 @@
 <script src="assets/common.js?v=10"></script>
 <script src="assets/catalog-data.js?v=10"></script>
 <script>
+let currentProduct = null;
+let selectedWeight = 1;
+let selectedQty = 1;
+
+const WEIGHT_OPTIONS = [
+  { label: '1 – 1.5 lbs', mult: 1.25 },
+  { label: '1.5 – 2 lbs', mult: 1.75 },
+  { label: '2 – 2.5 lbs', mult: 2.25 }
+];
+
+function renderProductDetail(){
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get('slug');
+  const product = slug ? findProductBySlug(slug) : null;
+
+  if(!product){
+    document.getElementById('product-detail').style.display = 'none';
+    document.getElementById('product-not-found').style.display = 'block';
+    return;
+  }
+  currentProduct = product;
+  document.title = product.name + ' — Total Carnes USA';
+
+  const stockBadge = product.inStock === false
+    ? `<span class="stock-badge out" data-i18n="stock_out">Out of stock</span>`
+    : `<span class="stock-badge in" data-i18n="stock_in">In stock</span>`;
+
+  document.getElementById('product-detail').innerHTML = `
+    <div class="product-detail-grid">
+      <div class="product-detail-image">
+        <img src="assets/images/products/${product.slug}.jpg" alt="${product.name}">
+      </div>
+      <div class="product-detail-info">
+        <span class="category-tag">${getCategoryLabel(product.category)}</span>
+        ${stockBadge}
+        <h1 class="product-detail-name">${product.name}</h1>
+        <div class="product-detail-price">$${product.price.toFixed(2)}<span class="product-unit" data-i18n="unit_lb"> /lb</span></div>
+
+        <p class="filter-group-label" style="margin:24px 0 10px;" data-i18n="weight_label">Weight</p>
+        <div class="weight-options" id="weight-options"></div>
+
+        <p class="filter-group-label" style="margin:24px 0 10px;" data-i18n="qty_label">Quantity</p>
+        <div class="qty-stepper">
+          <button onclick="changeQty(-1)">−</button>
+          <span id="qty-display">1</span>
+          <button onclick="changeQty(1)">+</button>
+        </div>
+
+        <button class="btn btn-primary add-to-cart-btn" onclick="handleAddToCart()" ${product.inStock===false?'disabled':''} data-i18n="add_to_cart_btn">🛒 Add to cart</button>
+
+        <div class="pickup-info">
+          <span data-i18n="pickup_text">📦 Pickup available at <strong>Total Carnes North Miami</strong> — usually ready in 24h.</span>
+          <a href="contacto.html#stores-map" data-i18n="view_store_info">View store information →</a>
+        </div>
+      </div>
+    </div>
+  `;
+
+  renderWeightOptions();
+  if(window.applyI18nTo) window.applyI18nTo(document.getElementById('product-detail'));
+}
+
+function renderWeightOptions(){
+  const el = document.getElementById('weight-options');
+  if(!el) return;
+  el.innerHTML = WEIGHT_OPTIONS.map((opt, i)=>
+    `<button class="weight-btn ${i===selectedWeight?'active':''}" onclick="selectWeight(${i})">${opt.label}</button>`
+  ).join('');
+}
+
+function selectWeight(i){
+  selectedWeight = i;
+  renderWeightOptions();
+}
+
+function changeQty(delta){
+  selectedQty = Math.max(1, selectedQty + delta);
+  document.getElementById('qty-display').textContent = selectedQty;
+}
+
+function handleAddToCart(){
+  if(!currentProduct) return;
+  addToCart(currentProduct.slug, currentProduct.name, currentProduct.price, selectedQty);
+}
+
 initSite({
   en:{
-    ph_eyebrow:"CUSTOMER FAVORITES",
-    ph_title:'The cuts people keep <span class="grad">reordering</span>.',
-    ph_sub:"No algorithm, no guesswork — these are the four products our customers buy again and again.",
-    why_tag:"WHY THESE WIN",
-    why_title:"Consistency, every single order.",
-    why1_title:"Short Ribs (Banderita)", why1_desc:"The classic for any parrillada — even marbling, cut the way an Argentine asador expects it.",
-    why2_title:"Entraña Arg", why2_desc:"Skirt steak with the flavor and texture that's hard to find outside an Argentine butcher shop.",
-    why3_title:"Ground Beef Premium", why3_desc:"The everyday staple — fresh-ground, no fillers, the right fat ratio for burgers or milanesas.",
-    why4_title:"Tenderloin", why4_desc:"The cut for the occasion that matters — trimmed clean, consistent every time.",
+    back_to_catalog:"← Back to catalog",
+    product_not_found:"We couldn't find that product.",
+    cta_catalog:"🥩 Browse the catalog",
+    weight_label:"Weight",
+    qty_label:"Quantity",
+    add_to_cart_btn:"🛒 Add to cart",
+    pickup_text:"📦 Pickup available at <strong>Total Carnes North Miami</strong> — usually ready in 24h.",
+    view_store_info:"View store information →",
     unit_lb:"/lb"
   },
   es:{
-    ph_eyebrow:"FAVORITOS DE LOS CLIENTES",
-    ph_title:'Los cortes que la gente vuelve a <span class="grad">pedir</span>.',
-    ph_sub:"Sin algoritmos ni adivinanzas — estos son los cuatro productos que nuestros clientes compran una y otra vez.",
-    why_tag:"POR QUÉ GANAN",
-    why_title:"Consistencia, en cada pedido.",
-    why1_title:"Short Ribs (Banderita)", why1_desc:"El clásico de toda parrillada — marmoleo uniforme, cortado como espera un asador argentino.",
-    why2_title:"Entraña Arg", why2_desc:"Con el sabor y la textura difíciles de encontrar fuera de una carnicería argentina.",
-    why3_title:"Ground Beef Premium", why3_desc:"El básico de todos los días — recién molido, sin rellenos, con la proporción de grasa justa.",
-    why4_title:"Tenderloin (Lomo)", why4_desc:"El corte para la ocasión especial — bien limpio, consistente siempre.",
+    back_to_catalog:"← Volver al catálogo",
+    product_not_found:"No pudimos encontrar ese producto.",
+    cta_catalog:"🥩 Ver el catálogo",
+    weight_label:"Peso",
+    qty_label:"Cantidad",
+    add_to_cart_btn:"🛒 Agregar al carrito",
+    pickup_text:"📦 Retiro disponible en <strong>Total Carnes North Miami</strong> — listo en 24h.",
+    view_store_info:"Ver información del local →",
     unit_lb:"/lb"
   }
 });
-renderBestSellers('grid-best', [
-  ["Short Ribs (Banderita)", 36.26, "short-ribs-banderita", true],
-  ["Entraña Arg", 37.60, "entrana-arg", true],
-  ["Ground Beef Premium", 11.54, "ground-beef-premium", true],
-  ["Tenderloin", 77.40, "tenderloin", true]
-]);
+renderProductDetail();
 </script>
 </body>
 </html>

@@ -4,6 +4,15 @@ const commonI18n = {
     nav_cta:"Shop the catalog",
     nav_geo:"📍 Find nearest store",
     palette_label:"Preview a theme:",
+    account_title:"Account",
+    account_signin:"Sign in",
+    account_orders:"Orders",
+    account_profile:"Profile",
+    account_note:"Design preview — sign-in would connect to your real customer accounts system.",
+    cart_title:"Your cart",
+    cart_total:"Total",
+    cart_checkout:"Request this order",
+    cart_empty:"Your cart is empty.",
     footer_brand_desc:"Premium Argentine beef and cuts, shipped nationwide in under 24h, with four stores across Miami-Dade.",
     footer_shop:"Shop",
     footer_company:"Company",
@@ -20,6 +29,15 @@ const commonI18n = {
     nav_cta:"Ver catálogo",
     nav_geo:"📍 Encontrar local más cercano",
     palette_label:"Probar un estilo:",
+    account_title:"Cuenta",
+    account_signin:"Iniciar sesión",
+    account_orders:"Pedidos",
+    account_profile:"Perfil",
+    account_note:"Vista previa de diseño — el inicio de sesión se conectaría con tu sistema real de cuentas de clientes.",
+    cart_title:"Tu carrito",
+    cart_total:"Total",
+    cart_checkout:"Pedir esta orden",
+    cart_empty:"Tu carrito está vacío.",
     footer_brand_desc:"Carne argentina premium, con envío a todo el país en menos de 24h y cuatro locales en Miami-Dade.",
     footer_shop:"Tienda",
     footer_company:"Empresa",
@@ -90,6 +108,17 @@ function initSite(pageI18n){
     });
   }
   window.setPalette = setPalette;
+
+  window.toggleAccountPanel = function(){
+    const panel = document.getElementById('account-panel');
+    if(panel) panel.classList.toggle('open');
+  };
+  document.addEventListener('click', (e)=>{
+    const panel = document.getElementById('account-panel');
+    if(panel && panel.classList.contains('open') && !e.target.closest('.account-dropdown')){
+      panel.classList.remove('open');
+    }
+  });
 
   document.addEventListener('DOMContentLoaded', ()=>{
     const saved = localStorage.getItem('tc_lang');

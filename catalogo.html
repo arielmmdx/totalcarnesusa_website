@@ -5,9 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Catalog — Total Carnes USA</title>
 <meta name="description" content="Full Total Carnes USA catalog: beef, chicken, pork, lamb, grill staples and pantry items, with real prices per pound.">
-<link rel="stylesheet" href="assets/style.css?v=9">
+<link rel="stylesheet" href="assets/style.css?v=10">
 </head>
 <body>
+
+<div class="cart-drawer-overlay" id="cart-overlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-drawer-header">
+    <h3 data-i18n="cart_title">Your cart</h3>
+    <button class="cart-drawer-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-drawer-body" id="cart-drawer-body"></div>
+  <div class="cart-drawer-footer">
+    <div class="cart-drawer-total-row"><span data-i18n="cart_total">Total</span><span id="cart-drawer-total">$0.00</span></div>
+    <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="checkoutCart()" data-i18n="cart_checkout">Request this order</button>
+  </div>
+</div>
 
 <div class="smoke-layer" aria-hidden="true">
   <div class="smoke-puff s1"></div>
@@ -33,7 +46,25 @@
         <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
         <button id="btn-es" onclick="setLang('es')">ES</button>
       </div>
-      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark theme">
+      <div class="account-dropdown">
+        <button class="icon-btn" onclick="toggleAccountPanel()" aria-label="Account">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"></circle><path d="M4 20c0-4 4-6 8-6s8 2 8 6"></path></svg>
+        </button>
+        <div class="account-panel" id="account-panel">
+          <h4 data-i18n="account_title">Account</h4>
+          <button class="btn btn-primary" onclick="alert(window.tcAccountNote || 'Design preview — sign-in would connect to your real customer accounts system.')" data-i18n="account_signin">Sign in</button>
+          <div class="account-panel-grid">
+            <button data-i18n="account_orders">Orders</button>
+            <button data-i18n="account_profile">Profile</button>
+          </div>
+          <p class="account-note" data-i18n="account_note">Design preview — sign-in would connect to your real customer accounts system.</p>
+        </div>
+      </div>
+      <button class="icon-btn" onclick="toggleCart()" aria-label="Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 4h2l.4 2M7 14h10l3-9H6.4"></path><circle cx="9" cy="20" r="1.4"></circle><circle cx="17" cy="20" r="1.4"></circle></svg>
+        <span class="cart-badge" id="cart-badge">0</span>
+      </button>
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark theme">
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.5A8.5 8.5 0 1 1 11.5 3 7 7 0 0 0 21 12.5z"></path></svg>
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg>
       </button>
@@ -74,6 +105,14 @@
 <section style="padding-top:0;">
   <div class="container">
 
+    <div class="catalog-search-row fade-in">
+      <div class="catalog-search-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="catalog-search" class="catalog-search-input" oninput="onCatalogSearchInput(this.value)" data-i18n-placeholder="search_placeholder" placeholder="Search any product, in any category...">
+      </div>
+      <button class="view-all-btn" id="view-all-btn" onclick="setCatalogViewAll()" data-i18n="view_all_btn">📋 View full catalog</button>
+    </div>
+
     <div class="filter-bar fade-in">
       <div class="filter-row">
         <span class="filter-group-label" data-i18n="f_availability">Availability:</span>
@@ -113,7 +152,7 @@
       </div>
     </div>
 
-    <div class="tab-row fade-in">
+    <div class="tab-row fade-in" id="catalog-tab-row">
       <button class="tab-btn active" data-cat="beef" onclick="setCatalogTab('beef')" data-i18n="cb1_title">Beef</button>
       <button class="tab-btn" data-cat="chicken" onclick="setCatalogTab('chicken')" data-i18n="cb2_title">Chicken</button>
       <button class="tab-btn" data-cat="pork" onclick="setCatalogTab('pork')" data-i18n="cb3_title">Pork</button>
@@ -165,8 +204,9 @@
   </div>
 </footer>
 
-<script src="assets/common.js?v=9"></script>
-<script src="assets/catalog-data.js?v=9"></script>
+<script src="assets/cart.js"></script>
+<script src="assets/common.js?v=10"></script>
+<script src="assets/catalog-data.js?v=10"></script>
 <script>
 window.onLangChange = function(){ renderCatalogTab(); };
 
@@ -186,6 +226,8 @@ initSite({
     f_sort_price_desc:"Price: High to Low", f_sort_name:"Name: A–Z",
     stock_in:"In stock", stock_out:"Out of stock",
     no_results:"No products match these filters.",
+    search_placeholder:"Search any product, in any category...",
+    view_all_btn:"📋 View full catalog",
     cc_tag:"CAN'T FIND THE CUT",
     cc_title:"Tell us the cut and we'll get it ready.",
     cc_desc:"Custom cut requests, special orders and case quantities are handled directly through our contact form.",
@@ -207,6 +249,8 @@ initSite({
     f_sort_price_desc:"Precio: Mayor a menor", f_sort_name:"Nombre: A–Z",
     stock_in:"En stock", stock_out:"Sin stock",
     no_results:"Ningún producto coincide con estos filtros.",
+    search_placeholder:"Buscá cualquier producto, en cualquier categoría...",
+    view_all_btn:"📋 Ver todo el catálogo",
     cc_tag:"¿NO ENCONTRÁS EL CORTE?",
     cc_title:"Decinos el corte y te lo preparamos.",
     cc_desc:"Pedidos de corte especial, encargos y cantidades por caja se coordinan directamente por el formulario de contacto.",
