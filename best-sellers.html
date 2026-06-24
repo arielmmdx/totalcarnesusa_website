@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Best Sellers | Total Carnes USA</title>
 <meta name="description" content="The cuts Total Carnes USA customers reorder most: Short Ribs, Entraña, Ground Beef Premium and Tenderloin.">
-<link rel="stylesheet" href="assets/style.css?v=28">
+<link rel="stylesheet" href="assets/style.css?v=29">
 </head>
 <body>
 
@@ -322,7 +322,7 @@
 
 <script src="assets/cart.js"></script>
 <script src="assets/common.js?v=23"></script>
-<script src="assets/catalog-data.js?v=23"></script>
+<script src="assets/catalog-data.js?v=24"></script>
 <script>
 initSite({
   en:{
@@ -350,12 +350,16 @@ initSite({
     unit_lb:"/lb"
   }
 });
-renderBestSellers('grid-best', [
-  ["Short Ribs (Banderita)", 36.26, "short-ribs-banderita", true],
-  ["Entraña Arg", 37.60, "entrana-arg", true],
-  ["Ground Beef Premium", 11.54, "ground-beef-premium", true],
-  ["Tenderloin", 77.40, "tenderloin", true]
-]);
+function renderBestGrid(){
+  renderBestSellers('grid-best', [
+    ["Short Ribs (Banderita)", 36.26, "short-ribs-banderita", true],
+    ["Entraña Arg", 37.60, "entrana-arg", true],
+    ["Ground Beef Premium", 11.54, "ground-beef-premium", true],
+    ["Tenderloin", 77.40, "tenderloin", true]
+  ]);
+}
+renderBestGrid();
+window.onLangChange = function(){ renderBestGrid(); };
 </script>
 </body>
 </html>

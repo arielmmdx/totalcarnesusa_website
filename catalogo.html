@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Catalog | Total Carnes USA</title>
 <meta name="description" content="Full Total Carnes USA catalog: beef, chicken, pork, lamb, grill staples and pantry items, with real prices per pound.">
-<link rel="stylesheet" href="assets/style.css?v=28">
+<link rel="stylesheet" href="assets/style.css?v=29">
 </head>
 <body>
 
@@ -269,6 +269,10 @@
           <button class="pill-btn stock-btn" data-stock="out" onclick="setCatalogStock('out')" data-i18n="f_outstock">Out of stock</button>
         </div>
         <span class="items-count" id="items-count">37 items</span>
+        <div class="btn-group unit-group">
+          <button class="pill-btn unit-btn active" data-unit="lb" onclick="setPriceUnit('lb')">lb</button>
+          <button class="pill-btn unit-btn" data-unit="kg" onclick="setPriceUnit('kg')">kg</button>
+        </div>
       </div>
 
       <div class="filter-row price-row">
@@ -364,7 +368,7 @@
 
 <script src="assets/cart.js"></script>
 <script src="assets/common.js?v=23"></script>
-<script src="assets/catalog-data.js?v=23"></script>
+<script src="assets/catalog-data.js?v=24"></script>
 <script>
 window.onLangChange = function(){ renderCatalogTab(); };
 
@@ -417,6 +421,9 @@ initSite({
   }
 });
 initPriceRangeSlider();
+document.querySelectorAll('.unit-btn').forEach(btn=>{
+  btn.classList.toggle('active', btn.dataset.unit === getPriceUnit());
+});
 const urlCat = new URLSearchParams(window.location.search).get('cat');
 if(urlCat && catalogData[urlCat]) setCatalogTab(urlCat);
 else renderCatalogTab();

@@ -83,6 +83,81 @@ const catalogData = {
   ]
 };
 
+const PRODUCT_NAMES_ES = {
+  "beef-honeycomb-mondongo":"Mondongo (Panal de Res)",
+  "brisket":"Pecho (Brisket)",
+  "c-roll-ribeye":"Ojo de Bife (C.Roll)",
+  "eye-round":"Bola de Lomo (Eye Round)",
+  "flap-meat-arg":"Vacío Arg",
+  "ground-beef-premium":"Carne Picada Premium",
+  "heart-corazon":"Corazón de Res",
+  "inside":"Carnaza de Cuadrada (Inside)",
+  "kosher-ribeye-frozen":"Ojo de Bife Kosher (Congelado)",
+  "liver-higado-de-res":"Hígado de Res",
+  "marrow-bones":"Huesos con Médula",
+  "ossobuco":"Osobuco",
+  "outside-skirt-usa":"Vacío Real USA (Outside Skirt)",
+  "oxtail-frozen":"Rabo de Res (Congelado)",
+  "ribeye-selection":"Ojo de Bife Selección",
+  "ribeye-with-bone-frozen":"Ojo de Bife con Hueso (Congelado)",
+  "rose-meat-frozen":"Carne Rosé (Congelada)",
+  "rump-cap-picanha":"Picanha (Colita de Cuadril)",
+  "short-ribs-banderita":"Asado Banderita (Short Ribs)",
+  "short-ribs-frozen":"Asado Tira (Congelado)",
+  "small-intestine-frozen":"Tripa Gorda (Congelada)",
+  "striploin-ny":"Bife de Chorizo (NY Strip)",
+  "striploin-ny-selection":"Bife de Chorizo Selección",
+  "sweetbread-molleja":"Molleja",
+  "t-bone":"T-Bone (Bife con Hueso)",
+  "tenderloin":"Lomo (Tenderloin)",
+  "thin-flank-entero-vacio":"Vacío Entero",
+  "tomahawk":"Tomahawk (Bife Ancho con Hueso)",
+  "tongue-frozen":"Lengua (Congelada)",
+  "tri-tip":"Tri-Tip (Punta de Cuadril)",
+  "chicken-breast-all-natural":"Pechuga de Pollo Natural",
+  "chicken-leg-all-natural":"Pata/Muslo de Pollo Natural",
+  "burger-pork":"Hamburguesa de Cerdo",
+  "milanesas-pork":"Milanesas de Cerdo",
+  "pork-baby-ribs":"Costillas de Cerdo (Baby Ribs)",
+  "pork-chuck-fr-bondiola-frozen":"Bondiola de Cerdo (Congelada)",
+  "pork-tender":"Solomillo de Cerdo",
+  "rose-meat-pork-frozen":"Carne Rosé de Cerdo (Congelada)",
+  "burger-lamb":"Hamburguesa de Cordero",
+  "lamb-leg":"Pata de Cordero",
+  "lamb-leg-n-z-w-bone":"Pata de Cordero N.Z. (con Hueso)",
+  "lamb-rack":"Costillar de Cordero (Rack)",
+  "burger-chori":"Hamburguesa de Chorizo",
+  "burger-original":"Hamburguesa Original",
+  "maldon-sea-salt-flakes-8-5-oz":"Sal Marina Maldon en Escamas 8.5 Oz"
+};
+function getDisplayName(name, slug){
+  const lang = document.documentElement.getAttribute('lang') || 'en';
+  if(lang === 'es' && slug && PRODUCT_NAMES_ES[slug]) return PRODUCT_NAMES_ES[slug];
+  return name;
+}
+
+const KG_PER_LB = 0.453592;
+function getPriceUnit(){
+  return localStorage.getItem('tc_unit') || 'lb';
+}
+function formatPrice(price){
+  const unit = getPriceUnit();
+  const value = unit === 'kg' ? price / KG_PER_LB : price;
+  return { amount: value.toFixed(2), unit };
+}
+function setPriceUnit(unit){
+  localStorage.setItem('tc_unit', unit);
+  document.querySelectorAll('.unit-btn').forEach(btn=>{
+    btn.classList.toggle('active', btn.dataset.unit === unit);
+  });
+  if(typeof renderCatalogTab === 'function' && document.getElementById('catalog-grid')) renderCatalogTab();
+  if(typeof renderCatalog === 'function' && document.querySelector('[id^="grid-"]')) renderCatalog();
+  document.querySelectorAll('[data-rerender-bestsellers]').forEach(el=>{
+    if(typeof window.tcRerenderBestSellers === 'function') window.tcRerenderBestSellers();
+  });
+}
+window.setPriceUnit = setPriceUnit;
+
 const CATEGORY_LABELS = {
   beef:{en:'Beef',es:'Res'}, chicken:{en:'Chicken',es:'Pollo'}, pork:{en:'Pork',es:'Cerdo'},
   lamb:{en:'Lamb',es:'Cordero'}, grill:{en:'Grill & Prepared',es:'Parrilla y preparados'},
@@ -110,17 +185,19 @@ function findProductBySlug(slug){
 }
 
 function buildCard(name, price, slug, inStock, categoryKey){
+  const displayName = getDisplayName(name, slug);
   const img = slug
-    ? `<img src="assets/images/products/${slug}.jpg" alt="${name}" loading="lazy" class="product-img">`
+    ? `<img src="assets/images/products/${slug}.jpg" alt="${displayName}" loading="lazy" class="product-img">`
     : `<div class="product-cut"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14c0-5 4-9 9-9s7 4 5 8-8 7-12 5-2-4-2-4z"></path></svg></div>`;
   const stockBadge = inStock === false
     ? `<span class="stock-badge out" data-i18n="stock_out">Out of stock</span>`
     : (inStock === true ? `<span class="stock-badge in" data-i18n="stock_in">In stock</span>` : '');
   const categoryTag = categoryKey ? `<span class="category-tag">${getCategoryLabel(categoryKey)}</span>` : '';
   const cardClass = inStock === false ? 'product-card out-of-stock fade-in' : 'product-card fade-in';
+  const { amount, unit } = formatPrice(price);
   const inner = `${categoryTag}${img}${stockBadge}
-    <span class="product-name">${name}</span>
-    <span class="product-price">$${price.toFixed(2)}<span class="product-unit" data-i18n="unit_lb"> /lb</span></span>`;
+    <span class="product-name">${displayName}</span>
+    <span class="product-price">$${amount}<span class="product-unit">/${unit}</span></span>`;
   return slug
     ? `<a class="${cardClass}" href="product.html?slug=${slug}">${inner}</a>`
     : `<div class="${cardClass}">${inner}</div>`;
@@ -157,7 +234,10 @@ function renderCatalogTab(){
   let items;
   if(catalogState.mode === 'search'){
     const q = catalogState.query.trim().toLowerCase();
-    items = q ? getAllProducts().filter(([name])=>name.toLowerCase().includes(q)) : [];
+    items = q ? getAllProducts().filter(([name,,slug])=>{
+      const es = (PRODUCT_NAMES_ES[slug] || '').toLowerCase();
+      return name.toLowerCase().includes(q) || es.includes(q);
+    }) : [];
   } else if(catalogState.mode === 'all'){
     items = getAllProducts();
   } else {

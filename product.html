@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Product | Total Carnes USA</title>
 <meta name="description" content="Product details for Total Carnes USA, premium Argentine beef and cuts.">
-<link rel="stylesheet" href="assets/style.css?v=28">
+<link rel="stylesheet" href="assets/style.css?v=29">
 </head>
 <body>
 
@@ -290,7 +290,7 @@
 
 <script src="assets/cart.js"></script>
 <script src="assets/common.js?v=23"></script>
-<script src="assets/catalog-data.js?v=23"></script>
+<script src="assets/catalog-data.js?v=24"></script>
 <script>
 let currentProduct = null;
 let selectedWeight = 1;
@@ -313,7 +313,8 @@ function renderProductDetail(){
     return;
   }
   currentProduct = product;
-  document.title = product.name + ' | Total Carnes USA';
+  const displayName = getDisplayName(product.name, product.slug);
+  document.title = displayName + ' | Total Carnes USA';
 
   const stockBadge = product.inStock === false
     ? `<span class="stock-badge out" data-i18n="stock_out">Out of stock</span>`
@@ -322,12 +323,12 @@ function renderProductDetail(){
   document.getElementById('product-detail').innerHTML = `
     <div class="product-detail-grid">
       <div class="product-detail-image">
-        <img src="assets/images/products/${product.slug}.jpg" alt="${product.name}">
+        <img src="assets/images/products/${product.slug}.jpg" alt="${displayName}">
       </div>
       <div class="product-detail-info">
         <span class="category-tag">${getCategoryLabel(product.category)}</span>
         ${stockBadge}
-        <h1 class="product-detail-name">${product.name}</h1>
+        <h1 class="product-detail-name">${displayName}</h1>
         <div class="product-detail-price" id="product-detail-price">$${(product.price*WEIGHT_OPTIONS[selectedWeight].mult).toFixed(2)}</div>
         <p class="product-unit-note">$${product.price.toFixed(2)} <span data-i18n="unit_lb">/lb</span></p>
 
@@ -385,7 +386,8 @@ function handleAddToCart(){
   const weightLabel = WEIGHT_OPTIONS[selectedWeight].label;
   const unitPrice = currentProduct.price * WEIGHT_OPTIONS[selectedWeight].mult;
   const cartSlug = currentProduct.slug + '__' + selectedWeight;
-  addToCart(cartSlug, `${currentProduct.name} (${weightLabel})`, unitPrice, selectedQty);
+  const displayName = getDisplayName(currentProduct.name, currentProduct.slug);
+  addToCart(cartSlug, `${displayName} (${weightLabel})`, unitPrice, selectedQty);
 }
 
 initSite({
@@ -413,6 +415,7 @@ initSite({
   }
 });
 renderProductDetail();
+window.onLangChange = function(){ renderProductDetail(); };
 </script>
 </body>
 </html>
