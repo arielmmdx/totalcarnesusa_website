@@ -801,7 +801,7 @@ footer{border-top:4px solid var(--accent);background:#121212;padding:52px 0 28px
 .brand-links{display:flex;gap:14px;}
 .nav-brand{display:none;gap:8px;flex:0 0 auto;}
 @media(min-width:920px){.nav-brand{display:flex;}}
-.nav-brand a{width:34px;height:34px;}
+.nav-brand a{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;}
 .nav-brand svg{width:15px;height:15px;}
 footer .brand-links a{
   width:38px;height:38px;border:1px solid #2c2c2c;border-radius:50%;
