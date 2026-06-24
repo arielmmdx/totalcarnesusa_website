@@ -129,13 +129,13 @@ img{max-width:100%;display:block;}
 .route-pin{fill:var(--accent);}
 .route-label{fill:var(--text);font-family:'Inter',sans-serif;font-weight:600;}
 .route-plane{
-  position:absolute;font-size:20px;left:8%;top:74%;
+  position:absolute;font-size:20px;left:15%;top:75%;
   animation:route-plane-move 4s ease-in-out infinite alternate;
 }
 @keyframes route-plane-move{
-  0%{ left:8%; top:74%; transform:rotate(-32deg); }
-  50%{ left:50%; top:16%; transform:rotate(2deg); }
-  100%{ left:90%; top:42%; transform:rotate(18deg); }
+  0%{ left:15%; top:75%; transform:rotate(-32deg); }
+  50%{ left:50%; top:20%; transform:rotate(2deg); }
+  100%{ left:84%; top:41%; transform:rotate(18deg); }
 }
 .route-dist{
   text-align:center;font-family:'Fraunces',serif;font-weight:700;
