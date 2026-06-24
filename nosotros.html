@@ -5,9 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Story — Total Carnes USA</title>
 <meta name="description" content="Born from a simple idea in Bahía Blanca, Total Carnes USA entered the U.S. market in 2022 and grew from a butcher shop into a full retail concept.">
-<link rel="stylesheet" href="assets/style.css?v=7">
+<link rel="stylesheet" href="assets/style.css?v=9">
 </head>
 <body>
+
+<div class="smoke-layer" aria-hidden="true">
+  <div class="smoke-puff s1"></div>
+  <div class="smoke-puff s2"></div>
+  <div class="smoke-puff s3"></div>
+  <div class="smoke-puff s4"></div>
+</div>
 
 <nav class="nav">
   <div class="nav-inner">
@@ -21,7 +28,7 @@
     </div>
     <div class="nav-right">
       <a class="nav-cta" href="catalogo.html" data-i18n="nav_cta">Shop the catalog</a>
-      <a class="nav-geo" href="contacto.html#stores-map" data-i18n="nav_geo">📍 Find nearest store</a>
+      <a class="nav-geo" href="contacto.html#stores-map" title="Find nearest store" aria-label="Find nearest store">📍</a>
       <div class="lang-toggle">
         <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
         <button id="btn-es" onclick="setLang('es')">ES</button>
@@ -49,6 +56,8 @@
     <button class="swatch-btn" data-palette="parrilla" onclick="setPalette('parrilla')"><span class="swatch-dot sw-parrilla"></span>Parrilla</button>
     <button class="swatch-btn" data-palette="campo" onclick="setPalette('campo')"><span class="swatch-dot sw-campo"></span>Campo</button>
     <button class="swatch-btn" data-palette="atlantico" onclick="setPalette('atlantico')"><span class="swatch-dot sw-atlantico"></span>Atlántico</button>
+    <button class="swatch-btn" data-palette="medianoche" onclick="setPalette('medianoche')"><span class="swatch-dot sw-medianoche"></span>Medianoche</button>
+    <button class="swatch-btn" data-palette="pampa" onclick="setPalette('pampa')"><span class="swatch-dot sw-pampa"></span>Pampa</button>
   </div>
 </div>
 
@@ -151,7 +160,7 @@
   </div>
 </footer>
 
-<script src="assets/common.js?v=7"></script>
+<script src="assets/common.js?v=9"></script>
 <script>
 initSite({
   en:{

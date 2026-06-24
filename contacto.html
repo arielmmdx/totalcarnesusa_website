@@ -5,10 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact &amp; Stores — Total Carnes USA</title>
 <meta name="description" content="Visit Total Carnes USA in North Miami, Aventura, Pinecrest or Key Biscayne, or send a cut request / order detail through our contact form.">
-<link rel="stylesheet" href="assets/style.css?v=7">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="assets/style.css?v=9">
 </head>
 <body>
+
+<div class="smoke-layer" aria-hidden="true">
+  <div class="smoke-puff s1"></div>
+  <div class="smoke-puff s2"></div>
+  <div class="smoke-puff s3"></div>
+  <div class="smoke-puff s4"></div>
+</div>
 
 <nav class="nav">
   <div class="nav-inner">
@@ -22,7 +28,7 @@
     </div>
     <div class="nav-right">
       <a class="nav-cta" href="catalogo.html" data-i18n="nav_cta">Shop the catalog</a>
-      <a class="nav-geo" href="contacto.html#stores-map" data-i18n="nav_geo">📍 Find nearest store</a>
+      <a class="nav-geo" href="contacto.html#stores-map" title="Find nearest store" aria-label="Find nearest store">📍</a>
       <div class="lang-toggle">
         <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
         <button id="btn-es" onclick="setLang('es')">ES</button>
@@ -50,6 +56,8 @@
     <button class="swatch-btn" data-palette="parrilla" onclick="setPalette('parrilla')"><span class="swatch-dot sw-parrilla"></span>Parrilla</button>
     <button class="swatch-btn" data-palette="campo" onclick="setPalette('campo')"><span class="swatch-dot sw-campo"></span>Campo</button>
     <button class="swatch-btn" data-palette="atlantico" onclick="setPalette('atlantico')"><span class="swatch-dot sw-atlantico"></span>Atlántico</button>
+    <button class="swatch-btn" data-palette="medianoche" onclick="setPalette('medianoche')"><span class="swatch-dot sw-medianoche"></span>Medianoche</button>
+    <button class="swatch-btn" data-palette="pampa" onclick="setPalette('pampa')"><span class="swatch-dot sw-pampa"></span>Pampa</button>
   </div>
 </div>
 
@@ -111,7 +119,7 @@
   <div class="container">
     <div class="fade-in">
       <span class="section-tag" data-i18n="map_tag">OUR STORES ON THE MAP</span>
-      <h2 class="section-title" data-i18n="map_title">All four stores, one map.</h2>
+      <h2 class="section-title" data-i18n="map_title">All four stores, mapped.</h2>
       <p class="section-desc" data-i18n="map_desc">Find the closest store and get directions — or share your location to see exactly how far each one is.</p>
     </div>
     <div class="geo-bar fade-in">
@@ -120,38 +128,35 @@
       <span class="geo-status" id="geo-status"></span>
     </div>
 
-    <div class="store-layout">
-      <div class="store-list" id="store-grid">
-        <div class="location-card fade-in" data-lat="25.8905" data-lng="-80.1867">
-          <h3>North Miami</h3>
-          <p>12420 Biscayne Blvd, North Miami, FL 33181</p>
-          <span class="distance-badge" style="display:none;"></span>
-          <iframe class="mini-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=12420+Biscayne+Blvd,+North+Miami,+FL+33181&output=embed"></iframe>
-          <a class="street-link" target="_blank" rel="noopener" href="https://www.google.com/maps?q=12420+Biscayne+Blvd,+North+Miami,+FL+33181&layer=c">🧭 <span data-i18n="street_view">Open street view</span></a>
-        </div>
-        <div class="location-card fade-in" data-lat="25.9566" data-lng="-80.1425">
-          <h3>Aventura</h3>
-          <p>19087 West Dixie Highway, Miami, FL 33180</p>
-          <span class="distance-badge" style="display:none;"></span>
-          <iframe class="mini-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=19087+West+Dixie+Highway,+Miami,+FL+33180&output=embed"></iframe>
-          <a class="street-link" target="_blank" rel="noopener" href="https://www.google.com/maps?q=19087+West+Dixie+Highway,+Miami,+FL+33180&layer=c">🧭 <span data-i18n="street_view">Open street view</span></a>
-        </div>
-        <div class="location-card fade-in" data-lat="25.6664" data-lng="-80.3081">
-          <h3>Pinecrest</h3>
-          <p>9563 S Dixie Hwy Unit #04A, Pinecrest, FL 33156</p>
-          <span class="distance-badge" style="display:none;"></span>
-          <iframe class="mini-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=9563+S+Dixie+Hwy+Unit+04A,+Pinecrest,+FL+33156&output=embed"></iframe>
-          <a class="street-link" target="_blank" rel="noopener" href="https://www.google.com/maps?q=9563+S+Dixie+Hwy+Unit+04A,+Pinecrest,+FL+33156&layer=c">🧭 <span data-i18n="street_view">Open street view</span></a>
-        </div>
-        <div class="location-card fade-in" data-lat="25.6938" data-lng="-80.1614">
-          <h3>Key Biscayne</h3>
-          <p>328 Crandon Blvd, Key Biscayne, FL 33149</p>
-          <span class="distance-badge" style="display:none;"></span>
-          <iframe class="mini-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=328+Crandon+Blvd,+Key+Biscayne,+FL+33149&output=embed"></iframe>
-          <a class="street-link" target="_blank" rel="noopener" href="https://www.google.com/maps?q=328+Crandon+Blvd,+Key+Biscayne,+FL+33149&layer=c">🧭 <span data-i18n="street_view">Open street view</span></a>
-        </div>
+    <div class="store-grid-2x2" id="store-grid">
+      <div class="location-card fade-in" data-lat="25.8905" data-lng="-80.1867">
+        <h3>North Miami</h3>
+        <p>12420 Biscayne Blvd, North Miami, FL 33181</p>
+        <span class="distance-badge" style="display:none;"></span>
+        <iframe class="mini-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=12420+Biscayne+Blvd,+North+Miami,+FL+33181&output=embed"></iframe>
+        <a class="street-link" target="_blank" rel="noopener" href="https://www.google.com/maps?q=12420+Biscayne+Blvd,+North+Miami,+FL+33181&layer=c">🧭 <span data-i18n="street_view">Open street view</span></a>
       </div>
-      <div id="all-stores-map" class="all-stores-map fade-in"></div>
+      <div class="location-card fade-in" data-lat="25.9566" data-lng="-80.1425">
+        <h3>Aventura</h3>
+        <p>19087 West Dixie Highway, Miami, FL 33180</p>
+        <span class="distance-badge" style="display:none;"></span>
+        <iframe class="mini-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=19087+West+Dixie+Highway,+Miami,+FL+33180&output=embed"></iframe>
+        <a class="street-link" target="_blank" rel="noopener" href="https://www.google.com/maps?q=19087+West+Dixie+Highway,+Miami,+FL+33180&layer=c">🧭 <span data-i18n="street_view">Open street view</span></a>
+      </div>
+      <div class="location-card fade-in" data-lat="25.6664" data-lng="-80.3081">
+        <h3>Pinecrest</h3>
+        <p>9563 S Dixie Hwy Unit #04A, Pinecrest, FL 33156</p>
+        <span class="distance-badge" style="display:none;"></span>
+        <iframe class="mini-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=9563+S+Dixie+Hwy+Unit+04A,+Pinecrest,+FL+33156&output=embed"></iframe>
+        <a class="street-link" target="_blank" rel="noopener" href="https://www.google.com/maps?q=9563+S+Dixie+Hwy+Unit+04A,+Pinecrest,+FL+33156&layer=c">🧭 <span data-i18n="street_view">Open street view</span></a>
+      </div>
+      <div class="location-card fade-in" data-lat="25.6938" data-lng="-80.1614">
+        <h3>Key Biscayne</h3>
+        <p>328 Crandon Blvd, Key Biscayne, FL 33149</p>
+        <span class="distance-badge" style="display:none;"></span>
+        <iframe class="mini-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=328+Crandon+Blvd,+Key+Biscayne,+FL+33149&output=embed"></iframe>
+        <a class="street-link" target="_blank" rel="noopener" href="https://www.google.com/maps?q=328+Crandon+Blvd,+Key+Biscayne,+FL+33149&layer=c">🧭 <span data-i18n="street_view">Open street view</span></a>
+      </div>
     </div>
   </div>
 </section>
@@ -183,8 +188,7 @@
   </div>
 </footer>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="assets/common.js?v=7"></script>
+<script src="assets/common.js?v=9"></script>
 <script>
 let addressDebounce = null;
 
@@ -245,45 +249,6 @@ function haversineKm(lat1, lon1, lat2, lon2){
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
 }
 
-let tcMap = null;
-let tcStoreMarkers = [];
-let tcUserMarker = null;
-
-function initStoresMap(){
-  const el = document.getElementById('all-stores-map');
-  if(!el || typeof L === 'undefined') return;
-
-  tcMap = L.map('all-stores-map');
-  const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-  const tileUrl = isLight
-    ? 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
-    : 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
-  L.tileLayer(tileUrl, {
-    attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
-    maxZoom: 19
-  }).addTo(tcMap);
-
-  const storeIcon = L.divIcon({
-    className: 'store-pin',
-    html: '<div style="width:16px;height:16px;border-radius:50%;background:#b3242c;border:2px solid #fff;box-shadow:0 0 0 2px rgba(179,36,44,.3);"></div>',
-    iconSize: [16,16], iconAnchor: [8,8]
-  });
-
-  const cards = Array.from(document.querySelectorAll('#store-grid .location-card'));
-  const bounds = [];
-  cards.forEach(card=>{
-    const lat = parseFloat(card.dataset.lat);
-    const lng = parseFloat(card.dataset.lng);
-    const name = card.querySelector('h3').textContent;
-    const addr = card.querySelector('p').textContent;
-    const marker = L.marker([lat,lng], { icon: storeIcon }).addTo(tcMap);
-    marker.bindPopup(`<strong>${name}</strong><br>${addr}<br><a class="map-popup-link" target="_blank" rel="noopener" href="https://www.google.com/maps?q=${encodeURIComponent(addr)}">Directions →</a>`);
-    tcStoreMarkers.push({ card, marker });
-    bounds.push([lat,lng]);
-  });
-  tcMap.fitBounds(bounds, { padding: [40,40] });
-}
-
 function findNearestStore(){
   const status = document.getElementById('geo-status');
   if(!navigator.geolocation){
@@ -311,19 +276,6 @@ function findNearestStore(){
         nearest.card.scrollIntoView({ behavior:'smooth', block:'center' });
       }
       status.textContent = window.tcGeoFound || 'Distances updated below.';
-
-      if(tcMap){
-        if(tcUserMarker) tcMap.removeLayer(tcUserMarker);
-        const userIcon = L.divIcon({
-          className: 'user-pin',
-          html: '<div style="width:18px;height:18px;border-radius:50%;background:#3b82f6;border:3px solid #fff;box-shadow:0 0 0 4px rgba(59,130,246,.3);"></div>',
-          iconSize: [18,18], iconAnchor: [9,9]
-        });
-        tcUserMarker = L.marker([latitude, longitude], { icon: userIcon }).addTo(tcMap);
-        tcUserMarker.bindPopup(window.tcGeoYouAreHere || 'You are here').openPopup();
-        const allBounds = tcStoreMarkers.map(m=>m.marker.getLatLng()).concat([tcUserMarker.getLatLng()]);
-        tcMap.fitBounds(allBounds, { padding: [40,40] });
-      }
     },
     ()=>{
       status.textContent = window.tcGeoDenied || "Couldn't get your location — check your browser permissions.";
@@ -385,7 +337,6 @@ initSite({
   }
 });
 initAddressAutocomplete();
-initStoresMap();
 
 window.onLangChange = function(lang){
   if(lang === 'es'){

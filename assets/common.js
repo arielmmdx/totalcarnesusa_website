@@ -70,7 +70,7 @@ function initSite(pageI18n){
 
   function setTheme(theme){
     document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('tc_theme', theme);
+    localStorage.setItem('tc_theme_v2', theme);
   }
   window.setTheme = setTheme;
   window.toggleTheme = function(){
@@ -95,7 +95,7 @@ function initSite(pageI18n){
     const saved = localStorage.getItem('tc_lang');
     if(saved === 'es') setLang('es'); else setLang('en');
 
-    const savedTheme = localStorage.getItem('tc_theme');
+    const savedTheme = localStorage.getItem('tc_theme_v2');
     setTheme(savedTheme === 'dark' ? 'dark' : 'light');
 
     const savedPalette = localStorage.getItem('tc_palette') || 'classic';
