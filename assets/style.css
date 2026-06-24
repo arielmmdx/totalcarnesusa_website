@@ -798,6 +798,10 @@ footer{border-top:1px solid var(--border);padding:48px 0 28px;color:var(--muted)
 .footer-col a:hover{color:var(--accent2);}
 .footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;}
 .social-row{display:flex;gap:14px;}
+.nav-social{display:none;gap:8px;flex:0 0 auto;}
+@media(min-width:920px){.nav-social{display:flex;}}
+.nav-social a{width:34px;height:34px;}
+.nav-social svg{width:15px;height:15px;}
 .social-row a{
   width:36px;height:36px;border:1px solid var(--border);border-radius:50%;
   display:flex;align-items:center;justify-content:center;color:var(--muted);
