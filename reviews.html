@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Best Sellers — Total Carnes USA</title>
-<meta name="description" content="The cuts Total Carnes USA customers reorder most: Short Ribs, Entraña, Ground Beef Premium and Tenderloin.">
+<title>Customer Reviews — Total Carnes USA</title>
+<meta name="description" content="Real Google reviews from Total Carnes USA customers across our four Miami-Dade locations.">
 <link rel="stylesheet" href="assets/style.css?v=15">
 </head>
 <body>
@@ -36,10 +36,10 @@
     <div class="nav-links">
       <a href="index.html" data-i18n="nav_home">Home</a>
       <a href="catalogo.html" data-i18n="nav_catalog">Catalog</a>
-      <a href="best-sellers.html" class="current" data-i18n="nav_best">Best Sellers</a>
+      <a href="best-sellers.html" data-i18n="nav_best">Best Sellers</a>
       <a href="nosotros.html" data-i18n="nav_about">Our Story</a>
       <a href="contacto.html" data-i18n="nav_contact">Contact</a>
-      <a href="reviews.html" data-i18n="nav_reviews">Reviews</a>
+      <a href="reviews.html" class="current" data-i18n="nav_reviews">Reviews</a>
     </div>
     <div class="nav-right">
       <a class="nav-cta" href="catalogo.html" data-i18n="nav_cta">Shop the catalog</a>
@@ -66,7 +66,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 4h2l.4 2M7 14h10l3-9H6.4"></path><circle cx="9" cy="20" r="1.4"></circle><circle cx="17" cy="20" r="1.4"></circle></svg>
         <span class="cart-badge" id="cart-badge">0</span>
       </button>
-<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark theme">
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark theme">
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.5A8.5 8.5 0 1 1 11.5 3 7 7 0 0 0 21 12.5z"></path></svg>
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg>
       </button>
@@ -79,7 +79,7 @@
     <a href="best-sellers.html" data-i18n="nav_best">Best Sellers</a>
     <a href="nosotros.html" data-i18n="nav_about">Our Story</a>
     <a href="contacto.html" data-i18n="nav_contact">Contact</a>
-      <a href="reviews.html" data-i18n="nav_reviews">Reviews</a>
+    <a href="reviews.html" data-i18n="nav_reviews">Reviews</a>
   </div>
 </nav>
 
@@ -97,114 +97,24 @@
   </div>
 </div>
 
-<div class="offers-ticker">
-  <div class="offers-track">
-    <div class="offer-card">
-      <img src="assets/images/products/tomahawk.jpg" alt="Tomahawk">
-      <div class="offer-info">
-        <span class="offer-badge" data-i18n="offer_badge">⭐ OFFER</span>
-        <span class="offer-name">Tomahawk</span>
-        <span class="offer-price"><s>$48.38</s> $41.12</span>
-      </div>
-    </div>
-    <div class="offer-card">
-      <img src="assets/images/products/short-ribs-banderita.jpg" alt="Short Ribs (Banderita)">
-      <div class="offer-info">
-        <span class="offer-badge" data-i18n="offer_badge">⭐ OFFER</span>
-        <span class="offer-name">Short Ribs (Banderita)</span>
-        <span class="offer-price"><s>$36.26</s> $30.82</span>
-      </div>
-    </div>
-    <div class="offer-card">
-      <img src="assets/images/products/empanadas-de-carne-x-6.jpg" alt="Empanadas de Carne x 6">
-      <div class="offer-info">
-        <span class="offer-badge" data-i18n="offer_badge">⭐ OFFER</span>
-        <span class="offer-name">Empanadas de Carne x 6</span>
-        <span class="offer-tag2x1" data-i18n="offer_2x1">Buy 1 Get 1 Free</span>
-      </div>
-    </div>
-    <div class="offer-card">
-      <img src="assets/images/products/ground-beef-premium.jpg" alt="Ground Beef Premium">
-      <div class="offer-info">
-        <span class="offer-badge" data-i18n="offer_badge">⭐ OFFER</span>
-        <span class="offer-name">Ground Beef Premium</span>
-        <span class="offer-price"><s>$11.54</s> $10.39</span>
-      </div>
-    </div>
-    <div class="offer-card">
-      <img src="assets/images/products/tomahawk.jpg" alt="Tomahawk">
-      <div class="offer-info">
-        <span class="offer-badge" data-i18n="offer_badge">⭐ OFFER</span>
-        <span class="offer-name">Tomahawk</span>
-        <span class="offer-price"><s>$48.38</s> $41.12</span>
-      </div>
-    </div>
-    <div class="offer-card">
-      <img src="assets/images/products/short-ribs-banderita.jpg" alt="Short Ribs (Banderita)">
-      <div class="offer-info">
-        <span class="offer-badge" data-i18n="offer_badge">⭐ OFFER</span>
-        <span class="offer-name">Short Ribs (Banderita)</span>
-        <span class="offer-price"><s>$36.26</s> $30.82</span>
-      </div>
-    </div>
-    <div class="offer-card">
-      <img src="assets/images/products/empanadas-de-carne-x-6.jpg" alt="Empanadas de Carne x 6">
-      <div class="offer-info">
-        <span class="offer-badge" data-i18n="offer_badge">⭐ OFFER</span>
-        <span class="offer-name">Empanadas de Carne x 6</span>
-        <span class="offer-tag2x1" data-i18n="offer_2x1">Buy 1 Get 1 Free</span>
-      </div>
-    </div>
-    <div class="offer-card">
-      <img src="assets/images/products/ground-beef-premium.jpg" alt="Ground Beef Premium">
-      <div class="offer-info">
-        <span class="offer-badge" data-i18n="offer_badge">⭐ OFFER</span>
-        <span class="offer-name">Ground Beef Premium</span>
-        <span class="offer-price"><s>$11.54</s> $10.39</span>
-      </div>
-    </div>
-  </div>
-</div>
-
 <section class="page-hero">
   <div class="container">
     <div class="hero-content">
-      <span class="eyebrow" data-i18n="ph_eyebrow">CUSTOMER FAVORITES</span>
-      <h1 data-i18n="ph_title">The cuts people keep <span class="grad">reordering</span>.</h1>
-      <p class="subhead" data-i18n="ph_sub">No algorithm, no guesswork — these are the four products our customers buy again and again.</p>
+      <span class="eyebrow" data-i18n="rv_eyebrow">REAL GOOGLE REVIEWS</span>
+      <h1 data-i18n="rv_title">Hundreds of 5-star reviews, <span class="grad">verified on Google</span>.</h1>
+      <p class="subhead" data-i18n="rv_sub">Every quote below is a real review from our Google Business listing. Click any card to open it on Google Maps and confirm it yourself.</p>
     </div>
   </div>
 </section>
 
 <section style="padding-top:0;">
   <div class="container">
-    <div class="grid" id="grid-best"></div>
-  </div>
-</section>
-
-<section class="story-section">
-  <div class="container">
-    <div class="fade-in">
-      <span class="section-tag" data-i18n="why_tag">WHY THESE WIN</span>
-      <h2 class="section-title" data-i18n="why_title">Consistency, every single order.</h2>
+    <div class="reviews-carousel fade-in">
+      <div class="reviews-track" id="reviews-track"></div>
     </div>
-    <div class="grid">
-      <div class="card fade-in">
-        <h3 data-i18n="why1_title">Short Ribs (Banderita)</h3>
-        <p data-i18n="why1_desc">The classic for any parrillada — even marbling, cut the way an Argentine asador expects it.</p>
-      </div>
-      <div class="card fade-in">
-        <h3 data-i18n="why2_title">Entraña Arg</h3>
-        <p data-i18n="why2_desc">Skirt steak with the flavor and texture that's hard to find outside an Argentine butcher shop.</p>
-      </div>
-      <div class="card fade-in">
-        <h3 data-i18n="why3_title">Ground Beef Premium</h3>
-        <p data-i18n="why3_desc">The everyday staple — fresh-ground, no fillers, the right fat ratio for burgers or milanesas.</p>
-      </div>
-      <div class="card fade-in">
-        <h3 data-i18n="why4_title">Tenderloin</h3>
-        <p data-i18n="why4_desc">The cut for the occasion that matters — trimmed clean, consistent every time.</p>
-      </div>
+    <p class="reviews-note" data-i18n="rv_note">Note: Google doesn't provide direct links to a single review, so each card opens our verified Google Business listing where you can find and confirm it among our reviews.</p>
+    <div style="text-align:center; margin-top:8px;">
+      <a class="btn btn-secondary" href="https://www.google.com/search?q=Total+Carnes+USA+Google+reviews" target="_blank" rel="noopener" data-i18n="reviews_cta">⭐ See all reviews on Google →</a>
     </div>
   </div>
 </section>
@@ -238,40 +148,57 @@
 
 <script src="assets/cart.js"></script>
 <script src="assets/common.js?v=15"></script>
-<script src="assets/catalog-data.js?v=15"></script>
 <script>
+const GOOGLE_REVIEWS_LINK = "https://www.google.com/maps/search/Total+Carnes+USA";
+
+const realReviews = [
+  ["Ivon Fernandez", "Local Guide · 47 opiniones", "Excelente lugar, me encantó, no había estado ahí antes. Muy buena calidad de carnes y muy buena atención de su manager Carol. Volveré sin duda."],
+  ["Javier Mentasti", "9 opiniones", "Toda tipo de carne. Argentina 🇦🇷 el mejor de Miami. Precio, calidad y atención al cliente excelente."],
+  ["Guillermina", "12 opiniones", "Si querés comprar carne con los mejores cortes argentinos, este es el lugar para hacerlo en Miami. Los mejores cortes, la mejor calidad y el mejor servicio."],
+  ["Paul Pupo", "2 opiniones", "Excelente lugar para encontrar lo más rico para agasajar a tus invitados. Carne inmejorable y los vinos son un 100."],
+  ["Gabriel Fabrizio Barrece Guedez", "Local Guide · 48 opiniones", "La mejor carnicería en todo Miami!! Excelente servicio y sobre todo la carne muy rica."],
+  ["Pablo Dominguez", "13 opiniones", "Recomiendo el lugar al 100%. Excelente atención de las chicas, un lugar impecable, con buen ambiente y todo ordenado, con calidades increíbles."],
+  ["Fabian Mateos", "Local Guide · 35 opiniones", "Producto excelente! Somos proveedores de carne para las barbacoas en el chiringuito español de Key Biscayne, y además del gran producto, la atención es ideal."],
+  ["Mica Péndola", "4 opiniones", "Excelente lugar para comprar carne de calidad en Miami. Recomendado."],
+  ["Fausto Guebara", "3 opiniones", "Excelente carne y servicio! Carne argentina de calidad!"],
+  ["josefina martinez", "5 opiniones", "Excelente la calidad y la atención!! Recomiendo mucho."],
+  ["Javier Valderrama", "Local Guide · 125 opiniones", "Excelente carnicería, productos de súper calidad y una atención extraordinaria."],
+  ["Felipe Tomas Garcia Schickendantz", "10 opiniones", "Espectacular variedad, los empleados son muy buena onda, sobre todo la niña de la caja, gracias."],
+  ["Dania Cofiño", "1 opinión", "Gran servicio! La mejor carne de Miami, al mejor precio!"]
+];
+
+function renderReviewsCarousel(){
+  const track = document.getElementById('reviews-track');
+  if(!track) return;
+  const slide = ([name, meta, text]) => `
+    <a class="review-slide" href="${GOOGLE_REVIEWS_LINK}" target="_blank" rel="noopener">
+      <div class="review-slide-top">
+        <span class="review-slide-stars">★★★★★</span>
+        <span class="review-slide-google">Google ↗</span>
+      </div>
+      <p class="review-slide-text">"${text}"</p>
+      <div class="review-slide-author"><strong>${name}</strong><span>${meta}</span></div>
+    </a>`;
+  track.innerHTML = realReviews.map(slide).join('') + realReviews.map(slide).join('');
+}
+
 initSite({
   en:{
-    ph_eyebrow:"CUSTOMER FAVORITES",
-    ph_title:'The cuts people keep <span class="grad">reordering</span>.',
-    ph_sub:"No algorithm, no guesswork — these are the four products our customers buy again and again.",
-    why_tag:"WHY THESE WIN",
-    why_title:"Consistency, every single order.",
-    why1_title:"Short Ribs (Banderita)", why1_desc:"The classic for any parrillada — even marbling, cut the way an Argentine asador expects it.",
-    why2_title:"Entraña Arg", why2_desc:"Skirt steak with the flavor and texture that's hard to find outside an Argentine butcher shop.",
-    why3_title:"Ground Beef Premium", why3_desc:"The everyday staple — fresh-ground, no fillers, the right fat ratio for burgers or milanesas.",
-    why4_title:"Tenderloin", why4_desc:"The cut for the occasion that matters — trimmed clean, consistent every time.",
-    unit_lb:"/lb"
+    rv_eyebrow:"REAL GOOGLE REVIEWS",
+    rv_title:'Hundreds of 5-star reviews, <span class="grad">verified on Google</span>.',
+    rv_sub:"Every quote below is a real review from our Google Business listing. Click any card to open it on Google Maps and confirm it yourself.",
+    rv_note:"Note: Google doesn't provide direct links to a single review, so each card opens our verified Google Business listing where you can find and confirm it among our reviews.",
+    reviews_cta:"⭐ See all reviews on Google →"
   },
   es:{
-    ph_eyebrow:"FAVORITOS DE LOS CLIENTES",
-    ph_title:'Los cortes que la gente vuelve a <span class="grad">pedir</span>.',
-    ph_sub:"Sin algoritmos ni adivinanzas — estos son los cuatro productos que nuestros clientes compran una y otra vez.",
-    why_tag:"POR QUÉ GANAN",
-    why_title:"Consistencia, en cada pedido.",
-    why1_title:"Short Ribs (Banderita)", why1_desc:"El clásico de toda parrillada — marmoleo uniforme, cortado como espera un asador argentino.",
-    why2_title:"Entraña Arg", why2_desc:"Con el sabor y la textura difíciles de encontrar fuera de una carnicería argentina.",
-    why3_title:"Ground Beef Premium", why3_desc:"El básico de todos los días — recién molido, sin rellenos, con la proporción de grasa justa.",
-    why4_title:"Tenderloin (Lomo)", why4_desc:"El corte para la ocasión especial — bien limpio, consistente siempre.",
-    unit_lb:"/lb"
+    rv_eyebrow:"RESEÑAS REALES DE GOOGLE",
+    rv_title:'Cientos de reseñas de 5 estrellas, <span class="grad">verificadas en Google</span>.',
+    rv_sub:"Cada cita de abajo es una reseña real de nuestro perfil de Google. Hacé click en cualquier tarjeta para abrirla en Google Maps y confirmarla vos mismo.",
+    rv_note:"Nota: Google no ofrece links directos a una reseña puntual, así que cada tarjeta abre nuestro perfil verificado de Google donde podés encontrarla y confirmarla entre nuestras reseñas.",
+    reviews_cta:"⭐ Ver todas las reseñas en Google →"
   }
 });
-renderBestSellers('grid-best', [
-  ["Short Ribs (Banderita)", 36.26, "short-ribs-banderita", true],
-  ["Entraña Arg", 37.60, "entrana-arg", true],
-  ["Ground Beef Premium", 11.54, "ground-beef-premium", true],
-  ["Tenderloin", 77.40, "tenderloin", true]
-]);
+renderReviewsCarousel();
 </script>
 </body>
 </html>

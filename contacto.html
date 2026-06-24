@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact &amp; Stores — Total Carnes USA</title>
 <meta name="description" content="Visit Total Carnes USA in North Miami, Aventura, Pinecrest or Key Biscayne, or send a cut request / order detail through our contact form.">
-<link rel="stylesheet" href="assets/style.css?v=14">
+<link rel="stylesheet" href="assets/style.css?v=15">
 </head>
 <body>
 
@@ -39,6 +39,7 @@
       <a href="best-sellers.html" data-i18n="nav_best">Best Sellers</a>
       <a href="nosotros.html" data-i18n="nav_about">Our Story</a>
       <a href="contacto.html" class="current" data-i18n="nav_contact">Contact</a>
+      <a href="reviews.html" data-i18n="nav_reviews">Reviews</a>
     </div>
     <div class="nav-right">
       <a class="nav-cta" href="catalogo.html" data-i18n="nav_cta">Shop the catalog</a>
@@ -78,6 +79,7 @@
     <a href="best-sellers.html" data-i18n="nav_best">Best Sellers</a>
     <a href="nosotros.html" data-i18n="nav_about">Our Story</a>
     <a href="contacto.html" data-i18n="nav_contact">Contact</a>
+      <a href="reviews.html" data-i18n="nav_reviews">Reviews</a>
   </div>
 </nav>
 
@@ -271,55 +273,11 @@
       <h2 class="section-title" data-i18n="reviews_title">What people say about us on Google.</h2>
       <p class="section-desc" data-i18n="reviews_desc">A sample of real reviews from our four Google Maps locations — North Miami, Aventura, Pinecrest and Key Biscayne.</p>
     </div>
-    <div class="reviews-grid">
-      <div class="review-card fade-in">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Si querés comprar carne con los mejores cortes Argentinos, este es el lugar para hacerlo en Miami. Los mejores cortes, la mejor calidad y el mejor servicio."</p>
-        <div class="review-author"><strong>Gustavo Lumer</strong><span data-i18n="review_via_google">Local Guide · Google review</span></div>
-      </div>
-      <div class="review-card fade-in">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Ayer estuve en el local de Key Biscayne. Increíble la atención y el asesoramiento. Todo lo que compramos fue de primera — el vacío y la entraña, espectaculares."</p>
-        <div class="review-author"><strong>Maria Elena Gonzalez</strong><span data-i18n="review_via_google">Local Guide · Google review</span></div>
-      </div>
-      <div class="review-card fade-in">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"La mejor carne Argentina, la mejor carnicería de Miami. Tienen chorizo, morcilla, molleja, vinos, gelato y te atienden con una onda espectacular."</p>
-        <div class="review-author"><strong>Lisandro R.</strong><span data-i18n="review_via_google">Local Guide · Google review</span></div>
-      </div>
-      <div class="review-card fade-in">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"La mejor carne argentina al mejor precio — incluso mejor precio que Costco estando en Key Biscayne. La atención también es excepcional."</p>
-        <div class="review-author"><strong>Agustin Di Luciano</strong><span data-i18n="review_via_google">Google review</span></div>
-      </div>
-      <div class="review-card fade-in">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Primera vez en la tienda de Pinecrest. Este será mi nuevo corte favorito de falda — con ganas de probar el resto del catálogo."</p>
-        <div class="review-author"><strong>Sam</strong><span data-i18n="review_via_google">Local Guide · Google review</span></div>
-      </div>
-      <div class="review-card fade-in">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Excelente mercado argentino con carnes de alta calidad y una atención al cliente excepcional. Los cortes son siempre frescos. Se ha convertido en mi lugar de referencia."</p>
-        <div class="review-author"><strong>Raisa Almendarez</strong><span data-i18n="review_via_google">Google review</span></div>
-      </div>
-      <div class="review-card fade-in">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"Me impresionó mucho este lugar. Martin y Valeria fueron muy amables. La calidad de la carne es excelente y los precios son inmejorables."</p>
-        <div class="review-author"><strong>Belkys Diaz</strong><span data-i18n="review_via_google">Local Guide · Google review</span></div>
-      </div>
-      <div class="review-card fade-in">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"El mejor lugar en Miami para comprar carnes y productos argentinos. Excelente la atención de Mauricio, Andrea y Mel — impecable."</p>
-        <div class="review-author"><strong>Karina De Marco</strong><span data-i18n="review_via_google">Google review</span></div>
-      </div>
-      <div class="review-card fade-in">
-        <div class="review-stars">★★★★★</div>
-        <p class="review-text">"100% recomendado. Un éxito la carne. Excelente atención de Mel, Tadeo, Magali y todo el personal, siempre atentos a lo que necesita el cliente."</p>
-        <div class="review-author"><strong>Lucas Bucci</strong><span data-i18n="review_via_google">Local Guide · Google review</span></div>
-      </div>
+    <div class="reviews-carousel fade-in">
+      <div class="reviews-track" id="reviews-track-contacto"></div>
     </div>
-    <div class="fade-in" style="margin-top:32px; text-align:center;">
-      <a class="btn btn-secondary" href="https://www.google.com/maps/place/?q=place_id:Total+Carnes" target="_blank" rel="noopener" data-i18n="reviews_cta">⭐ See all reviews on Google →</a>
+    <div class="fade-in" style="margin-top:24px; text-align:center;">
+      <a class="btn btn-secondary" href="reviews.html" data-i18n="reviews_see_more">⭐ See all our Google reviews →</a>
     </div>
   </div>
 </section>
@@ -352,7 +310,7 @@
 </footer>
 
 <script src="assets/cart.js"></script>
-<script src="assets/common.js?v=14"></script>
+<script src="assets/common.js?v=15"></script>
 <script>
 let addressDebounce = null;
 
@@ -456,6 +414,38 @@ function handleContactSubmit(e){
   return false;
 }
 
+const GOOGLE_REVIEWS_LINK = "https://www.google.com/maps/search/Total+Carnes+USA";
+const realReviews = [
+  ["Ivon Fernandez", "Local Guide · 47 opiniones", "Excelente lugar, me encantó, no había estado ahí antes. Muy buena calidad de carnes y muy buena atención de su manager Carol. Volveré sin duda."],
+  ["Javier Mentasti", "9 opiniones", "Toda tipo de carne. Argentina 🇦🇷 el mejor de Miami. Precio, calidad y atención al cliente excelente."],
+  ["Guillermina", "12 opiniones", "Si querés comprar carne con los mejores cortes argentinos, este es el lugar para hacerlo en Miami. Los mejores cortes, la mejor calidad y el mejor servicio."],
+  ["Paul Pupo", "2 opiniones", "Excelente lugar para encontrar lo más rico para agasajar a tus invitados. Carne inmejorable y los vinos son un 100."],
+  ["Gabriel Fabrizio Barrece Guedez", "Local Guide · 48 opiniones", "La mejor carnicería en todo Miami!! Excelente servicio y sobre todo la carne muy rica."],
+  ["Pablo Dominguez", "13 opiniones", "Recomiendo el lugar al 100%. Excelente atención de las chicas, un lugar impecable, con buen ambiente y todo ordenado, con calidades increíbles."],
+  ["Fabian Mateos", "Local Guide · 35 opiniones", "Producto excelente! Somos proveedores de carne para las barbacoas en el chiringuito español de Key Biscayne, y además del gran producto, la atención es ideal."],
+  ["Mica Péndola", "4 opiniones", "Excelente lugar para comprar carne de calidad en Miami. Recomendado."],
+  ["Fausto Guebara", "3 opiniones", "Excelente carne y servicio! Carne argentina de calidad!"],
+  ["josefina martinez", "5 opiniones", "Excelente la calidad y la atención!! Recomiendo mucho."],
+  ["Javier Valderrama", "Local Guide · 125 opiniones", "Excelente carnicería, productos de súper calidad y una atención extraordinaria."],
+  ["Felipe Tomas Garcia Schickendantz", "10 opiniones", "Espectacular variedad, los empleados son muy buena onda, sobre todo la niña de la caja, gracias."],
+  ["Dania Cofiño", "1 opinión", "Gran servicio! La mejor carne de Miami, al mejor precio!"]
+];
+
+function renderReviewsCarousel(){
+  const track = document.getElementById('reviews-track-contacto');
+  if(!track) return;
+  const slide = ([name, meta, text]) => `
+    <a class="review-slide" href="${GOOGLE_REVIEWS_LINK}" target="_blank" rel="noopener">
+      <div class="review-slide-top">
+        <span class="review-slide-stars">★★★★★</span>
+        <span class="review-slide-google">Google ↗</span>
+      </div>
+      <p class="review-slide-text">"${text}"</p>
+      <div class="review-slide-author"><strong>${name}</strong><span>${meta}</span></div>
+    </a>`;
+  track.innerHTML = realReviews.map(slide).join('') + realReviews.map(slide).join('');
+}
+
 initSite({
   en:{
     ph_eyebrow:"VISIT US OR REACH OUT",
@@ -501,6 +491,7 @@ initSite({
   }
 });
 initAddressAutocomplete();
+renderReviewsCarousel();
 
 window.onLangChange = function(lang){
   if(lang === 'es'){
