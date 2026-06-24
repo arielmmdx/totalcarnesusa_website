@@ -789,6 +789,9 @@ section{padding:90px 0;}
 .product-detail-name{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;margin:16px 0 8px;}
 .product-detail-price{font-family:'Fraunces',serif;font-weight:700;font-size:1.8rem;color:var(--accent2);}
 .product-unit-note{font-size:13px;color:var(--muted);padding-bottom:20px;border-bottom:1px solid var(--border);margin-bottom:8px;}
+.weight-header-row{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.weight-unit-group{margin:24px 0 10px;}
+.weight-unit-btn{min-width:40px;justify-content:center;}
 .weight-options{display:flex;flex-wrap:wrap;gap:10px;}
 .weight-btn{
   background:var(--card);border:1px solid var(--border);color:var(--text);

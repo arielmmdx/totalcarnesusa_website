@@ -137,26 +137,6 @@ function getDisplayName(name, slug){
 }
 
 const KG_PER_LB = 0.453592;
-function getPriceUnit(){
-  return localStorage.getItem('tc_unit') || 'lb';
-}
-function formatPrice(price){
-  const unit = getPriceUnit();
-  const value = unit === 'kg' ? price / KG_PER_LB : price;
-  return { amount: value.toFixed(2), unit };
-}
-function setPriceUnit(unit){
-  localStorage.setItem('tc_unit', unit);
-  document.querySelectorAll('.unit-btn').forEach(btn=>{
-    btn.classList.toggle('active', btn.dataset.unit === unit);
-  });
-  if(typeof renderCatalogTab === 'function' && document.getElementById('catalog-grid')) renderCatalogTab();
-  if(typeof renderCatalog === 'function' && document.querySelector('[id^="grid-"]')) renderCatalog();
-  document.querySelectorAll('[data-rerender-bestsellers]').forEach(el=>{
-    if(typeof window.tcRerenderBestSellers === 'function') window.tcRerenderBestSellers();
-  });
-}
-window.setPriceUnit = setPriceUnit;
 
 const CATEGORY_LABELS = {
   beef:{en:'Beef',es:'Res'}, chicken:{en:'Chicken',es:'Pollo'}, pork:{en:'Pork',es:'Cerdo'},
@@ -194,10 +174,9 @@ function buildCard(name, price, slug, inStock, categoryKey){
     : (inStock === true ? `<span class="stock-badge in" data-i18n="stock_in">In stock</span>` : '');
   const categoryTag = categoryKey ? `<span class="category-tag">${getCategoryLabel(categoryKey)}</span>` : '';
   const cardClass = inStock === false ? 'product-card out-of-stock fade-in' : 'product-card fade-in';
-  const { amount, unit } = formatPrice(price);
   const inner = `${categoryTag}${img}${stockBadge}
     <span class="product-name">${displayName}</span>
-    <span class="product-price">$${amount}<span class="product-unit">/${unit}</span></span>`;
+    <span class="product-price">$${price.toFixed(2)}</span>`;
   return slug
     ? `<a class="${cardClass}" href="product.html?slug=${slug}">${inner}</a>`
     : `<div class="${cardClass}">${inner}</div>`;

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Product | Total Carnes USA</title>
 <meta name="description" content="Product details for Total Carnes USA, premium Argentine beef and cuts.">
-<link rel="stylesheet" href="assets/style.css?v=29">
+<link rel="stylesheet" href="assets/style.css?v=30">
 </head>
 <body>
 
@@ -290,17 +290,37 @@
 
 <script src="assets/cart.js"></script>
 <script src="assets/common.js?v=23"></script>
-<script src="assets/catalog-data.js?v=24"></script>
+<script src="assets/catalog-data.js?v=25"></script>
 <script>
 let currentProduct = null;
 let selectedWeight = 1;
 let selectedQty = 1;
 
 const WEIGHT_OPTIONS = [
-  { label: '1 – 1.5 lbs', mult: 1.25 },
-  { label: '1.5 – 2 lbs', mult: 1.75 },
-  { label: '2 – 2.5 lbs', mult: 2.25 }
+  { lbMin: 1, lbMax: 1.5 },
+  { lbMin: 1.5, lbMax: 2 },
+  { lbMin: 2, lbMax: 2.5 }
 ];
+function getWeightUnit(){
+  return localStorage.getItem('tc_weight_unit') || 'lb';
+}
+function weightMult(opt){
+  return (opt.lbMin + opt.lbMax) / 2;
+}
+function weightOptionLabel(opt){
+  if(getWeightUnit() === 'kg'){
+    return `${(opt.lbMin*KG_PER_LB).toFixed(1)} – ${(opt.lbMax*KG_PER_LB).toFixed(1)} kg`;
+  }
+  return `${opt.lbMin} – ${opt.lbMax} lbs`;
+}
+function setWeightUnit(unit){
+  localStorage.setItem('tc_weight_unit', unit);
+  document.querySelectorAll('.weight-unit-btn').forEach(btn=>{
+    btn.classList.toggle('active', btn.dataset.unit === unit);
+  });
+  renderWeightOptions();
+}
+window.setWeightUnit = setWeightUnit;
 
 function renderProductDetail(){
   const params = new URLSearchParams(window.location.search);
@@ -329,10 +349,15 @@ function renderProductDetail(){
         <span class="category-tag">${getCategoryLabel(product.category)}</span>
         ${stockBadge}
         <h1 class="product-detail-name">${displayName}</h1>
-        <div class="product-detail-price" id="product-detail-price">$${(product.price*WEIGHT_OPTIONS[selectedWeight].mult).toFixed(2)}</div>
-        <p class="product-unit-note">$${product.price.toFixed(2)} <span data-i18n="unit_lb">/lb</span></p>
+        <div class="product-detail-price" id="product-detail-price">$${(product.price*weightMult(WEIGHT_OPTIONS[selectedWeight])).toFixed(2)}</div>
 
-        <p class="filter-group-label" style="margin:24px 0 10px;" data-i18n="weight_label">Weight</p>
+        <div class="weight-header-row">
+          <p class="filter-group-label" style="margin:24px 0 10px;" data-i18n="weight_label">Weight</p>
+          <div class="btn-group weight-unit-group">
+            <button class="pill-btn weight-unit-btn active" data-unit="lb" onclick="setWeightUnit('lb')">lb</button>
+            <button class="pill-btn weight-unit-btn" data-unit="kg" onclick="setWeightUnit('kg')">kg</button>
+          </div>
+        </div>
         <div class="weight-options" id="weight-options"></div>
 
         <p class="filter-group-label" style="margin:24px 0 10px;" data-i18n="qty_label">Quantity</p>
@@ -353,6 +378,9 @@ function renderProductDetail(){
   `;
 
   renderWeightOptions();
+  document.querySelectorAll('.weight-unit-btn').forEach(btn=>{
+    btn.classList.toggle('active', btn.dataset.unit === getWeightUnit());
+  });
   if(window.applyI18nTo) window.applyI18nTo(document.getElementById('product-detail'));
 }
 
@@ -360,7 +388,7 @@ function renderWeightOptions(){
   const el = document.getElementById('weight-options');
   if(!el) return;
   el.innerHTML = WEIGHT_OPTIONS.map((opt, i)=>
-    `<button class="weight-btn ${i===selectedWeight?'active':''}" onclick="selectWeight(${i})">${opt.label}</button>`
+    `<button class="weight-btn ${i===selectedWeight?'active':''}" onclick="selectWeight(${i})">${weightOptionLabel(opt)}</button>`
   ).join('');
 }
 
@@ -373,7 +401,7 @@ function selectWeight(i){
 function updatePriceDisplay(){
   if(!currentProduct) return;
   const priceEl = document.getElementById('product-detail-price');
-  if(priceEl) priceEl.textContent = '$' + (currentProduct.price * WEIGHT_OPTIONS[selectedWeight].mult).toFixed(2);
+  if(priceEl) priceEl.textContent = '$' + (currentProduct.price * weightMult(WEIGHT_OPTIONS[selectedWeight])).toFixed(2);
 }
 
 function changeQty(delta){
@@ -383,8 +411,8 @@ function changeQty(delta){
 
 function handleAddToCart(){
   if(!currentProduct) return;
-  const weightLabel = WEIGHT_OPTIONS[selectedWeight].label;
-  const unitPrice = currentProduct.price * WEIGHT_OPTIONS[selectedWeight].mult;
+  const weightLabel = weightOptionLabel(WEIGHT_OPTIONS[selectedWeight]);
+  const unitPrice = currentProduct.price * weightMult(WEIGHT_OPTIONS[selectedWeight]);
   const cartSlug = currentProduct.slug + '__' + selectedWeight;
   const displayName = getDisplayName(currentProduct.name, currentProduct.slug);
   addToCart(cartSlug, `${displayName} (${weightLabel})`, unitPrice, selectedQty);
