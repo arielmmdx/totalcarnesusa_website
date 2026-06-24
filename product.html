@@ -290,28 +290,15 @@
 
 <script src="assets/cart.js"></script>
 <script src="assets/common.js?v=23"></script>
-<script src="assets/catalog-data.js?v=25"></script>
+<script src="assets/catalog-data.js?v=26"></script>
 <script>
 let currentProduct = null;
-let selectedWeight = 1;
+let currentVariants = [];
+let selectedWeight = 0;
 let selectedQty = 1;
 
-const WEIGHT_OPTIONS = [
-  { lbMin: 1, lbMax: 1.5 },
-  { lbMin: 1.5, lbMax: 2 },
-  { lbMin: 2, lbMax: 2.5 }
-];
 function getWeightUnit(){
   return localStorage.getItem('tc_weight_unit') || 'lb';
-}
-function weightMult(opt){
-  return (opt.lbMin + opt.lbMax) / 2;
-}
-function weightOptionLabel(opt){
-  if(getWeightUnit() === 'kg'){
-    return `${(opt.lbMin*KG_PER_LB).toFixed(1)} – ${(opt.lbMax*KG_PER_LB).toFixed(1)} kg`;
-  }
-  return `${opt.lbMin} – ${opt.lbMax} lbs`;
 }
 function setWeightUnit(unit){
   localStorage.setItem('tc_weight_unit', unit);
@@ -333,6 +320,9 @@ function renderProductDetail(){
     return;
   }
   currentProduct = product;
+  currentVariants = getProductVariants(product.slug, product.price);
+  selectedWeight = 0;
+  const hasRealWeights = currentVariants.length > 1 || currentVariants[0].label !== 'Default Title';
   const displayName = getDisplayName(product.name, product.slug);
   document.title = displayName + ' | Total Carnes USA';
 
@@ -349,8 +339,9 @@ function renderProductDetail(){
         <span class="category-tag">${getCategoryLabel(product.category)}</span>
         ${stockBadge}
         <h1 class="product-detail-name">${displayName}</h1>
-        <div class="product-detail-price" id="product-detail-price">$${(product.price*weightMult(WEIGHT_OPTIONS[selectedWeight])).toFixed(2)}</div>
+        <div class="product-detail-price" id="product-detail-price">$${currentVariants[0].price.toFixed(2)}</div>
 
+        ${hasRealWeights ? `
         <div class="weight-header-row">
           <p class="filter-group-label" style="margin:24px 0 10px;" data-i18n="weight_label">Weight</p>
           <div class="btn-group weight-unit-group">
@@ -358,7 +349,7 @@ function renderProductDetail(){
             <button class="pill-btn weight-unit-btn" data-unit="kg" onclick="setWeightUnit('kg')">kg</button>
           </div>
         </div>
-        <div class="weight-options" id="weight-options"></div>
+        <div class="weight-options" id="weight-options"></div>` : ''}
 
         <p class="filter-group-label" style="margin:24px 0 10px;" data-i18n="qty_label">Quantity</p>
         <div class="qty-stepper">
@@ -387,8 +378,9 @@ function renderProductDetail(){
 function renderWeightOptions(){
   const el = document.getElementById('weight-options');
   if(!el) return;
-  el.innerHTML = WEIGHT_OPTIONS.map((opt, i)=>
-    `<button class="weight-btn ${i===selectedWeight?'active':''}" onclick="selectWeight(${i})">${weightOptionLabel(opt)}</button>`
+  const unit = getWeightUnit();
+  el.innerHTML = currentVariants.map((opt, i)=>
+    `<button class="weight-btn ${i===selectedWeight?'active':''}" onclick="selectWeight(${i})">${getWeightDisplay(opt.label, unit)}</button>`
   ).join('');
 }
 
@@ -401,7 +393,7 @@ function selectWeight(i){
 function updatePriceDisplay(){
   if(!currentProduct) return;
   const priceEl = document.getElementById('product-detail-price');
-  if(priceEl) priceEl.textContent = '$' + (currentProduct.price * weightMult(WEIGHT_OPTIONS[selectedWeight])).toFixed(2);
+  if(priceEl) priceEl.textContent = '$' + currentVariants[selectedWeight].price.toFixed(2);
 }
 
 function changeQty(delta){
@@ -411,11 +403,12 @@ function changeQty(delta){
 
 function handleAddToCart(){
   if(!currentProduct) return;
-  const weightLabel = weightOptionLabel(WEIGHT_OPTIONS[selectedWeight]);
-  const unitPrice = currentProduct.price * weightMult(WEIGHT_OPTIONS[selectedWeight]);
+  const variant = currentVariants[selectedWeight];
+  const weightLabel = getWeightDisplay(variant.label, getWeightUnit());
   const cartSlug = currentProduct.slug + '__' + selectedWeight;
   const displayName = getDisplayName(currentProduct.name, currentProduct.slug);
-  addToCart(cartSlug, `${displayName} (${weightLabel})`, unitPrice, selectedQty);
+  const cartName = variant.label === 'Default Title' ? displayName : `${displayName} (${weightLabel})`;
+  addToCart(cartSlug, cartName, variant.price, selectedQty);
 }
 
 initSite({

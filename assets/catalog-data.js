@@ -74,12 +74,12 @@ const catalogData = {
   pantry: [
     ["Cachafaz Alfajor Choc Blanco 6 Uni", 15.62, "cachafaz-alfajor-choc-blanco-6-uni", true],
     ["Cachafaz Alfajor Choc Negro 6 Uni", 15.62, "cachafaz-alfajor-choc-negro-6-uni", true],
-    ["Cachafaz Alfajor Maicena 6 Uni", 15.62, "cachafaz-alfajor-maicena-6-uni", true],
-    ["Cachafaz Alfajor Mousse 6 Uni", 15.62, "cachafaz-alfajor-mousse-6-uni", true],
-    ["Cachafaz Conitos 6 Uni", 15.62, "cachafaz-conitos-6-uni", true],
-    ["Cachafaz Dulce de Leche", 9.85, "cachafaz-dulce-de-leche", true],
-    ["Dulce de Batata - La Campagnola", 8.40, "dulce-de-batata-la-campagnola", true],
-    ["Maldon Sea Salt Flakes 8.5 Oz", 11.20, "maldon-sea-salt-flakes-8-5-oz", false]
+    ["Cachafaz Alfajor Maicena 6 Uni", 14.00, "cachafaz-alfajor-maicena-6-uni", true],
+    ["Cachafaz Alfajor Mousse 6 Uni", 16.41, "cachafaz-alfajor-mousse-6-uni", true],
+    ["Cachafaz Conitos 6 Uni", 13.70, "cachafaz-conitos-6-uni", true],
+    ["Cachafaz Dulce de Leche", 11.86, "cachafaz-dulce-de-leche", true],
+    ["Dulce de Batata - La Campagnola", 8.25, "dulce-de-batata-la-campagnola", true],
+    ["Maldon Sea Salt Flakes 8.5 Oz", 9.13, "maldon-sea-salt-flakes-8-5-oz", true]
   ]
 };
 
@@ -138,6 +138,79 @@ function getDisplayName(name, slug){
 
 const KG_PER_LB = 0.453592;
 
+const PRODUCT_VARIANTS = {
+  "beef-honeycomb-mondongo": [{label:"0.5-1 lbs", price:10.99}, {label:"1-1.5 lbs", price:16.48}, {label:"1.5-1.7 lbs", price:18.67}],
+  "brisket": [{label:"5-7 lbs", price:45.35}, {label:"7-10lbs", price:64.79}],
+  "c-roll-ribeye": [{label:"0.9-1.1 lbs", price:20.54}, {label:"1.1-1.7 lbs", price:31.77}],
+  "chateau-briand": [{label:"0.4-0.5 lbs", price:13.2}, {label:"0.5-0.6 lbs", price:15.83}, {label:"0.6-0.8 lbs", price:21.11}],
+  "costillar-del-centro": [{label:"7lb-8lb", price:150.0}, {label:"8lb-9lb", price:168.0}],
+  "entrana-arg": [{label:"1.5-1.8 lbs", price:37.6}, {label:"1.8-2.2 lbs", price:45.95}, {label:"2.2-2.8 lbs", price:58.48}],
+  "eye-round": [{label:"2.7-3.6 lbs", price:27.67}, {label:"3.6-5.2 lbs", price:39.98}],
+  "flap-meat-arg": [{label:"3.5-4 lbs", price:57.15}, {label:"4-5.2 lbs", price:74.3}],
+  "ground-beef-premium": [{label:"1.2-1.5 lbs", price:11.54}],
+  "heart-corazon": [{label:"1.2-1.5 lbs", price:9.39}, {label:"1.5-2 lbs", price:12.52}, {label:"2-2.5 lbs", price:15.65}],
+  "inside": [{label:"7-10 lbs", price:82.39}],
+  "kosher-ribeye-frozen": [{label:"6-7.95 lbs", price:189.94}, {label:"7.95-8.95 lbs", price:213.62}],
+  "liver-higado-de-res": [{label:"0.5-1 lbs", price:4.39}, {label:"1-1.5 lbs", price:6.59}, {label:"1.5-2 lbs", price:8.77}],
+  "marroc-estuche-6-un": [{label:"Default Title", price:6.84}],
+  "marrow-bones": [{label:"1.1-1.5 lbs", price:9.06}, {label:"1.5-2 lbs", price:12.07}, {label:"2-2.8 lbs", price:16.9}],
+  "marucha": [{label:"1-1.5 lbs", price:13.03}, {label:"1.5-2 lbs", price:17.38}],
+  "milanesas-de-carne": [{label:"1.5-2.5 lbs", price:27.47}, {label:"2.5-2.8 lbs", price:30.77}],
+  "ossobuco": [{label:"0.2-0.8 lbs", price:7.03}, {label:"0.8-1.2 lbs", price:10.55}, {label:"1.2-1.5 lbs", price:13.19}],
+  "outside-skirt-usa": [{label:"1.2-2 lbs", price:52.77}, {label:"2- 2.5 lbs", price:65.97}, {label:"2.5-10 lbs", price:263.89}, {label:"10-15 lbs", price:395.84}],
+  "oxtail-frozen": [{label:"1.5-2 lbs", price:27.58}, {label:"2-2.5 lbs", price:34.48}, {label:"2.5-3.8 lbs", price:52.51}],
+  "recorte-de-paleta": [{label:"2-2.5 lbs", price:9.6}, {label:"2.5-3 lbs", price:11.52}, {label:"3-4.5 lbs", price:17.27}],
+  "ribeye-selection": [{label:"0.5-0.75 lbs", price:14.84}, {label:"0.75-0.9 lbs", price:17.81}, {label:"0.9-1.5 lbs", price:29.69}],
+  "ribeye-with-bone-frozen": [{label:"1-1.5 lbs", price:30.5}, {label:"1.5-2 lbs", price:40.68}, {label:"2-2.6 lbs", price:52.88}],
+  "rose-meat-frozen": [{label:"4-6.22 lbs", price:51.24}, {label:"6.22-8.5 lbs", price:70.0}, {label:"8.5-9.8 lbs", price:80.74}],
+  "rump-cap-picanha": [{label:"2-2.5 lbs", price:32.69}, {label:"2.5-3 lbs", price:39.23}, {label:"3-3.5 lbs", price:45.77}],
+  "short-ribs-banderita": [{label:"2.81-3 lbs", price:36.26}, {label:"3-3.4 lbs", price:41.1}],
+  "short-ribs-frozen": [{label:"3.5-3.8 lbs", price:45.94}, {label:"3.8-4.1 lbs", price:49.61}, {label:"4.1-4.3 lbs", price:51.99}],
+  "small-intestine-frozen": [{label:"0.5-1 lbs", price:4.94}, {label:"1-1.5 lbs", price:7.4}, {label:"1.5-2 lbs", price:9.87}],
+  "striploin-ny": [{label:"1-1.5 lbs", price:21.43}, {label:"1.5-2 lbs", price:28.58}],
+  "striploin-ny-selection": [{label:"0.5-0.75 lbs", price:13.19}, {label:"0.75- 0.9 lbs", price:15.82}, {label:"0.9-1.5 lbs", price:26.39}],
+  "sweetbread-molleja": [{label:"1.5-2 lbs", price:14.28}, {label:"2-2.5 lbs", price:17.85}],
+  "t-bone": [{label:"1-1.5 lbs", price:26.39}, {label:"1.5-2 lbs", price:35.18}],
+  "tenderloin": [{label:"3-3.2 lbs", price:77.4}, {label:"3.2-3.5 lbs", price:84.66}, {label:"3.5-4 lbs", price:96.75}],
+  "thin-flank-entero-vacio": [{label:"9-12 lbs", price:131.86}, {label:"12-15 lbs", price:164.83}],
+  "tomahawk": [{label:"1.5-2 lbs", price:48.38}, {label:"2-2.5 lbs", price:60.48}, {label:"2.5-3 lbs", price:72.57}],
+  "tongue-frozen": [{label:"2-2.8 lbs", price:32.31}, {label:"2.8-3.5 lbs", price:40.39}, {label:"3.5-4.5 lbs", price:51.92}],
+  "tri-tip": [{label:"2-2.5 lbs", price:27.23}, {label:"2.5-3 lbs", price:32.67}, {label:"3-3.9 lbs", price:42.47}],
+  "chicken-breast-all-natural": [{label:"1.2-1.5 lbs", price:8.17}, {label:"1.5-1.8 lbs", price:9.8}, {label:"1.8-2.8 lbs", price:15.24}],
+  "chicken-leg-all-natural": [{label:"1.7-2 lbs", price:4.37}, {label:"2-2.5 lbs", price:5.38}, {label:"2.5-3.1 lbs", price:6.79}],
+  "empanadas-de-pollo-x-6": [{label:"Default Title", price:10.98}],
+  "milanesas-de-pollo": [{label:"1.5- 2.5 lbs", price:24.73}, {label:"2.5-2.8 lbs", price:27.68}],
+  "burger-pork": [{label:"0.8-0.9 lbs", price:7.91}],
+  "milanesas-pork": [{label:"1.5-2.5 lbs", price:21.98}, {label:"2.5-2.8 lbs", price:24.6}],
+  "pork-baby-ribs": [{label:"2-2.5 lbs", price:13.73}, {label:"2.5-3.5 lbs", price:19.21}, {label:"3.5-4.7 lbs", price:25.79}],
+  "pork-chuck-fr-bondiola-frozen": [{label:"2.5-3 lbs", price:13.83}, {label:"3-3.5 lbs", price:16.13}],
+  "pork-tender": [{label:"2-2.3 lbs", price:9.33}, {label:"2.3-2.5 lbs", price:10.15}, {label:"2.5-2.7 lbs", price:10.96}],
+  "rose-meat-pork-frozen": [{label:"1-1.5 lbs", price:13.18}, {label:"1.5-2 lbs", price:17.58}, {label:"2-3.4 lbs", price:29.88}],
+  "burger-lamb": [{label:"0.8-0.9 lbs", price:7.91}],
+  "lamb-leg": [{label:"5-6 lbs", price:56.03}, {label:"6-7 lbs", price:65.37}, {label:"7-8.5 lbs", price:79.38}],
+  "lamb-leg-n-z-w-bone": [{label:"6-6.31 lbs", price:48.51}, {label:"6.32-7.6 lbs", price:58.43}],
+  "lamb-rack": [{label:"1-1.5 lbs", price:39.27}, {label:"1.5-2 lbs", price:52.36}, {label:"2-2.2 lbs", price:57.59}],
+  "burger-chori": [{label:"0.8-0.9 lbs", price:7.91}],
+  "burger-original": [{label:"0.8-0.9 lbs", price:7.91}],
+  "chorizo-argentino": [{label:"Default Title", price:5.11}],
+  "chorizo-bombon-argentino": [{label:"Default Title", price:5.11}],
+  "empanadas-de-carne-x-6": [{label:"Default Title", price:10.98}],
+  "empanadas-de-espinaca-y-queso-x-6": [{label:"Default Title", price:10.98}],
+  "empanadas-de-jamon-y-queso-x-6": [{label:"Default Title", price:10.98}],
+  "morcilla-argentina": [{label:"Default Title", price:5.11}],
+  "morcilla-bombon-argentina": [{label:"Default Title", price:5.27}],
+  "provoleta-santa-rosa": [{label:"Default Title", price:12.53}],
+  "salchicha-parrillera": [{label:"Default Title", price:7.15}],
+  "cachafaz-alfajor-choc-blanco-6-uni": [{label:"Default Title", price:15.62}],
+  "cachafaz-alfajor-choc-negro-6-uni": [{label:"Default Title", price:15.62}],
+  "cachafaz-alfajor-maicena-6-uni": [{label:"Default Title", price:14.0}],
+  "cachafaz-alfajor-mousse-6-uni": [{label:"Default Title", price:16.41}],
+  "cachafaz-conitos-6-uni": [{label:"Default Title", price:13.7}],
+  "cachafaz-dulce-de-leche": [{label:"450gr", price:11.86}, {label:"800gr", price:16.8}],
+  "dulce-de-batata-la-campagnola": [{label:"Default Title", price:8.25}],
+  "maldon-sea-salt-flakes-8-5-oz": [{label:"Default Title", price:9.13}],
+};
+
 const CATEGORY_LABELS = {
   beef:{en:'Beef',es:'Res'}, chicken:{en:'Chicken',es:'Pollo'}, pork:{en:'Pork',es:'Cerdo'},
   lamb:{en:'Lamb',es:'Cordero'}, grill:{en:'Grill & Prepared',es:'Parrilla y preparados'},
@@ -162,6 +235,33 @@ function findProductBySlug(slug){
     if(found) return { name:found[0], price:found[1], slug:found[2], inStock:found[3], category:cat };
   }
   return null;
+}
+
+function getProductVariants(slug, fallbackPrice){
+  return PRODUCT_VARIANTS[slug] || [{ label: 'Default Title', price: fallbackPrice }];
+}
+
+function parseWeightToKg(label){
+  const isGrams = /gr\b/i.test(label) && !/lbs?/i.test(label);
+  const cleaned = label.toLowerCase().replace(/lbs?/g, '').replace(/gr/g, '').trim();
+  const parts = cleaned.split('-').map(s=>parseFloat(s.trim())).filter(n=>!isNaN(n));
+  if(!parts.length) return null;
+  const toKg = v => isGrams ? v/1000 : v*KG_PER_LB;
+  if(parts.length === 1) return { min: toKg(parts[0]), max: toKg(parts[0]) };
+  return { min: toKg(parts[0]), max: toKg(parts[1]) };
+}
+
+function trimNum(n){
+  return (Math.round(n*100)/100).toString();
+}
+
+function getWeightDisplay(label, unit){
+  if(unit !== 'kg') return label;
+  const parsed = parseWeightToKg(label);
+  if(!parsed) return label;
+  return parsed.min === parsed.max
+    ? `${trimNum(parsed.min)} kg`
+    : `${trimNum(parsed.min)} – ${trimNum(parsed.max)} kg`;
 }
 
 function buildCard(name, price, slug, inStock, categoryKey){
