@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Product — Total Carnes USA</title>
 <meta name="description" content="Product details — Total Carnes USA, premium Argentine beef and cuts.">
-<link rel="stylesheet" href="assets/style.css?v=11">
+<link rel="stylesheet" href="assets/style.css?v=12">
 </head>
 <body>
 
@@ -27,6 +27,7 @@
   <div class="smoke-puff s2"></div>
   <div class="smoke-puff s3"></div>
   <div class="smoke-puff s4"></div>
+  <div class="smoke-puff s5"></div>
 </div>
 
 <nav class="nav">
@@ -89,6 +90,8 @@
     <button class="swatch-btn" data-palette="atlantico" onclick="setPalette('atlantico')"><span class="swatch-dot sw-atlantico"></span>Atlántico</button>
     <button class="swatch-btn" data-palette="medianoche" onclick="setPalette('medianoche')"><span class="swatch-dot sw-medianoche"></span>Medianoche</button>
     <button class="swatch-btn" data-palette="pampa" onclick="setPalette('pampa')"><span class="swatch-dot sw-pampa"></span>Pampa</button>
+    <button class="swatch-btn" data-palette="retro" onclick="setPalette('retro')"><span class="swatch-dot sw-retro"></span>Retro</button>
+    <button class="swatch-btn" data-palette="miami" onclick="setPalette('miami')"><span class="swatch-dot sw-miami"></span>Miami</button>
   </div>
 </div>
 
@@ -144,8 +147,8 @@
 </footer>
 
 <script src="assets/cart.js"></script>
-<script src="assets/common.js?v=11"></script>
-<script src="assets/catalog-data.js?v=11"></script>
+<script src="assets/common.js?v=12"></script>
+<script src="assets/catalog-data.js?v=12"></script>
 <script>
 let currentProduct = null;
 let selectedWeight = 1;
@@ -183,7 +186,8 @@ function renderProductDetail(){
         <span class="category-tag">${getCategoryLabel(product.category)}</span>
         ${stockBadge}
         <h1 class="product-detail-name">${product.name}</h1>
-        <div class="product-detail-price">$${product.price.toFixed(2)}<span class="product-unit" data-i18n="unit_lb"> /lb</span></div>
+        <div class="product-detail-price" id="product-detail-price">$${(product.price*WEIGHT_OPTIONS[selectedWeight].mult).toFixed(2)}</div>
+        <p class="product-unit-note">$${product.price.toFixed(2)} <span data-i18n="unit_lb">/lb</span></p>
 
         <p class="filter-group-label" style="margin:24px 0 10px;" data-i18n="weight_label">Weight</p>
         <div class="weight-options" id="weight-options"></div>
@@ -220,6 +224,13 @@ function renderWeightOptions(){
 function selectWeight(i){
   selectedWeight = i;
   renderWeightOptions();
+  updatePriceDisplay();
+}
+
+function updatePriceDisplay(){
+  if(!currentProduct) return;
+  const priceEl = document.getElementById('product-detail-price');
+  if(priceEl) priceEl.textContent = '$' + (currentProduct.price * WEIGHT_OPTIONS[selectedWeight].mult).toFixed(2);
 }
 
 function changeQty(delta){
@@ -229,7 +240,10 @@ function changeQty(delta){
 
 function handleAddToCart(){
   if(!currentProduct) return;
-  addToCart(currentProduct.slug, currentProduct.name, currentProduct.price, selectedQty);
+  const weightLabel = WEIGHT_OPTIONS[selectedWeight].label;
+  const unitPrice = currentProduct.price * WEIGHT_OPTIONS[selectedWeight].mult;
+  const cartSlug = currentProduct.slug + '__' + selectedWeight;
+  addToCart(cartSlug, `${currentProduct.name} (${weightLabel})`, unitPrice, selectedQty);
 }
 
 initSite({
