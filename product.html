@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Product — Total Carnes USA</title>
 <meta name="description" content="Product details — Total Carnes USA, premium Argentine beef and cuts.">
-<link rel="stylesheet" href="assets/style.css?v=16">
+<link rel="stylesheet" href="assets/style.css?v=17">
 </head>
 <body>
 
@@ -94,6 +94,7 @@
     <button class="swatch-btn" data-palette="pampa" onclick="setPalette('pampa')"><span class="swatch-dot sw-pampa"></span>Pampa</button>
     <button class="swatch-btn" data-palette="retro" onclick="setPalette('retro')"><span class="swatch-dot sw-retro"></span>Retro</button>
     <button class="swatch-btn" data-palette="miami" onclick="setPalette('miami')"><span class="swatch-dot sw-miami"></span>Miami</button>
+    <button class="swatch-btn" data-palette="fuxia" onclick="setPalette('fuxia')"><span class="swatch-dot sw-fuxia"></span>Fuxia</button>
   </div>
 </div>
 
@@ -186,15 +187,19 @@
       </div>
       <div class="footer-col">
         <h4 data-i18n="footer_shop">Shop</h4>
-        <a href="catalogo.html" data-i18n="nav_catalog">Catalog</a>
-        <a href="best-sellers.html" data-i18n="nav_best">Best Sellers</a>
+        <div class="footer-col-buttons">
+          <a class="footer-link-btn" href="catalogo.html" data-i18n="nav_catalog">📋 Catalog</a>
+          <a class="footer-link-btn" href="best-sellers.html" data-i18n="nav_best">⭐ Best Sellers</a>
+        </div>
       </div>
       <div class="footer-col">
-        <h4 data-i18n="footer_locations_title">Our stores</h4>
-        <p data-i18n="addr_northmiami">North Miami — 12420 Biscayne Blvd</p>
-        <p data-i18n="addr_aventura">Aventura — 19087 West Dixie Highway</p>
-        <p data-i18n="addr_pinecrest">Pinecrest — 9563 S Dixie Hwy #04A</p>
-        <p data-i18n="addr_keybiscayne">Key Biscayne — 328 Crandon Blvd</p>
+        <a href="contacto.html#stores-map"><h4 class="footer-link-btn-heading" data-i18n="footer_locations_title">📍 Our stores</h4></a>
+        <div class="footer-col-buttons">
+          <a class="footer-store-link" href="contacto.html#stores-map" data-i18n="addr_northmiami">North Miami — 12420 Biscayne Blvd</a>
+          <a class="footer-store-link" href="contacto.html#stores-map" data-i18n="addr_aventura">Aventura — 19087 West Dixie Highway</a>
+          <a class="footer-store-link" href="contacto.html#stores-map" data-i18n="addr_pinecrest">Pinecrest — 9563 S Dixie Hwy #04A</a>
+          <a class="footer-store-link" href="contacto.html#stores-map" data-i18n="addr_keybiscayne">Key Biscayne — 328 Crandon Blvd</a>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -205,8 +210,8 @@
 </footer>
 
 <script src="assets/cart.js"></script>
-<script src="assets/common.js?v=16"></script>
-<script src="assets/catalog-data.js?v=16"></script>
+<script src="assets/common.js?v=17"></script>
+<script src="assets/catalog-data.js?v=17"></script>
 <script>
 let currentProduct = null;
 let selectedWeight = 1;

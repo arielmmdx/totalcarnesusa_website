@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact &amp; Stores — Total Carnes USA</title>
 <meta name="description" content="Visit Total Carnes USA in North Miami, Aventura, Pinecrest or Key Biscayne, or send a cut request / order detail through our contact form.">
-<link rel="stylesheet" href="assets/style.css?v=16">
+<link rel="stylesheet" href="assets/style.css?v=17">
 </head>
 <body>
 
@@ -94,6 +94,7 @@
     <button class="swatch-btn" data-palette="pampa" onclick="setPalette('pampa')"><span class="swatch-dot sw-pampa"></span>Pampa</button>
     <button class="swatch-btn" data-palette="retro" onclick="setPalette('retro')"><span class="swatch-dot sw-retro"></span>Retro</button>
     <button class="swatch-btn" data-palette="miami" onclick="setPalette('miami')"><span class="swatch-dot sw-miami"></span>Miami</button>
+    <button class="swatch-btn" data-palette="fuxia" onclick="setPalette('fuxia')"><span class="swatch-dot sw-fuxia"></span>Fuxia</button>
   </div>
 </div>
 
@@ -211,8 +212,8 @@
         <span class="section-tag" data-i18n="social_tag">FOLLOW US</span>
         <h2 class="section-title" data-i18n="loc_title">Stop by any of our four locations.</h2>
         <div class="social-row" style="margin-bottom:8px;">
-          <a href="https://www.instagram.com/totalcarnes.usa/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg></a>
-          <a href="https://www.youtube.com/@totalcarnes" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="3"></rect><polygon points="10 9 15 12 10 15 10 9"></polygon></svg></a>
+          <a class="social-ig" href="https://www.instagram.com/totalcarnes.usa/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg></a>
+          <a class="social-yt" href="https://www.youtube.com/watch?v=zVFxLFJM9HE" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="3"></rect><polygon points="10 9 15 12 10 15 10 9"></polygon></svg></a>
         </div>
       </div>
 
@@ -291,15 +292,19 @@
       </div>
       <div class="footer-col">
         <h4 data-i18n="footer_shop">Shop</h4>
-        <a href="catalogo.html" data-i18n="nav_catalog">Catalog</a>
-        <a href="best-sellers.html" data-i18n="nav_best">Best Sellers</a>
+        <div class="footer-col-buttons">
+          <a class="footer-link-btn" href="catalogo.html" data-i18n="nav_catalog">📋 Catalog</a>
+          <a class="footer-link-btn" href="best-sellers.html" data-i18n="nav_best">⭐ Best Sellers</a>
+        </div>
       </div>
       <div class="footer-col">
-        <h4 data-i18n="footer_locations_title">Our stores</h4>
-        <p data-i18n="addr_northmiami">North Miami — 12420 Biscayne Blvd</p>
-        <p data-i18n="addr_aventura">Aventura — 19087 West Dixie Highway</p>
-        <p data-i18n="addr_pinecrest">Pinecrest — 9563 S Dixie Hwy #04A</p>
-        <p data-i18n="addr_keybiscayne">Key Biscayne — 328 Crandon Blvd</p>
+        <a href="contacto.html#stores-map"><h4 class="footer-link-btn-heading" data-i18n="footer_locations_title">📍 Our stores</h4></a>
+        <div class="footer-col-buttons">
+          <a class="footer-store-link" href="contacto.html#stores-map" data-i18n="addr_northmiami">North Miami — 12420 Biscayne Blvd</a>
+          <a class="footer-store-link" href="contacto.html#stores-map" data-i18n="addr_aventura">Aventura — 19087 West Dixie Highway</a>
+          <a class="footer-store-link" href="contacto.html#stores-map" data-i18n="addr_pinecrest">Pinecrest — 9563 S Dixie Hwy #04A</a>
+          <a class="footer-store-link" href="contacto.html#stores-map" data-i18n="addr_keybiscayne">Key Biscayne — 328 Crandon Blvd</a>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -310,7 +315,7 @@
 </footer>
 
 <script src="assets/cart.js"></script>
-<script src="assets/common.js?v=16"></script>
+<script src="assets/common.js?v=17"></script>
 <script>
 let addressDebounce = null;
 
@@ -414,7 +419,7 @@ function handleContactSubmit(e){
   return false;
 }
 
-const GOOGLE_REVIEWS_LINK = "https://www.google.com/maps/search/Total+Carnes+USA";
+const GOOGLE_REVIEWS_LINK = "https://www.google.com/maps?cid=3309418186263857738";
 const realReviews = [
   ["Ivon Fernandez", "Local Guide · 47 opiniones", "Excelente lugar, me encantó, no había estado ahí antes. Muy buena calidad de carnes y muy buena atención de su manager Carol. Volveré sin duda."],
   ["Javier Mentasti", "9 opiniones", "Toda tipo de carne. Argentina 🇦🇷 el mejor de Miami. Precio, calidad y atención al cliente excelente."],

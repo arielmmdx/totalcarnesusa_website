@@ -8,7 +8,7 @@
 <meta property="og:title" content="Total Carnes USA — Premium Argentine Beef">
 <meta property="og:description" content="Argentine beef. Built on quality. Nationwide shipping in under 24h, four Miami-Dade stores.">
 <meta property="og:type" content="website">
-<link rel="stylesheet" href="assets/style.css?v=16">
+<link rel="stylesheet" href="assets/style.css?v=17">
 </head>
 <body>
 
@@ -97,6 +97,7 @@
     <button class="swatch-btn" data-palette="pampa" onclick="setPalette('pampa')"><span class="swatch-dot sw-pampa"></span>Pampa</button>
     <button class="swatch-btn" data-palette="retro" onclick="setPalette('retro')"><span class="swatch-dot sw-retro"></span>Retro</button>
     <button class="swatch-btn" data-palette="miami" onclick="setPalette('miami')"><span class="swatch-dot sw-miami"></span>Miami</button>
+    <button class="swatch-btn" data-palette="fuxia" onclick="setPalette('fuxia')"><span class="swatch-dot sw-fuxia"></span>Fuxia</button>
   </div>
 </div>
 
@@ -178,7 +179,7 @@
         <p class="subhead" data-i18n="hero_sub">Hand-selected cuts, USDA-ready refrigerated logistics and four stores across Miami-Dade. Born from a butcher shop in Bahía Blanca, built for how the USA eats.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="catalogo.html" data-i18n="cta_catalog">🥩 Browse the catalog</a>
-          <a class="btn btn-secondary" href="contacto.html" data-i18n="cta_contact">📍 Find a store</a>
+          <a class="btn btn-find-store" href="contacto.html#stores-map" data-i18n="cta_contact">📍 Find a store</a>
         </div>
         <div class="trust-line">
           <span data-i18n="hero_trust">📦 Nationwide shipping · 🏬 North Miami · Aventura · Pinecrest · Key Biscayne</span>
@@ -247,36 +248,36 @@
       <p class="section-desc" data-i18n="cat_desc">Everything for a full parrillada, sourced and prepared with the same standard across every category.</p>
     </div>
     <div class="grid">
-      <div class="card fade-in">
+      <a class="card fade-in" href="catalogo.html?cat=beef">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14c0-5 4-9 9-9s7 4 5 8-8 7-12 5-2-4-2-4z"></path></svg></div>
         <h3 data-i18n="catc1_title">Beef</h3>
         <p data-i18n="catc1_desc">37 cuts, from ribeye and tomahawk to offal and bones — the largest selection in the catalog.</p>
-      </div>
-      <div class="card fade-in">
+      </a>
+      <a class="card fade-in" href="catalogo.html?cat=chicken">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a4 4 0 1 0-8 0c0 1.5.5 2.5 1.5 3.5L8 22h8l-1.5-10.5C15.5 10.5 16 9.5 16 8z"></path></svg></div>
         <h3 data-i18n="catc2_title">Chicken</h3>
         <p data-i18n="catc2_desc">All-natural breast and leg, plus ready-to-cook milanesas and empanadas.</p>
-      </div>
-      <div class="card fade-in">
+      </a>
+      <a class="card fade-in" href="catalogo.html?cat=pork">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="9" cy="10" r="1"></circle><circle cx="15" cy="10" r="1"></circle></svg></div>
         <h3 data-i18n="catc3_title">Pork</h3>
         <p data-i18n="catc3_desc">Baby ribs, bondiola, pork tender and milanesas for every cut of the table.</p>
-      </div>
-      <div class="card fade-in">
+      </a>
+      <a class="card fade-in" href="catalogo.html?cat=lamb">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c4-10 6-15 7-15s3 5 7 15"></path><path d="M5 19h14"></path></svg></div>
         <h3 data-i18n="catc4_title">Lamb</h3>
         <p data-i18n="catc4_desc">Leg, rack and burgers — New Zealand and local, for special occasions.</p>
-      </div>
-      <div class="card fade-in">
+      </a>
+      <a class="card fade-in" href="catalogo.html?cat=grill">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 8h18M3 16h18"></path></svg></div>
         <h3 data-i18n="catc5_title">Grill &amp; prepared</h3>
         <p data-i18n="catc5_desc">Chorizo, morcilla, burgers, empanadas and provoleta — the rest of the parrillada, ready to go.</p>
-      </div>
-      <div class="card fade-in">
+      </a>
+      <a class="card fade-in" href="catalogo.html?cat=pantry">
         <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6L5 8z"></path><path d="M9 8V5a3 3 0 0 1 6 0v3"></path></svg></div>
         <h3 data-i18n="catc6_title">Pantry &amp; more</h3>
         <p data-i18n="catc6_desc">Argentine snacks and pantry staples to round out the order.</p>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -304,7 +305,7 @@
       <p class="section-desc" style="margin:0 auto 40px;" data-i18n="cta2_desc">Four Miami-Dade locations, or nationwide shipping in under 24h. Tell us what you're craving.</p>
       <div class="cta-row" style="justify-content:center;">
         <a class="btn btn-primary" href="catalogo.html" data-i18n="cta_catalog">🥩 Browse the catalog</a>
-        <a class="btn btn-secondary" href="contacto.html" data-i18n="cta_contact">📍 Find a store</a>
+        <a class="btn btn-find-store" href="contacto.html#stores-map" data-i18n="cta_contact">📍 Find a store</a>
       </div>
     </div>
   </div>
@@ -317,21 +318,25 @@
         <img src="assets/images/logo.jpg" alt="Total Carnes" class="logo-img" style="margin-bottom:14px;">
         <p data-i18n="footer_brand_desc">Premium Argentine beef and cuts, shipped nationwide in under 24h, with four stores across Miami-Dade.</p>
         <div class="social-row" style="margin-top:14px;">
-          <a href="https://www.instagram.com/totalcarnes.usa/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg></a>
-          <a href="https://www.youtube.com/@totalcarnes" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="3"></rect><polygon points="10 9 15 12 10 15 10 9"></polygon></svg></a>
+          <a class="social-ig" href="https://www.instagram.com/totalcarnes.usa/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg></a>
+          <a class="social-yt" href="https://www.youtube.com/watch?v=zVFxLFJM9HE" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="3"></rect><polygon points="10 9 15 12 10 15 10 9"></polygon></svg></a>
         </div>
       </div>
       <div class="footer-col">
         <h4 data-i18n="footer_shop">Shop</h4>
-        <a href="catalogo.html" data-i18n="nav_catalog">Catalog</a>
-        <a href="best-sellers.html" data-i18n="nav_best">Best Sellers</a>
+        <div class="footer-col-buttons">
+          <a class="footer-link-btn" href="catalogo.html" data-i18n="nav_catalog">📋 Catalog</a>
+          <a class="footer-link-btn" href="best-sellers.html" data-i18n="nav_best">⭐ Best Sellers</a>
+        </div>
       </div>
       <div class="footer-col">
-        <h4 data-i18n="footer_locations_title">Our stores</h4>
-        <p data-i18n="addr_northmiami">North Miami — 12420 Biscayne Blvd</p>
-        <p data-i18n="addr_aventura">Aventura — 19087 West Dixie Highway</p>
-        <p data-i18n="addr_pinecrest">Pinecrest — 9563 S Dixie Hwy #04A</p>
-        <p data-i18n="addr_keybiscayne">Key Biscayne — 328 Crandon Blvd</p>
+        <a href="contacto.html#stores-map"><h4 class="footer-link-btn-heading" data-i18n="footer_locations_title">📍 Our stores</h4></a>
+        <div class="footer-col-buttons">
+          <a class="footer-store-link" href="contacto.html#stores-map" data-i18n="addr_northmiami">North Miami — 12420 Biscayne Blvd</a>
+          <a class="footer-store-link" href="contacto.html#stores-map" data-i18n="addr_aventura">Aventura — 19087 West Dixie Highway</a>
+          <a class="footer-store-link" href="contacto.html#stores-map" data-i18n="addr_pinecrest">Pinecrest — 9563 S Dixie Hwy #04A</a>
+          <a class="footer-store-link" href="contacto.html#stores-map" data-i18n="addr_keybiscayne">Key Biscayne — 328 Crandon Blvd</a>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -342,8 +347,8 @@
 </footer>
 
 <script src="assets/cart.js"></script>
-<script src="assets/common.js?v=16"></script>
-<script src="assets/catalog-data.js?v=16"></script>
+<script src="assets/common.js?v=17"></script>
+<script src="assets/catalog-data.js?v=17"></script>
 <script>
 renderBestSellers('home-best-grid', [
   ["Short Ribs (Banderita)", 36.26, "short-ribs-banderita", true],
@@ -352,7 +357,7 @@ renderBestSellers('home-best-grid', [
   ["Tenderloin", 77.40, "tenderloin", true]
 ]);
 
-const GOOGLE_REVIEWS_LINK = "https://www.google.com/maps/search/Total+Carnes+USA";
+const GOOGLE_REVIEWS_LINK = "https://www.google.com/maps?cid=3309418186263857738";
 const realReviews = [
   ["Ivon Fernandez", "Local Guide · 47 opiniones", "Excelente lugar, me encantó, no había estado ahí antes. Muy buena calidad de carnes y muy buena atención de su manager Carol. Volveré sin duda."],
   ["Javier Mentasti", "9 opiniones", "Toda tipo de carne. Argentina 🇦🇷 el mejor de Miami. Precio, calidad y atención al cliente excelente."],

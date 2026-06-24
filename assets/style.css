@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700;800&family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700;800&family=VT323&display=swap');
 
 :root{
   /* default = light, "Classic" palette — deep wine red, neutral ivory */
@@ -112,17 +112,24 @@
   --bg:#0a0a18; --bg-alt:#11112a; --card:#181838; --border:#2e2e58;
   --text:#eef0ff; --muted:#9b9bc9;
 }
-[data-palette="retro"] h1, [data-palette="retro"] h2, [data-palette="retro"] .logo,
-[data-palette="retro"] .swatch-btn, [data-palette="retro"] .nav-cta, [data-palette="retro"] .btn{
-  font-family:'Press Start 2P', monospace;letter-spacing:0;
+/* retro accent font only on big display headings — keeps Fraunces everywhere else */
+[data-palette="retro"] h1{
+  font-family:'VT323', monospace;letter-spacing:1px;text-transform:uppercase;
 }
 [data-palette="retro"] .product-card, [data-palette="retro"] .card, [data-palette="retro"] .location-card{
-  border-width:2px;border-style:solid;image-rendering:pixelated;
+  border-width:2px;border-style:solid;position:relative;
 }
 [data-theme="dark"][data-palette="retro"] .product-card:hover,
 [data-theme="dark"][data-palette="retro"] .card:hover{
   box-shadow:0 0 0 2px var(--accent2), 0 0 18px rgba(57,255,140,0.4);
 }
+/* small retro game-icon stickers on cards, decorative only */
+[data-palette="retro"] .product-card::after, [data-palette="retro"] .card::after{
+  content:'🕹️';position:absolute;top:10px;right:10px;font-size:15px;opacity:.55;
+}
+[data-palette="retro"] .product-card:nth-child(3n+2)::after, [data-palette="retro"] .card:nth-child(3n+2)::after{content:'👾';}
+[data-palette="retro"] .product-card:nth-child(3n+3)::after, [data-palette="retro"] .card:nth-child(3n+3)::after{content:'🍄';}
+[data-palette="retro"] .eyebrow::before{content:'⭐ ';}
 
 /* Miami — art-deco pastel pink, teal & gold */
 [data-palette="miami"]{
@@ -135,6 +142,19 @@
   --accent-soft:rgba(255,111,159,0.2); --gold-soft:rgba(31,209,192,0.14);
   --bg:#081a1c; --bg-alt:#0d2426; --card:#133134; --border:#1f4a4d;
   --text:#e9fbf8; --muted:#8fc4bf;
+}
+
+/* Fuxia — vivid magenta/fuchsia with deep purple */
+[data-palette="fuxia"]{
+  --accent:#c2185b; --accent2:#9c27b0;
+  --accent-soft:rgba(194,24,91,0.1); --gold-soft:rgba(156,39,176,0.12);
+  --bg:#fdf0f6; --bg-alt:#fbe0ee; --card:#ffffff; --border:#f3b8da;
+}
+[data-theme="dark"][data-palette="fuxia"]{
+  --accent:#ff3d9a; --accent2:#c454e0;
+  --accent-soft:rgba(255,61,154,0.22); --gold-soft:rgba(196,84,224,0.16);
+  --bg:#1a0a14; --bg-alt:#23101c; --card:#2e1426; --border:#4a1f3c;
+  --text:#fbe9f3; --muted:#cf9bba;
 }
 
 /* Parrilla theme — real-looking black grill smoke, rising from the bottom, every page */
@@ -250,6 +270,7 @@
 .swatch-dot.sw-pampa{background:linear-gradient(135deg,#a8542c 50%,#c79a4f 50%);}
 .swatch-dot.sw-retro{background:linear-gradient(135deg,#d6336c 50%,#0891a8 50%);}
 .swatch-dot.sw-miami{background:linear-gradient(135deg,#ff5d8f 50%,#00a99d 50%);}
+.swatch-dot.sw-fuxia{background:linear-gradient(135deg,#c2185b 50%,#9c27b0 50%);}
 
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -755,8 +776,40 @@ footer{border-top:1px solid var(--border);padding:48px 0 28px;color:var(--muted)
 .footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;}
 .social-row{display:flex;gap:14px;}
 .social-row a{
-  width:34px;height:34px;border:1px solid var(--border);border-radius:50%;
+  width:36px;height:36px;border:1px solid var(--border);border-radius:50%;
   display:flex;align-items:center;justify-content:center;color:var(--muted);
+  transition:transform .2s;
 }
-.social-row a:hover{color:var(--accent2);border-color:var(--accent2);}
-.social-row svg{width:16px;height:16px;}
+.social-row a:hover{transform:translateY(-2px);}
+.social-row svg{width:17px;height:17px;}
+.social-row a.social-ig{
+  background:linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7);border:none;color:#fff;
+}
+.social-row a.social-yt{background:#FF0000;border:none;color:#fff;}
+
+/* footer "better buttons" — shop links and store list as pill chips */
+.footer-col-buttons{display:flex;flex-direction:column;gap:8px;}
+.footer-link-btn{
+  display:inline-flex!important;align-items:center;gap:8px;
+  background:var(--card);border:1px solid var(--border);border-radius:9px;
+  padding:9px 14px;font-size:13px;font-weight:600;color:var(--text)!important;
+  margin-bottom:0!important;transition:all .2s;width:fit-content;
+}
+.footer-link-btn:hover{border-color:var(--accent2);color:var(--accent2)!important;transform:translateX(2px);}
+.footer-store-link{
+  display:block;background:var(--card);border:1px solid var(--border);border-radius:9px;
+  padding:10px 14px;font-size:12.5px;color:var(--muted)!important;margin-bottom:8px!important;
+  transition:all .2s;
+}
+.footer-store-link:hover{border-color:var(--accent2);color:var(--accent2)!important;}
+.footer-col h4.footer-link-btn-heading{
+  display:inline-flex;align-items:center;gap:6px;cursor:pointer;
+}
+.footer-col h4.footer-link-btn-heading:hover{color:var(--accent2);}
+
+/* prominent "find a store" CTA used across pages */
+.btn-find-store{
+  background:var(--gold-soft);border:1.5px solid var(--accent2);color:var(--accent2);
+  font-weight:700;
+}
+.btn-find-store:hover{background:var(--accent2);color:#1a1209;transform:translateY(-2px);}
