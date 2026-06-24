@@ -445,6 +445,11 @@ img{max-width:100%;display:block;}
   display:flex;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px;flex:0 0 auto;
 }
 @media(min-width:920px){.nav-burger{display:none;}}
+@media(max-width:919px){
+  .nav-inner{justify-content:flex-start;}
+  .nav-burger{order:1;margin-left:4px;}
+  .nav-right{order:2;margin-left:auto;}
+}
 .nav-burger span{width:22px;height:2px;background:var(--text);}
 .mobile-menu{
   display:none;flex-direction:column;gap:2px;
