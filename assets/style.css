@@ -652,7 +652,7 @@ section{padding:90px 0;}
   letter-spacing:.4px;text-transform:uppercase;cursor:pointer;transition:all .2s;
 }
 .pill-btn:hover{border-color:var(--accent2);color:var(--text);}
-.pill-btn.active{background:var(--accent2);border-color:var(--accent2);color:#1a1209;}
+.pill-btn.active{background:var(--accent2);border-color:var(--accent2);color:#fff;}
 
 .items-count{font-size:13px;color:var(--muted);margin-left:auto;}
 .unit-group{margin-left:10px;}
