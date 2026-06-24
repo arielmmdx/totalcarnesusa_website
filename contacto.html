@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact &amp; Stores | Total Carnes USA</title>
 <meta name="description" content="Visit Total Carnes USA in North Miami, Aventura, Pinecrest or Key Biscayne, or send a cut request / order detail through our contact form.">
-<link rel="stylesheet" href="assets/style.css?v=18">
+<link rel="stylesheet" href="assets/style.css?v=19">
 </head>
 <body>
 
@@ -40,6 +40,7 @@
       <a href="nosotros.html" data-i18n="nav_about">Our Story</a>
       <a href="contacto.html" class="current" data-i18n="nav_contact">Contact</a>
       <a href="reviews.html" data-i18n="nav_reviews">Reviews</a>
+      <a href="contacto.html#photos-section" data-i18n="nav_photos">Photos</a>
     </div>
     <div class="nav-right">
       <a class="nav-cta" href="catalogo.html" data-i18n="nav_cta">Shop the catalog</a>
@@ -80,6 +81,7 @@
     <a href="nosotros.html" data-i18n="nav_about">Our Story</a>
     <a href="contacto.html" data-i18n="nav_contact">Contact</a>
       <a href="reviews.html" data-i18n="nav_reviews">Reviews</a>
+      <a href="contacto.html#photos-section" data-i18n="nav_photos">Photos</a>
   </div>
 </nav>
 
@@ -267,7 +269,7 @@
   </div>
 </section>
 
-<section>
+<section id="photos-section">
   <div class="container">
     <div class="fade-in">
       <span class="section-tag" data-i18n="photos_tag">PHOTOS</span>
@@ -278,7 +280,6 @@
       <div class="photo-track" id="photo-track"></div>
     </div>
     <div class="photo-grid fade-in" id="photo-grid"></div>
-    <p class="photo-gallery-note" data-i18n="photos_note">Have real photos of the fridges, shelves or counter at your store? Send them over and we'll swap them in here.</p>
   </div>
 </section>
 
@@ -330,7 +331,7 @@
 </footer>
 
 <script src="assets/cart.js"></script>
-<script src="assets/common.js?v=18"></script>
+<script src="assets/common.js?v=19"></script>
 <script>
 let addressDebounce = null;
 
@@ -507,15 +508,15 @@ initSite({
 });
 initAddressAutocomplete();
 const galleryPhotos = [
-  "tomahawk","entrana-arg","short-ribs-banderita","tenderloin","rump-cap-picanha","brisket",
-  "chorizo-argentino","morcilla-argentina","empanadas-de-carne-x-6","provoleta-santa-rosa",
-  "ground-beef-premium","milanesas-de-carne","tri-tip","striploin-ny","t-bone","burger-original"
+  "storefront-1","interior-wide","counter-main","fridge-ribeye-nystrip","meat-display-cases",
+  "wine-room","pantry-shelf-cachafaz","meat-on-scale","counter-front-desk","storefront-flag",
+  "meat-case-customer","pantry-chocolate","meat-cut-closeup","pantry-table"
 ];
 function renderPhotoGallery(){
   const track = document.getElementById('photo-track');
   const grid = document.getElementById('photo-grid');
   if(!track || !grid) return;
-  const imgs = galleryPhotos.map(slug=>`<img src="assets/images/products/${slug}.jpg" alt="Total Carnes" loading="lazy">`).join('');
+  const imgs = galleryPhotos.map(slug=>`<img src="assets/images/store/${slug}.png" alt="Total Carnes" loading="lazy">`).join('');
   track.innerHTML = imgs + imgs;
   grid.innerHTML = imgs;
 }
