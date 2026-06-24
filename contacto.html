@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact &amp; Stores — Total Carnes USA</title>
 <meta name="description" content="Visit Total Carnes USA in North Miami, Aventura, Pinecrest or Key Biscayne, or send a cut request / order detail through our contact form.">
-<link rel="stylesheet" href="assets/style.css?v=12">
+<link rel="stylesheet" href="assets/style.css?v=13">
 </head>
 <body>
 
@@ -23,11 +23,11 @@
 </div>
 
 <div class="smoke-layer" aria-hidden="true">
-  <div class="smoke-puff s1"></div>
-  <div class="smoke-puff s2"></div>
-  <div class="smoke-puff s3"></div>
-  <div class="smoke-puff s4"></div>
-  <div class="smoke-puff s5"></div>
+  <div class="smoke-col c1"><div class="smoke-puff"></div><div class="smoke-puff p2"></div><div class="smoke-puff p3"></div></div>
+  <div class="smoke-col c2"><div class="smoke-puff"></div><div class="smoke-puff p2"></div><div class="smoke-puff p3"></div></div>
+  <div class="smoke-col c3"><div class="smoke-puff"></div><div class="smoke-puff p2"></div><div class="smoke-puff p3"></div></div>
+  <div class="smoke-col c4"><div class="smoke-puff"></div><div class="smoke-puff p2"></div><div class="smoke-puff p3"></div></div>
+  <div class="smoke-col c5"><div class="smoke-puff"></div><div class="smoke-puff p2"></div><div class="smoke-puff p3"></div></div>
 </div>
 
 <nav class="nav">
@@ -97,14 +97,70 @@
 
 <div class="offers-ticker">
   <div class="offers-track">
-    <span class="offer-item" data-i18n="offer1">⭐ <strong>OFFER</strong> Free shipping on orders $150+ ⭐</span>
-    <span class="offer-item" data-i18n="offer2">⭐ <strong>OFFER</strong> 15% OFF Tomahawk &amp; Short Ribs ⭐</span>
-    <span class="offer-item" data-i18n="offer3">⭐ <strong>OFFER</strong> Buy 1 Get 1 on Empanadas this week ⭐</span>
-    <span class="offer-item" data-i18n="offer4">⭐ <strong>OFFER</strong> 10% OFF your first order ⭐</span>
-    <span class="offer-item" data-i18n="offer1">⭐ <strong>OFFER</strong> Free shipping on orders $150+ ⭐</span>
-    <span class="offer-item" data-i18n="offer2">⭐ <strong>OFFER</strong> 15% OFF Tomahawk &amp; Short Ribs ⭐</span>
-    <span class="offer-item" data-i18n="offer3">⭐ <strong>OFFER</strong> Buy 1 Get 1 on Empanadas this week ⭐</span>
-    <span class="offer-item" data-i18n="offer4">⭐ <strong>OFFER</strong> 10% OFF your first order ⭐</span>
+    <div class="offer-card">
+      <img src="assets/images/products/tomahawk.jpg" alt="Tomahawk">
+      <div class="offer-info">
+        <span class="offer-badge" data-i18n="offer_badge">⭐ OFFER</span>
+        <span class="offer-name">Tomahawk</span>
+        <span class="offer-price"><s>$48.38</s> $41.12</span>
+      </div>
+    </div>
+    <div class="offer-card">
+      <img src="assets/images/products/short-ribs-banderita.jpg" alt="Short Ribs (Banderita)">
+      <div class="offer-info">
+        <span class="offer-badge" data-i18n="offer_badge">⭐ OFFER</span>
+        <span class="offer-name">Short Ribs (Banderita)</span>
+        <span class="offer-price"><s>$36.26</s> $30.82</span>
+      </div>
+    </div>
+    <div class="offer-card">
+      <img src="assets/images/products/empanadas-de-carne-x-6.jpg" alt="Empanadas de Carne x 6">
+      <div class="offer-info">
+        <span class="offer-badge" data-i18n="offer_badge">⭐ OFFER</span>
+        <span class="offer-name">Empanadas de Carne x 6</span>
+        <span class="offer-tag2x1" data-i18n="offer_2x1">Buy 1 Get 1 Free</span>
+      </div>
+    </div>
+    <div class="offer-card">
+      <img src="assets/images/products/ground-beef-premium.jpg" alt="Ground Beef Premium">
+      <div class="offer-info">
+        <span class="offer-badge" data-i18n="offer_badge">⭐ OFFER</span>
+        <span class="offer-name">Ground Beef Premium</span>
+        <span class="offer-price"><s>$11.54</s> $10.39</span>
+      </div>
+    </div>
+    <div class="offer-card">
+      <img src="assets/images/products/tomahawk.jpg" alt="Tomahawk">
+      <div class="offer-info">
+        <span class="offer-badge" data-i18n="offer_badge">⭐ OFFER</span>
+        <span class="offer-name">Tomahawk</span>
+        <span class="offer-price"><s>$48.38</s> $41.12</span>
+      </div>
+    </div>
+    <div class="offer-card">
+      <img src="assets/images/products/short-ribs-banderita.jpg" alt="Short Ribs (Banderita)">
+      <div class="offer-info">
+        <span class="offer-badge" data-i18n="offer_badge">⭐ OFFER</span>
+        <span class="offer-name">Short Ribs (Banderita)</span>
+        <span class="offer-price"><s>$36.26</s> $30.82</span>
+      </div>
+    </div>
+    <div class="offer-card">
+      <img src="assets/images/products/empanadas-de-carne-x-6.jpg" alt="Empanadas de Carne x 6">
+      <div class="offer-info">
+        <span class="offer-badge" data-i18n="offer_badge">⭐ OFFER</span>
+        <span class="offer-name">Empanadas de Carne x 6</span>
+        <span class="offer-tag2x1" data-i18n="offer_2x1">Buy 1 Get 1 Free</span>
+      </div>
+    </div>
+    <div class="offer-card">
+      <img src="assets/images/products/ground-beef-premium.jpg" alt="Ground Beef Premium">
+      <div class="offer-info">
+        <span class="offer-badge" data-i18n="offer_badge">⭐ OFFER</span>
+        <span class="offer-name">Ground Beef Premium</span>
+        <span class="offer-price"><s>$11.54</s> $10.39</span>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -208,6 +264,66 @@
   </div>
 </section>
 
+<section class="story-section">
+  <div class="container">
+    <div class="fade-in">
+      <span class="section-tag" data-i18n="reviews_tag">REAL CUSTOMER REVIEWS</span>
+      <h2 class="section-title" data-i18n="reviews_title">What people say about us on Google.</h2>
+      <p class="section-desc" data-i18n="reviews_desc">A sample of real reviews from our four Google Maps locations — North Miami, Aventura, Pinecrest and Key Biscayne.</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card fade-in">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Si querés comprar carne con los mejores cortes Argentinos, este es el lugar para hacerlo en Miami. Los mejores cortes, la mejor calidad y el mejor servicio."</p>
+        <div class="review-author"><strong>Gustavo Lumer</strong><span data-i18n="review_via_google">Local Guide · Google review</span></div>
+      </div>
+      <div class="review-card fade-in">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Ayer estuve en el local de Key Biscayne. Increíble la atención y el asesoramiento. Todo lo que compramos fue de primera — el vacío y la entraña, espectaculares."</p>
+        <div class="review-author"><strong>Maria Elena Gonzalez</strong><span data-i18n="review_via_google">Local Guide · Google review</span></div>
+      </div>
+      <div class="review-card fade-in">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"La mejor carne Argentina, la mejor carnicería de Miami. Tienen chorizo, morcilla, molleja, vinos, gelato y te atienden con una onda espectacular."</p>
+        <div class="review-author"><strong>Lisandro R.</strong><span data-i18n="review_via_google">Local Guide · Google review</span></div>
+      </div>
+      <div class="review-card fade-in">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"La mejor carne argentina al mejor precio — incluso mejor precio que Costco estando en Key Biscayne. La atención también es excepcional."</p>
+        <div class="review-author"><strong>Agustin Di Luciano</strong><span data-i18n="review_via_google">Google review</span></div>
+      </div>
+      <div class="review-card fade-in">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Primera vez en la tienda de Pinecrest. Este será mi nuevo corte favorito de falda — con ganas de probar el resto del catálogo."</p>
+        <div class="review-author"><strong>Sam</strong><span data-i18n="review_via_google">Local Guide · Google review</span></div>
+      </div>
+      <div class="review-card fade-in">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Excelente mercado argentino con carnes de alta calidad y una atención al cliente excepcional. Los cortes son siempre frescos. Se ha convertido en mi lugar de referencia."</p>
+        <div class="review-author"><strong>Raisa Almendarez</strong><span data-i18n="review_via_google">Google review</span></div>
+      </div>
+      <div class="review-card fade-in">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Me impresionó mucho este lugar. Martin y Valeria fueron muy amables. La calidad de la carne es excelente y los precios son inmejorables."</p>
+        <div class="review-author"><strong>Belkys Diaz</strong><span data-i18n="review_via_google">Local Guide · Google review</span></div>
+      </div>
+      <div class="review-card fade-in">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"El mejor lugar en Miami para comprar carnes y productos argentinos. Excelente la atención de Mauricio, Andrea y Mel — impecable."</p>
+        <div class="review-author"><strong>Karina De Marco</strong><span data-i18n="review_via_google">Google review</span></div>
+      </div>
+      <div class="review-card fade-in">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"100% recomendado. Un éxito la carne. Excelente atención de Mel, Tadeo, Magali y todo el personal, siempre atentos a lo que necesita el cliente."</p>
+        <div class="review-author"><strong>Lucas Bucci</strong><span data-i18n="review_via_google">Local Guide · Google review</span></div>
+      </div>
+    </div>
+    <div class="fade-in" style="margin-top:32px; text-align:center;">
+      <a class="btn btn-secondary" href="https://www.google.com/maps/place/?q=place_id:Total+Carnes" target="_blank" rel="noopener" data-i18n="reviews_cta">⭐ See all reviews on Google →</a>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="container">
     <div class="footer-grid">
@@ -236,7 +352,7 @@
 </footer>
 
 <script src="assets/cart.js"></script>
-<script src="assets/common.js?v=12"></script>
+<script src="assets/common.js?v=13"></script>
 <script>
 let addressDebounce = null;
 
