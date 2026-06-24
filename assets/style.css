@@ -310,20 +310,21 @@
   animation:offers-scroll 38s linear infinite;
 }
 .offer-card{
-  display:flex;align-items:center;gap:12px;background:rgba(255,255,255,0.12);
-  border:1px solid rgba(255,255,255,0.25);border-radius:12px;padding:8px 16px 8px 8px;
+  display:flex;align-items:center;gap:12px;background:#fff;
+  border:none;border-radius:12px;padding:8px 16px 8px 8px;
+  box-shadow:0 4px 14px rgba(0,0,0,0.18);
   white-space:nowrap;flex:0 0 auto;
 }
 .offer-card img{width:46px;height:46px;border-radius:8px;object-fit:cover;flex:0 0 auto;}
 .offer-info{display:flex;flex-direction:column;gap:2px;}
 .offer-badge{
-  display:inline-block;background:#fff;color:var(--accent);font-size:10px;font-weight:800;
+  display:inline-block;background:var(--accent);color:#fff;font-size:10px;font-weight:800;
   letter-spacing:.5px;padding:2px 8px;border-radius:999px;margin-bottom:2px;width:fit-content;
 }
-.offer-name{color:#fff;font-weight:700;font-size:12.5px;}
-.offer-price{color:#fff;font-weight:800;font-size:13.5px;}
-.offer-price s{font-weight:500;opacity:.65;margin-right:5px;}
-.offer-tag2x1{color:#fff;font-weight:800;font-size:13.5px;letter-spacing:.5px;}
+.offer-name{color:#1a1a1a;font-weight:700;font-size:12.5px;}
+.offer-price{color:#1a1a1a;font-weight:800;font-size:13.5px;}
+.offer-price s{font-weight:500;opacity:.55;margin-right:5px;}
+.offer-tag2x1{color:var(--accent);font-weight:800;font-size:13.5px;letter-spacing:.5px;}
 @keyframes offers-scroll{
   from{transform:translateX(0);}
   to{transform:translateX(-50%);}
