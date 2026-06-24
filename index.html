@@ -12,17 +12,6 @@
 </head>
 <body>
 
-<div class="top-controls">
-  <div class="lang-toggle">
-    <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
-    <button id="btn-es" onclick="setLang('es')">ES</button>
-  </div>
-  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark theme">
-    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.5A8.5 8.5 0 1 1 11.5 3 7 7 0 0 0 21 12.5z"></path></svg>
-    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg>
-  </button>
-</div>
-
 <nav class="nav">
   <div class="nav-inner">
     <div class="logo">TOTAL <span>CARNES</span></div>
@@ -33,7 +22,17 @@
       <a href="nosotros.html" data-i18n="nav_about">Our Story</a>
       <a href="contacto.html" data-i18n="nav_contact">Contact</a>
     </div>
-    <a class="nav-cta" href="catalogo.html" data-i18n="nav_cta">Shop the catalog</a>
+    <div class="nav-right">
+      <a class="nav-cta" href="catalogo.html" data-i18n="nav_cta">Shop the catalog</a>
+      <div class="lang-toggle">
+        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        <button id="btn-es" onclick="setLang('es')">ES</button>
+      </div>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.5A8.5 8.5 0 1 1 11.5 3 7 7 0 0 0 21 12.5z"></path></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg>
+      </button>
+    </div>
     <button class="nav-burger" id="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
   <div class="mobile-menu" id="mobile-menu">
@@ -47,16 +46,32 @@
 
 <section class="hero">
   <div class="container">
-    <div class="hero-content">
-      <span class="eyebrow" data-i18n="hero_eyebrow">ARGENTINE BEEF, BUILT ON QUALITY</span>
-      <h1 data-i18n="hero_title">Premium Argentine beef, on your table in <span class="grad">less than 24h</span>.</h1>
-      <p class="subhead" data-i18n="hero_sub">Hand-selected cuts, USDA-ready refrigerated logistics and four stores across Miami-Dade. Born from a butcher shop in Bahía Blanca, built for how the USA eats.</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="catalogo.html" data-i18n="cta_catalog">🥩 Browse the catalog</a>
-        <a class="btn btn-secondary" href="contacto.html" data-i18n="cta_contact">📍 Find a store</a>
+    <div class="hero-grid">
+      <div class="hero-content">
+        <span class="eyebrow" data-i18n="hero_eyebrow">ARGENTINE BEEF, BUILT ON QUALITY</span>
+        <h1 data-i18n="hero_title">Premium Argentine beef, on your table in <span class="grad">less than 24h</span>.</h1>
+        <p class="subhead" data-i18n="hero_sub">Hand-selected cuts, USDA-ready refrigerated logistics and four stores across Miami-Dade. Born from a butcher shop in Bahía Blanca, built for how the USA eats.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="catalogo.html" data-i18n="cta_catalog">🥩 Browse the catalog</a>
+          <a class="btn btn-secondary" href="contacto.html" data-i18n="cta_contact">📍 Find a store</a>
+        </div>
+        <div class="trust-line">
+          <span data-i18n="hero_trust">📦 Nationwide shipping · 🏬 North Miami · Aventura · Pinecrest · Key Biscayne</span>
+        </div>
       </div>
-      <div class="trust-line">
-        <span data-i18n="hero_trust">📦 Nationwide shipping · 🏬 North Miami · Aventura · Pinecrest · Key Biscayne</span>
+
+      <div class="route-card fade-in">
+        <svg class="route-svg" viewBox="0 0 340 200" xmlns="http://www.w3.org/2000/svg">
+          <path class="route-line" d="M28,150 C110,40 230,40 312,90" fill="none" stroke-width="2"></path>
+          <path class="route-dash" d="M28,150 C110,40 230,40 312,90" fill="none" stroke-width="2.5"></path>
+          <circle class="route-pin" cx="28" cy="150" r="6"></circle>
+          <circle class="route-pin" cx="312" cy="90" r="6"></circle>
+          <text class="route-label" x="28" y="174" font-size="11.5" text-anchor="middle">Bahía Blanca, AR</text>
+          <text class="route-label" x="312" y="74" font-size="11.5" text-anchor="middle">Miami, FL, USA</text>
+        </svg>
+        <span class="route-plane">✈️</span>
+        <div class="route-dist">~7.400 km<span data-i18n="route_caption">Bahía Blanca → Miami, straight-line distance</span></div>
+        <div class="route-slogan" data-i18n="route_slogan">"A dream doesn't get smaller with distance — it just takes a longer flight."</div>
       </div>
     </div>
   </div>
@@ -244,6 +259,8 @@ initSite({
     cta_catalog:"🥩 Browse the catalog",
     cta_contact:"📍 Find a store",
     hero_trust:"📦 Nationwide shipping · 🏬 North Miami · Aventura · Pinecrest · Key Biscayne",
+    route_caption:"Bahía Blanca → Miami, straight-line distance",
+    route_slogan:'"A dream doesn\'t get smaller with distance — it just takes a longer flight."',
     hl1_title:"Under 24h shipping", hl1_sub:"Nationwide, refrigerated",
     hl2_title:"4 Miami-Dade stores", hl2_sub:"North Miami, Aventura, Pinecrest, Key Biscayne",
     hl3_title:"USDA-ready logistics", hl3_sub:"Cold chain from cut to door",
@@ -281,6 +298,8 @@ initSite({
     cta_catalog:"🥩 Ver el catálogo",
     cta_contact:"📍 Buscar un local",
     hero_trust:"📦 Envío a todo el país · 🏬 North Miami · Aventura · Pinecrest · Key Biscayne",
+    route_caption:"Bahía Blanca → Miami, distancia en línea recta",
+    route_slogan:'"Un sueño no se achica con la distancia — solo necesita un vuelo más largo."',
     hl1_title:"Envío en menos de 24h", hl1_sub:"A todo el país, refrigerado",
     hl2_title:"4 locales en Miami-Dade", hl2_sub:"North Miami, Aventura, Pinecrest, Key Biscayne",
     hl3_title:"Logística lista para USDA", hl3_sub:"Cadena de frío del corte a tu puerta",

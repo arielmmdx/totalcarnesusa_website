@@ -9,17 +9,6 @@
 </head>
 <body>
 
-<div class="top-controls">
-  <div class="lang-toggle">
-    <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
-    <button id="btn-es" onclick="setLang('es')">ES</button>
-  </div>
-  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark theme">
-    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.5A8.5 8.5 0 1 1 11.5 3 7 7 0 0 0 21 12.5z"></path></svg>
-    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg>
-  </button>
-</div>
-
 <nav class="nav">
   <div class="nav-inner">
     <div class="logo">TOTAL <span>CARNES</span></div>
@@ -30,7 +19,17 @@
       <a href="nosotros.html" data-i18n="nav_about">Our Story</a>
       <a href="contacto.html" class="current" data-i18n="nav_contact">Contact</a>
     </div>
-    <a class="nav-cta" href="catalogo.html" data-i18n="nav_cta">Shop the catalog</a>
+    <div class="nav-right">
+      <a class="nav-cta" href="catalogo.html" data-i18n="nav_cta">Shop the catalog</a>
+      <div class="lang-toggle">
+        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        <button id="btn-es" onclick="setLang('es')">ES</button>
+      </div>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.5A8.5 8.5 0 1 1 11.5 3 7 7 0 0 0 21 12.5z"></path></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg>
+      </button>
+    </div>
     <button class="nav-burger" id="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
   <div class="mobile-menu" id="mobile-menu">
@@ -103,28 +102,38 @@
       <h2 class="section-title" data-i18n="map_title">Every store, mapped — with street view.</h2>
       <p class="section-desc" data-i18n="map_desc">Click into any map and drag the little orange pegman onto the street for a full street-view look at the storefront.</p>
     </div>
-    <div class="map-grid">
-      <div class="location-card map-card fade-in">
+    <div class="geo-bar fade-in">
+      <p data-i18n="geo_desc">Share your location and we'll show how far you are from each store — so you can pick the closest one.</p>
+      <button class="btn btn-gold" onclick="findNearestStore()" data-i18n="geo_btn">📍 Find my nearest store</button>
+      <span class="geo-status" id="geo-status"></span>
+    </div>
+
+    <div class="map-grid" id="store-grid">
+      <div class="location-card map-card fade-in" data-lat="25.8905" data-lng="-80.1867">
         <h3>North Miami</h3>
         <p>12420 Biscayne Blvd, North Miami, FL 33181</p>
+        <span class="distance-badge" style="display:none;"></span>
         <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=12420+Biscayne+Blvd,+North+Miami,+FL+33181&output=embed"></iframe>
         <a class="street-link" target="_blank" rel="noopener" href="https://www.google.com/maps?q=12420+Biscayne+Blvd,+North+Miami,+FL+33181&layer=c">🧭 <span data-i18n="street_view">Open street view</span></a>
       </div>
-      <div class="location-card map-card fade-in">
+      <div class="location-card map-card fade-in" data-lat="25.9566" data-lng="-80.1425">
         <h3>Aventura</h3>
         <p>19087 West Dixie Highway, Miami, FL 33180</p>
+        <span class="distance-badge" style="display:none;"></span>
         <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=19087+West+Dixie+Highway,+Miami,+FL+33180&output=embed"></iframe>
         <a class="street-link" target="_blank" rel="noopener" href="https://www.google.com/maps?q=19087+West+Dixie+Highway,+Miami,+FL+33180&layer=c">🧭 <span data-i18n="street_view">Open street view</span></a>
       </div>
-      <div class="location-card map-card fade-in">
+      <div class="location-card map-card fade-in" data-lat="25.6664" data-lng="-80.3081">
         <h3>Pinecrest</h3>
         <p>9563 S Dixie Hwy Unit #04A, Pinecrest, FL 33156</p>
+        <span class="distance-badge" style="display:none;"></span>
         <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=9563+S+Dixie+Hwy+Unit+04A,+Pinecrest,+FL+33156&output=embed"></iframe>
         <a class="street-link" target="_blank" rel="noopener" href="https://www.google.com/maps?q=9563+S+Dixie+Hwy+Unit+04A,+Pinecrest,+FL+33156&layer=c">🧭 <span data-i18n="street_view">Open street view</span></a>
       </div>
-      <div class="location-card map-card fade-in">
+      <div class="location-card map-card fade-in" data-lat="25.6938" data-lng="-80.1614">
         <h3>Key Biscayne</h3>
         <p>328 Crandon Blvd, Key Biscayne, FL 33149</p>
+        <span class="distance-badge" style="display:none;"></span>
         <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=328+Crandon+Blvd,+Key+Biscayne,+FL+33149&output=embed"></iframe>
         <a class="street-link" target="_blank" rel="noopener" href="https://www.google.com/maps?q=328+Crandon+Blvd,+Key+Biscayne,+FL+33149&layer=c">🧭 <span data-i18n="street_view">Open street view</span></a>
       </div>
@@ -212,6 +221,48 @@ async function fetchAddressSuggestions(query, list, input){
   }
 }
 
+function haversineKm(lat1, lon1, lat2, lon2){
+  const R = 6371;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const a = Math.sin(dLat/2)**2 + Math.cos(lat1*Math.PI/180) * Math.cos(lat2*Math.PI/180) * Math.sin(dLon/2)**2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+}
+
+function findNearestStore(){
+  const status = document.getElementById('geo-status');
+  if(!navigator.geolocation){
+    status.textContent = window.tcGeoNoSupport || 'Geolocation is not supported by your browser.';
+    return;
+  }
+  status.textContent = window.tcGeoLocating || 'Locating you...';
+  navigator.geolocation.getCurrentPosition(
+    (pos)=>{
+      const { latitude, longitude } = pos.coords;
+      const cards = Array.from(document.querySelectorAll('#store-grid .location-card'));
+      let nearest = null;
+      cards.forEach(card=>{
+        const lat = parseFloat(card.dataset.lat);
+        const lng = parseFloat(card.dataset.lng);
+        const dist = haversineKm(latitude, longitude, lat, lng);
+        const badge = card.querySelector('.distance-badge');
+        badge.style.display = 'inline-flex';
+        badge.textContent = `📍 ${dist.toFixed(1)} km`;
+        card.classList.remove('nearest');
+        if(!nearest || dist < nearest.dist){ nearest = { card, dist }; }
+      });
+      if(nearest){
+        nearest.card.classList.add('nearest');
+        nearest.card.scrollIntoView({ behavior:'smooth', block:'center' });
+      }
+      status.textContent = window.tcGeoFound || 'Distances updated below.';
+    },
+    ()=>{
+      status.textContent = window.tcGeoDenied || "Couldn't get your location — check your browser permissions.";
+    }
+  );
+}
+
 function handleContactSubmit(e){
   e.preventDefault();
   const f = e.target;
@@ -239,7 +290,9 @@ initSite({
     map_tag:"FIND US ON THE MAP",
     map_title:"Every store, mapped — with street view.",
     map_desc:"Click into any map and drag the little orange pegman onto the street for a full street-view look at the storefront.",
-    street_view:"Open street view"
+    street_view:"Open street view",
+    geo_desc:"Share your location and we'll show how far you are from each store — so you can pick the closest one.",
+    geo_btn:"📍 Find my nearest store"
   },
   es:{
     ph_eyebrow:"VISITANOS O ESCRIBINOS",
@@ -258,10 +311,27 @@ initSite({
     map_tag:"ENCONTRANOS EN EL MAPA",
     map_title:"Cada local, en el mapa — con vista de calle.",
     map_desc:"Entrá a cualquier mapa y arrastrá el muñequito naranja a la calle para ver el local en vista de calle (street view).",
-    street_view:"Ver vista de calle"
+    street_view:"Ver vista de calle",
+    geo_desc:"Compartí tu ubicación y te mostramos a cuántos km está cada local — así elegís el más cercano.",
+    geo_btn:"📍 Encontrar mi local más cercano"
   }
 });
 initAddressAutocomplete();
+
+window.onLangChange = function(lang){
+  if(lang === 'es'){
+    window.tcGeoNoSupport = 'Tu navegador no soporta geolocalización.';
+    window.tcGeoLocating = 'Buscando tu ubicación...';
+    window.tcGeoFound = 'Distancias actualizadas abajo.';
+    window.tcGeoDenied = 'No pudimos obtener tu ubicación — revisá los permisos del navegador.';
+  } else {
+    window.tcGeoNoSupport = 'Geolocation is not supported by your browser.';
+    window.tcGeoLocating = 'Locating you...';
+    window.tcGeoFound = 'Distances updated below.';
+    window.tcGeoDenied = "Couldn't get your location — check your browser permissions.";
+  }
+};
+window.onLangChange(document.documentElement.getAttribute('lang') || 'en');
 </script>
 </body>
 </html>

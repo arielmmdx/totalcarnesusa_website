@@ -9,17 +9,6 @@
 </head>
 <body>
 
-<div class="top-controls">
-  <div class="lang-toggle">
-    <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
-    <button id="btn-es" onclick="setLang('es')">ES</button>
-  </div>
-  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark theme">
-    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.5A8.5 8.5 0 1 1 11.5 3 7 7 0 0 0 21 12.5z"></path></svg>
-    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg>
-  </button>
-</div>
-
 <nav class="nav">
   <div class="nav-inner">
     <div class="logo">TOTAL <span>CARNES</span></div>
@@ -30,7 +19,17 @@
       <a href="nosotros.html" data-i18n="nav_about">Our Story</a>
       <a href="contacto.html" data-i18n="nav_contact">Contact</a>
     </div>
-    <a class="nav-cta" href="contacto.html" data-i18n="cta_contact">📍 Find a store</a>
+    <div class="nav-right">
+      <a class="nav-cta" href="contacto.html" data-i18n="cta_contact">📍 Find a store</a>
+      <div class="lang-toggle">
+        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        <button id="btn-es" onclick="setLang('es')">ES</button>
+      </div>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.5A8.5 8.5 0 1 1 11.5 3 7 7 0 0 0 21 12.5z"></path></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"></path></svg>
+      </button>
+    </div>
     <button class="nav-burger" id="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
   <div class="mobile-menu" id="mobile-menu">
@@ -56,41 +55,41 @@
   <div class="container">
 
     <div class="filter-bar fade-in">
-      <div class="filter-dropdown" id="dd-availability">
-        <button class="filter-toggle" onclick="toggleDropdown('dd-availability')">
-          <span data-i18n="f_availability">Availability</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-        </button>
-        <div class="filter-panel">
-          <label class="filter-option"><input type="radio" name="avail" checked> <span data-i18n="f_all">All products</span></label>
-          <label class="filter-option"><input type="radio" name="avail"> <span data-i18n="f_instock">In stock</span></label>
+      <div class="filter-row">
+        <span class="filter-group-label" data-i18n="f_availability">Availability</span>
+        <div class="btn-group">
+          <button class="pill-btn stock-btn active" data-stock="all" onclick="setCatalogStock('all')" data-i18n="f_all">All products</button>
+          <button class="pill-btn stock-btn" data-stock="in" onclick="setCatalogStock('in')" data-i18n="f_instock">In stock</button>
+          <button class="pill-btn stock-btn" data-stock="out" onclick="setCatalogStock('out')" data-i18n="f_outstock">Out of stock</button>
         </div>
-      </div>
 
-      <div class="filter-dropdown" id="dd-price">
-        <button class="filter-toggle" onclick="toggleDropdown('dd-price')">
+        <button class="price-toggle" id="price-toggle" onclick="togglePricePanel()">
           <span data-i18n="f_price">Price</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </button>
-        <div class="filter-panel">
-          <div class="price-range-display" id="price-range-display">$4 – $190</div>
-          <div class="range-slider">
-            <div class="range-track"></div>
-            <div class="range-track-fill" id="range-track-fill"></div>
-            <input type="range" id="price-min" min="4" max="190" value="4" step="1">
-            <input type="range" id="price-max" min="4" max="190" value="190" step="1">
-          </div>
+
+        <span class="items-count" id="items-count">37 items</span>
+      </div>
+
+      <div class="price-panel" id="price-panel">
+        <div class="price-range-display" id="price-range-display">$4 – $190</div>
+        <div class="range-slider">
+          <div class="range-track"></div>
+          <div class="range-track-fill" id="range-track-fill"></div>
+          <input type="range" id="price-min" min="4" max="190" value="4" step="1">
+          <input type="range" id="price-max" min="4" max="190" value="190" step="1">
         </div>
       </div>
 
-      <select class="sort-select" id="sort-select" onchange="setCatalogSort(this.value)">
-        <option value="default" data-i18n="f_sort_default">Sort: Featured</option>
-        <option value="price-asc" data-i18n="f_sort_price_asc">Price: Low to High</option>
-        <option value="price-desc" data-i18n="f_sort_price_desc">Price: High to Low</option>
-        <option value="name-asc" data-i18n="f_sort_name">Name: A–Z</option>
-      </select>
-
-      <span class="items-count" id="items-count">37 items</span>
+      <div class="filter-row">
+        <span class="filter-group-label" data-i18n="f_sort">Sort</span>
+        <div class="btn-group">
+          <button class="pill-btn sort-btn active" data-sort="default" onclick="setCatalogSort('default')" data-i18n="f_sort_default">Featured</button>
+          <button class="pill-btn sort-btn" data-sort="price-asc" onclick="setCatalogSort('price-asc')" data-i18n="f_sort_price_asc">Price: Low to High</button>
+          <button class="pill-btn sort-btn" data-sort="price-desc" onclick="setCatalogSort('price-desc')" data-i18n="f_sort_price_desc">Price: High to Low</button>
+          <button class="pill-btn sort-btn" data-sort="name-asc" onclick="setCatalogSort('name-asc')" data-i18n="f_sort_name">Name: A–Z</button>
+        </div>
+      </div>
     </div>
 
     <div class="tab-row fade-in">
@@ -148,18 +147,6 @@
 <script src="assets/common.js"></script>
 <script src="assets/catalog-data.js"></script>
 <script>
-function toggleDropdown(id){
-  const dd = document.getElementById(id);
-  const wasOpen = dd.classList.contains('open');
-  document.querySelectorAll('.filter-dropdown').forEach(d=>d.classList.remove('open'));
-  if(!wasOpen) dd.classList.add('open');
-}
-document.addEventListener('click', (e)=>{
-  if(!e.target.closest('.filter-dropdown')){
-    document.querySelectorAll('.filter-dropdown').forEach(d=>d.classList.remove('open'));
-  }
-});
-
 window.onLangChange = function(){ renderCatalogTab(); };
 
 initSite({
@@ -171,10 +158,13 @@ initSite({
     ph_sub:"Beef, chicken, pork, lamb, grill staples and pantry — organized the way our butchers organize the counter.",
     cb1_title:"Beef", cb2_title:"Chicken", cb3_title:"Pork", cb4_title:"Lamb",
     cb5_title:"Grill & Prepared", cb6_title:"Pantry",
-    f_availability:"Availability", f_all:"All products", f_instock:"In stock",
+    f_availability:"Availability:", f_all:"All products", f_instock:"In stock", f_outstock:"Out of stock",
     f_price:"Price",
-    f_sort_default:"Sort: Featured", f_sort_price_asc:"Price: Low to High",
+    f_sort:"Sort by:",
+    f_sort_default:"Featured", f_sort_price_asc:"Price: Low to High",
     f_sort_price_desc:"Price: High to Low", f_sort_name:"Name: A–Z",
+    stock_in:"In stock", stock_out:"Out of stock",
+    no_results:"No products match these filters.",
     cc_tag:"CAN'T FIND THE CUT",
     cc_title:"Tell us the cut and we'll get it ready.",
     cc_desc:"Custom cut requests, special orders and case quantities are handled directly through our contact form.",
@@ -189,10 +179,13 @@ initSite({
     ph_sub:"Res, pollo, cerdo, cordero, parrilla y almacén — organizado como lo organizan nuestros carniceros en el mostrador.",
     cb1_title:"Res", cb2_title:"Pollo", cb3_title:"Cerdo", cb4_title:"Cordero",
     cb5_title:"Parrilla y preparados", cb6_title:"Almacén",
-    f_availability:"Disponibilidad", f_all:"Todos los productos", f_instock:"En stock",
+    f_availability:"Disponibilidad:", f_all:"Todos los productos", f_instock:"En stock", f_outstock:"Sin stock",
     f_price:"Precio",
-    f_sort_default:"Ordenar: Destacados", f_sort_price_asc:"Precio: Menor a mayor",
+    f_sort:"Ordenar por:",
+    f_sort_default:"Destacados", f_sort_price_asc:"Precio: Menor a mayor",
     f_sort_price_desc:"Precio: Mayor a menor", f_sort_name:"Nombre: A–Z",
+    stock_in:"En stock", stock_out:"Sin stock",
+    no_results:"Ningún producto coincide con estos filtros.",
     cc_tag:"¿NO ENCONTRÁS EL CORTE?",
     cc_title:"Decinos el corte y te lo preparamos.",
     cc_desc:"Pedidos de corte especial, encargos y cantidades por caja se coordinan directamente por el formulario de contacto.",
