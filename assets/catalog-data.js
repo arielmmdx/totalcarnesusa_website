@@ -172,19 +172,11 @@ function setCatalogPriceRange(min, max){
   renderCatalogTab();
 }
 
-function togglePricePanel(){
-  const panel = document.getElementById('price-panel');
-  const toggle = document.getElementById('price-toggle');
-  const isOpen = panel.classList.toggle('open');
-  toggle.classList.toggle('open', isOpen);
-}
-
 function initPriceRangeSlider(){
   const minInput = document.getElementById('price-min');
   const maxInput = document.getElementById('price-max');
   const display = document.getElementById('price-range-display');
   const fill = document.getElementById('range-track-fill');
-  const toggle = document.getElementById('price-toggle');
   if(!minInput || !maxInput) return;
 
   function update(){
@@ -196,11 +188,12 @@ function initPriceRangeSlider(){
     const pctMax = ((maxVal - lo) / (hi - lo)) * 100;
     if(fill){ fill.style.left = pctMin + '%'; fill.style.width = (pctMax - pctMin) + '%'; }
     if(display) display.textContent = `$${minVal} – $${maxVal}`;
-    if(toggle) toggle.classList.toggle('has-filter', minVal > lo || maxVal < hi);
     setCatalogPriceRange(minVal, maxVal);
   }
 
   minInput.addEventListener('input', update);
+  minInput.addEventListener('change', update);
   maxInput.addEventListener('input', update);
+  maxInput.addEventListener('change', update);
   update();
 }

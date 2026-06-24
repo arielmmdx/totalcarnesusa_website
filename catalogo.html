@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Catalog — Total Carnes USA</title>
 <meta name="description" content="Full Total Carnes USA catalog: beef, chicken, pork, lamb, grill staples and pantry items, with real prices per pound.">
-<link rel="stylesheet" href="assets/style.css?v=5">
+<link rel="stylesheet" href="assets/style.css?v=6">
 </head>
 <body>
 
@@ -20,7 +20,8 @@
       <a href="contacto.html" data-i18n="nav_contact">Contact</a>
     </div>
     <div class="nav-right">
-      <a class="nav-cta" href="contacto.html" data-i18n="cta_contact">📍 Find a store</a>
+      <a class="nav-cta" href="catalogo.html" data-i18n="nav_cta">Shop the catalog</a>
+      <a class="nav-geo" href="contacto.html#stores-map" data-i18n="nav_geo">📍 Find nearest store</a>
       <div class="lang-toggle">
         <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
         <button id="btn-es" onclick="setLang('es')">ES</button>
@@ -41,6 +42,16 @@
   </div>
 </nav>
 
+<div class="theme-strip">
+  <span class="theme-strip-label" data-i18n="palette_label">Preview a theme:</span>
+  <div class="theme-strip-swatches">
+    <button class="swatch-btn active" data-palette="classic" onclick="setPalette('classic')"><span class="swatch-dot sw-classic"></span>Clásico</button>
+    <button class="swatch-btn" data-palette="parrilla" onclick="setPalette('parrilla')"><span class="swatch-dot sw-parrilla"></span>Parrilla</button>
+    <button class="swatch-btn" data-palette="campo" onclick="setPalette('campo')"><span class="swatch-dot sw-campo"></span>Campo</button>
+    <button class="swatch-btn" data-palette="atlantico" onclick="setPalette('atlantico')"><span class="swatch-dot sw-atlantico"></span>Atlántico</button>
+  </div>
+</div>
+
 <section class="page-hero">
   <div class="container">
     <div class="hero-content">
@@ -56,33 +67,30 @@
 
     <div class="filter-bar fade-in">
       <div class="filter-row">
-        <span class="filter-group-label" data-i18n="f_availability">Availability</span>
+        <span class="filter-group-label" data-i18n="f_availability">Availability:</span>
         <div class="btn-group">
           <button class="pill-btn stock-btn active" data-stock="all" onclick="setCatalogStock('all')" data-i18n="f_all">All products</button>
           <button class="pill-btn stock-btn" data-stock="in" onclick="setCatalogStock('in')" data-i18n="f_instock">In stock</button>
           <button class="pill-btn stock-btn" data-stock="out" onclick="setCatalogStock('out')" data-i18n="f_outstock">Out of stock</button>
         </div>
-
-        <button class="price-toggle" id="price-toggle" onclick="togglePricePanel()">
-          <span data-i18n="f_price">Price</span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-        </button>
-
         <span class="items-count" id="items-count">37 items</span>
       </div>
 
-      <div class="price-panel" id="price-panel">
-        <div class="price-range-display" id="price-range-display">$4 – $190</div>
-        <div class="range-slider">
-          <div class="range-track"></div>
-          <div class="range-track-fill" id="range-track-fill"></div>
-          <input type="range" id="price-min" min="4" max="190" value="4" step="1">
-          <input type="range" id="price-max" min="4" max="190" value="190" step="1">
+      <div class="filter-row price-row">
+        <span class="filter-group-label" data-i18n="f_price">Price:</span>
+        <div class="price-inline">
+          <span class="price-range-display" id="price-range-display">$4 – $190</span>
+          <div class="range-slider">
+            <div class="range-track"></div>
+            <div class="range-track-fill" id="range-track-fill"></div>
+            <input type="range" id="price-min" min="4" max="190" value="4" step="1">
+            <input type="range" id="price-max" min="4" max="190" value="190" step="1">
+          </div>
         </div>
       </div>
 
       <div class="filter-row">
-        <span class="filter-group-label" data-i18n="f_sort">Sort</span>
+        <span class="filter-group-label" data-i18n="f_sort">Sort by:</span>
         <div class="btn-group">
           <button class="pill-btn sort-btn active" data-sort="default" onclick="setCatalogSort('default')" data-i18n="f_sort_default">Featured</button>
           <button class="pill-btn sort-btn" data-sort="price-asc" onclick="setCatalogSort('price-asc')" data-i18n="f_sort_price_asc">Price: Low to High</button>
@@ -144,8 +152,8 @@
   </div>
 </footer>
 
-<script src="assets/common.js?v=5"></script>
-<script src="assets/catalog-data.js?v=5"></script>
+<script src="assets/common.js?v=6"></script>
+<script src="assets/catalog-data.js?v=6"></script>
 <script>
 window.onLangChange = function(){ renderCatalogTab(); };
 
@@ -159,7 +167,7 @@ initSite({
     cb1_title:"Beef", cb2_title:"Chicken", cb3_title:"Pork", cb4_title:"Lamb",
     cb5_title:"Grill & Prepared", cb6_title:"Pantry",
     f_availability:"Availability:", f_all:"All products", f_instock:"In stock", f_outstock:"Out of stock",
-    f_price:"Price",
+    f_price:"Price:",
     f_sort:"Sort by:",
     f_sort_default:"Featured", f_sort_price_asc:"Price: Low to High",
     f_sort_price_desc:"Price: High to Low", f_sort_name:"Name: A–Z",
@@ -180,7 +188,7 @@ initSite({
     cb1_title:"Res", cb2_title:"Pollo", cb3_title:"Cerdo", cb4_title:"Cordero",
     cb5_title:"Parrilla y preparados", cb6_title:"Almacén",
     f_availability:"Disponibilidad:", f_all:"Todos los productos", f_instock:"En stock", f_outstock:"Sin stock",
-    f_price:"Precio",
+    f_price:"Precio:",
     f_sort:"Ordenar por:",
     f_sort_default:"Destacados", f_sort_price_asc:"Precio: Menor a mayor",
     f_sort_price_desc:"Precio: Mayor a menor", f_sort_name:"Nombre: A–Z",

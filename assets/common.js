@@ -2,6 +2,7 @@ const commonI18n = {
   en: {
     nav_home:"Home", nav_catalog:"Catalog", nav_best:"Best Sellers", nav_about:"Our Story", nav_contact:"Contact",
     nav_cta:"Shop the catalog",
+    nav_geo:"📍 Find nearest store",
     footer_brand_desc:"Premium Argentine beef and cuts, shipped nationwide in under 24h, with four stores across Miami-Dade.",
     footer_shop:"Shop",
     footer_company:"Company",
@@ -16,6 +17,7 @@ const commonI18n = {
   es: {
     nav_home:"Inicio", nav_catalog:"Catálogo", nav_best:"Más vendidos", nav_about:"Nuestra historia", nav_contact:"Contacto",
     nav_cta:"Ver catálogo",
+    nav_geo:"📍 Encontrar local más cercano",
     footer_brand_desc:"Carne argentina premium, con envío a todo el país en menos de 24h y cuatro locales en Miami-Dade.",
     footer_shop:"Tienda",
     footer_company:"Empresa",
@@ -74,12 +76,28 @@ function initSite(pageI18n){
     setTheme(current === 'light' ? 'dark' : 'light');
   };
 
+  function setPalette(palette){
+    if(palette === 'classic'){
+      document.documentElement.removeAttribute('data-palette');
+    } else {
+      document.documentElement.setAttribute('data-palette', palette);
+    }
+    localStorage.setItem('tc_palette', palette);
+    document.querySelectorAll('.swatch-btn').forEach(btn=>{
+      btn.classList.toggle('active', btn.dataset.palette === palette);
+    });
+  }
+  window.setPalette = setPalette;
+
   document.addEventListener('DOMContentLoaded', ()=>{
     const saved = localStorage.getItem('tc_lang');
     if(saved === 'es') setLang('es'); else setLang('en');
 
     const savedTheme = localStorage.getItem('tc_theme');
     setTheme(savedTheme === 'light' ? 'light' : 'dark');
+
+    const savedPalette = localStorage.getItem('tc_palette') || 'classic';
+    setPalette(savedPalette);
 
     const burger = document.getElementById('nav-burger');
     const menu = document.getElementById('mobile-menu');
