@@ -131,17 +131,30 @@
 [data-palette="retro"] .product-card:nth-child(3n+3)::after, [data-palette="retro"] .card:nth-child(3n+3)::after{content:'🍄';}
 [data-palette="retro"] .eyebrow::before{content:'⭐ ';}
 
-/* Miami — art-deco pastel pink, teal & gold */
+/* Miami — Inter Miami CF pink & black */
 [data-palette="miami"]{
-  --accent:#ff5d8f; --accent2:#00a99d;
-  --accent-soft:rgba(255,93,143,0.1); --gold-soft:rgba(0,169,157,0.12);
-  --bg:#eafaf6; --bg-alt:#d6f0ea; --card:#ffffff; --border:#a8e3d6;
+  --accent:#f7b5cd; --accent2:#1a1a1a;
+  --accent-soft:rgba(247,181,205,0.18); --gold-soft:rgba(26,26,26,0.08);
+  --bg:#fff0f6; --bg-alt:#fde1ec; --card:#ffffff; --border:#f6c4dc;
 }
 [data-theme="dark"][data-palette="miami"]{
-  --accent:#ff6f9f; --accent2:#1fd1c0;
-  --accent-soft:rgba(255,111,159,0.2); --gold-soft:rgba(31,209,192,0.14);
-  --bg:#081a1c; --bg-alt:#0d2426; --card:#133134; --border:#1f4a4d;
-  --text:#e9fbf8; --muted:#8fc4bf;
+  --accent:#ff6fb0; --accent2:#f7b5cd;
+  --accent-soft:rgba(255,111,176,0.22); --gold-soft:rgba(247,181,205,0.14);
+  --bg:#120608; --bg-alt:#1a0b0f; --card:#241016; --border:#3a1c26;
+  --text:#fbe9f0; --muted:#c98ba6;
+}
+
+/* Mundial — Argentina albiceleste, sky blue & gold */
+[data-palette="mundial"]{
+  --accent:#5ba3d9; --accent2:#c79a2e;
+  --accent-soft:rgba(91,163,217,0.12); --gold-soft:rgba(199,154,46,0.14);
+  --bg:#f3f8fc; --bg-alt:#e2eef8; --card:#ffffff; --border:#bcdbf0;
+}
+[data-theme="dark"][data-palette="mundial"]{
+  --accent:#75c1f0; --accent2:#ffc72c;
+  --accent-soft:rgba(117,193,240,0.2); --gold-soft:rgba(255,199,44,0.14);
+  --bg:#081420; --bg-alt:#0d1d2c; --card:#142838; --border:#234052;
+  --text:#eaf5fc; --muted:#94b9cf;
 }
 
 /* Fuxia — vivid magenta/fuchsia with deep purple */
@@ -280,6 +293,7 @@
 .swatch-dot.sw-retro{background:linear-gradient(135deg,#d6336c 50%,#0891a8 50%);}
 .swatch-dot.sw-miami{background:linear-gradient(135deg,#ff5d8f 50%,#00a99d 50%);}
 .swatch-dot.sw-fuxia{background:linear-gradient(135deg,#c2185b 50%,#9c27b0 50%);}
+.swatch-dot.sw-mundial{background:linear-gradient(135deg,#5ba3d9 50%,#c79a2e 50%);}
 
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
