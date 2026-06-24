@@ -200,6 +200,15 @@
   100%{ bottom:108%; transform:translateX(15px) scale(2.4) rotate(5deg); opacity:0; }
 }
 
+/* photo gallery */
+.photo-carousel{overflow:hidden;position:relative;margin-bottom:32px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);}
+.photo-track{display:flex;gap:14px;width:max-content;animation:reviews-scroll 40s linear infinite;}
+.photo-track img{width:220px;height:160px;object-fit:cover;border-radius:12px;border:1px solid var(--border);flex:0 0 auto;}
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;}
+.photo-grid img{width:100%;height:160px;object-fit:cover;border-radius:12px;border:1px solid var(--border);transition:transform .2s;}
+.photo-grid img:hover{transform:scale(1.03);}
+.photo-gallery-note{font-size:12.5px;color:var(--muted);margin-top:16px;font-style:italic;}
+
 /* real Google reviews carousel */
 .reviews-carousel{overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);}
 .reviews-track{display:flex;gap:20px;width:max-content;animation:reviews-scroll 55s linear infinite;}

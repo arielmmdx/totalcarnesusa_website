@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Product — Total Carnes USA</title>
-<meta name="description" content="Product details — Total Carnes USA, premium Argentine beef and cuts.">
-<link rel="stylesheet" href="assets/style.css?v=17">
+<title>Product | Total Carnes USA</title>
+<meta name="description" content="Product details for Total Carnes USA, premium Argentine beef and cuts.">
+<link rel="stylesheet" href="assets/style.css?v=18">
 </head>
 <body>
 
@@ -54,12 +54,12 @@
         </button>
         <div class="account-panel" id="account-panel">
           <h4 data-i18n="account_title">Account</h4>
-          <button class="btn btn-primary" onclick="alert(window.tcAccountNote || 'Design preview — sign-in would connect to your real customer accounts system.')" data-i18n="account_signin">Sign in</button>
+          <button class="btn btn-primary" onclick="alert(window.tcAccountNote || 'Design preview. Sign-in would connect to your real customer accounts system.')" data-i18n="account_signin">Sign in</button>
           <div class="account-panel-grid">
             <button data-i18n="account_orders">Orders</button>
             <button data-i18n="account_profile">Profile</button>
           </div>
-          <p class="account-note" data-i18n="account_note">Design preview — sign-in would connect to your real customer accounts system.</p>
+          <p class="account-note" data-i18n="account_note">Design preview. Sign-in would connect to your real customer accounts system.</p>
         </div>
       </div>
       <button class="icon-btn" onclick="toggleCart()" aria-label="Cart">
@@ -195,10 +195,10 @@
       <div class="footer-col">
         <a href="contacto.html#stores-map"><h4 class="footer-link-btn-heading" data-i18n="footer_locations_title">📍 Our stores</h4></a>
         <div class="footer-col-buttons">
-          <a class="footer-store-link" href="contacto.html#stores-map" data-i18n="addr_northmiami">North Miami — 12420 Biscayne Blvd</a>
-          <a class="footer-store-link" href="contacto.html#stores-map" data-i18n="addr_aventura">Aventura — 19087 West Dixie Highway</a>
-          <a class="footer-store-link" href="contacto.html#stores-map" data-i18n="addr_pinecrest">Pinecrest — 9563 S Dixie Hwy #04A</a>
-          <a class="footer-store-link" href="contacto.html#stores-map" data-i18n="addr_keybiscayne">Key Biscayne — 328 Crandon Blvd</a>
+          <a class="footer-store-link" href="contacto.html#stores-map" data-i18n="addr_northmiami">North Miami: 12420 Biscayne Blvd</a>
+          <a class="footer-store-link" href="contacto.html#stores-map" data-i18n="addr_aventura">Aventura: 19087 West Dixie Highway</a>
+          <a class="footer-store-link" href="contacto.html#stores-map" data-i18n="addr_pinecrest">Pinecrest: 9563 S Dixie Hwy #04A</a>
+          <a class="footer-store-link" href="contacto.html#stores-map" data-i18n="addr_keybiscayne">Key Biscayne: 328 Crandon Blvd</a>
         </div>
       </div>
     </div>
@@ -210,8 +210,8 @@
 </footer>
 
 <script src="assets/cart.js"></script>
-<script src="assets/common.js?v=17"></script>
-<script src="assets/catalog-data.js?v=17"></script>
+<script src="assets/common.js?v=18"></script>
+<script src="assets/catalog-data.js?v=18"></script>
 <script>
 let currentProduct = null;
 let selectedWeight = 1;
@@ -234,7 +234,7 @@ function renderProductDetail(){
     return;
   }
   currentProduct = product;
-  document.title = product.name + ' — Total Carnes USA';
+  document.title = product.name + ' | Total Carnes USA';
 
   const stockBadge = product.inStock === false
     ? `<span class="stock-badge out" data-i18n="stock_out">Out of stock</span>`
@@ -265,7 +265,7 @@ function renderProductDetail(){
         <button class="btn btn-primary add-to-cart-btn" onclick="handleAddToCart()" ${product.inStock===false?'disabled':''} data-i18n="add_to_cart_btn">🛒 Add to cart</button>
 
         <div class="pickup-info">
-          <span data-i18n="pickup_text">📦 Pickup available at <strong>Total Carnes North Miami</strong> — usually ready in 24h.</span>
+          <span data-i18n="pickup_text">📦 Pickup available at <strong>Total Carnes North Miami</strong>. Usually ready in 24h.</span>
           <a href="contacto.html#stores-map" data-i18n="view_store_info">View store information →</a>
         </div>
       </div>
@@ -317,7 +317,7 @@ initSite({
     weight_label:"Weight",
     qty_label:"Quantity",
     add_to_cart_btn:"🛒 Add to cart",
-    pickup_text:"📦 Pickup available at <strong>Total Carnes North Miami</strong> — usually ready in 24h.",
+    pickup_text:"📦 Pickup available at <strong>Total Carnes North Miami</strong>. Usually ready in 24h.",
     view_store_info:"View store information →",
     unit_lb:"/lb"
   },
@@ -328,7 +328,7 @@ initSite({
     weight_label:"Peso",
     qty_label:"Cantidad",
     add_to_cart_btn:"🛒 Agregar al carrito",
-    pickup_text:"📦 Retiro disponible en <strong>Total Carnes North Miami</strong> — listo en 24h.",
+    pickup_text:"📦 Retiro disponible en <strong>Total Carnes North Miami</strong>. Listo en 24h.",
     view_store_info:"Ver información del local →",
     unit_lb:"/lb"
   }

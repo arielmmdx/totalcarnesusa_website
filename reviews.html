@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Customer Reviews — Total Carnes USA</title>
+<title>Customer Reviews | Total Carnes USA</title>
 <meta name="description" content="Real Google reviews from Total Carnes USA customers across our four Miami-Dade locations.">
-<link rel="stylesheet" href="assets/style.css?v=17">
+<link rel="stylesheet" href="assets/style.css?v=18">
 </head>
 <body>
 
@@ -54,12 +54,12 @@
         </button>
         <div class="account-panel" id="account-panel">
           <h4 data-i18n="account_title">Account</h4>
-          <button class="btn btn-primary" onclick="alert(window.tcAccountNote || 'Design preview — sign-in would connect to your real customer accounts system.')" data-i18n="account_signin">Sign in</button>
+          <button class="btn btn-primary" onclick="alert(window.tcAccountNote || 'Design preview. Sign-in would connect to your real customer accounts system.')" data-i18n="account_signin">Sign in</button>
           <div class="account-panel-grid">
             <button data-i18n="account_orders">Orders</button>
             <button data-i18n="account_profile">Profile</button>
           </div>
-          <p class="account-note" data-i18n="account_note">Design preview — sign-in would connect to your real customer accounts system.</p>
+          <p class="account-note" data-i18n="account_note">Design preview. Sign-in would connect to your real customer accounts system.</p>
         </div>
       </div>
       <button class="icon-btn" onclick="toggleCart()" aria-label="Cart">
@@ -137,10 +137,10 @@
       <div class="footer-col">
         <a href="contacto.html#stores-map"><h4 class="footer-link-btn-heading" data-i18n="footer_locations_title">📍 Our stores</h4></a>
         <div class="footer-col-buttons">
-          <a class="footer-store-link" href="contacto.html#stores-map" data-i18n="addr_northmiami">North Miami — 12420 Biscayne Blvd</a>
-          <a class="footer-store-link" href="contacto.html#stores-map" data-i18n="addr_aventura">Aventura — 19087 West Dixie Highway</a>
-          <a class="footer-store-link" href="contacto.html#stores-map" data-i18n="addr_pinecrest">Pinecrest — 9563 S Dixie Hwy #04A</a>
-          <a class="footer-store-link" href="contacto.html#stores-map" data-i18n="addr_keybiscayne">Key Biscayne — 328 Crandon Blvd</a>
+          <a class="footer-store-link" href="contacto.html#stores-map" data-i18n="addr_northmiami">North Miami: 12420 Biscayne Blvd</a>
+          <a class="footer-store-link" href="contacto.html#stores-map" data-i18n="addr_aventura">Aventura: 19087 West Dixie Highway</a>
+          <a class="footer-store-link" href="contacto.html#stores-map" data-i18n="addr_pinecrest">Pinecrest: 9563 S Dixie Hwy #04A</a>
+          <a class="footer-store-link" href="contacto.html#stores-map" data-i18n="addr_keybiscayne">Key Biscayne: 328 Crandon Blvd</a>
         </div>
       </div>
     </div>
@@ -152,36 +152,30 @@
 </footer>
 
 <script src="assets/cart.js"></script>
-<script src="assets/common.js?v=17"></script>
+<script src="assets/common.js?v=18"></script>
 <script>
-const GOOGLE_REVIEWS_LINK = "https://www.google.com/maps?cid=3309418186263857738";
-
 const realReviews = [
-  ["Ivon Fernandez", "Local Guide · 47 opiniones", "Excelente lugar, me encantó, no había estado ahí antes. Muy buena calidad de carnes y muy buena atención de su manager Carol. Volveré sin duda."],
-  ["Javier Mentasti", "9 opiniones", "Toda tipo de carne. Argentina 🇦🇷 el mejor de Miami. Precio, calidad y atención al cliente excelente."],
-  ["Guillermina", "12 opiniones", "Si querés comprar carne con los mejores cortes argentinos, este es el lugar para hacerlo en Miami. Los mejores cortes, la mejor calidad y el mejor servicio."],
-  ["Paul Pupo", "2 opiniones", "Excelente lugar para encontrar lo más rico para agasajar a tus invitados. Carne inmejorable y los vinos son un 100."],
-  ["Gabriel Fabrizio Barrece Guedez", "Local Guide · 48 opiniones", "La mejor carnicería en todo Miami!! Excelente servicio y sobre todo la carne muy rica."],
-  ["Pablo Dominguez", "13 opiniones", "Recomiendo el lugar al 100%. Excelente atención de las chicas, un lugar impecable, con buen ambiente y todo ordenado, con calidades increíbles."],
-  ["Fabian Mateos", "Local Guide · 35 opiniones", "Producto excelente! Somos proveedores de carne para las barbacoas en el chiringuito español de Key Biscayne, y además del gran producto, la atención es ideal."],
-  ["Mica Péndola", "4 opiniones", "Excelente lugar para comprar carne de calidad en Miami. Recomendado."],
-  ["Fausto Guebara", "3 opiniones", "Excelente carne y servicio! Carne argentina de calidad!"],
-  ["josefina martinez", "5 opiniones", "Excelente la calidad y la atención!! Recomiendo mucho."],
-  ["Javier Valderrama", "Local Guide · 125 opiniones", "Excelente carnicería, productos de súper calidad y una atención extraordinaria."],
-  ["Felipe Tomas Garcia Schickendantz", "10 opiniones", "Espectacular variedad, los empleados son muy buena onda, sobre todo la niña de la caja, gracias."],
-  ["Dania Cofiño", "1 opinión", "Gran servicio! La mejor carne de Miami, al mejor precio!"]
+  ["Rodrigo Yuraszeck", "", "Excelente lugar, me encantó, no había estado ahí antes. Muy buena calidad de carnes y muy buena atención de su manager Carol. Volveré sin duda.", "Great place, I loved it, I hadn't been there before. Very good quality meat and great service from their manager Carol. I'll definitely be back.", "https://maps.app.goo.gl/UBnkjua7EHtHskxu8"],
+  ["Ivon Fernandez", "", "Toda tipo de carne. Argentina 🇦🇷 el mejor de Miami. Precio, calidad y atención al cliente excelente.", "All kinds of meat. Argentine, the best in Miami. Excellent price, quality, and customer service.", "https://maps.app.goo.gl/a2qpr9L8SRaLTEzj8"],
+  ["Pamela Janovsky", "6 opiniones", "¡Excelente!", "Excellent!", "https://maps.app.goo.gl/ozpARPHAfTsGfZxR6"],
+  ["Peter Tarpinian", "", "Los 10 mejores filetes que he probado en mi vida. Olvídate de Publix, comprá tu carne aquí.", "The 10 best steaks I've ever had. Forget Publix, buy your meat here.", "https://maps.app.goo.gl/taFVTCAVKjZxBPTe8"],
+  ["carlos c", "Local Guide · 18 opiniones", "Excelencia total, pura calidad. Gracias a Josefina por su atención, lo recomiendo al 100%.", "Total excellence, pure quality. Thanks to Josefina for her service, I recommend it 100%.", "https://maps.app.goo.gl/bhYhP2ZXJvzWBKQT9"],
+  ["Trickshot Productions", "", "Excelente calidad, precios razonables y un personal estupendo. Si te encanta la carne, tenés que probar este sitio.", "Excellent quality, reasonable prices, and a great staff. If you love meat, you have to try this place.", "https://maps.app.goo.gl/fG7SpErPAxBVtyTE7"],
+  ["Débora Milano", "", "Encuentro muchos artículos argentinos para disfrutar en familia.", "I find lots of Argentine products to enjoy with the family.", "https://maps.app.goo.gl/iKDaDxz51bnv5mPs5"],
+  ["Gustavo Lumer", "", "Si querés comprar carne con los mejores cortes Argentinos este es el nuevo lugar para hacerlo en Miami. Los mejores cortes, la mejor calidad y el mejor servicio. Próximamente también carne KOSHER. Martin el Manager es un crack.", "If you want to buy meat with the best Argentine cuts, this is the new place to do it in Miami. The best cuts, the best meat, the best quality and the best service. Coming soon also KOSHER meat. Martin the Manager is the best.", "https://maps.app.goo.gl/nVRMKngsFZGB6LU37"]
 ];
 
 function renderReviewsCarousel(){
   const track = document.getElementById('reviews-track');
   if(!track) return;
-  const slide = ([name, meta, text]) => `
-    <a class="review-slide" href="${GOOGLE_REVIEWS_LINK}" target="_blank" rel="noopener">
+  const lang = document.documentElement.getAttribute('lang') === 'es' ? 'es' : 'en';
+  const slide = ([name, meta, textEs, textEn, link]) => `
+    <a class="review-slide" href="${link}" target="_blank" rel="noopener">
       <div class="review-slide-top">
         <span class="review-slide-stars">★★★★★</span>
         <span class="review-slide-google">Google ↗</span>
       </div>
-      <p class="review-slide-text">"${text}"</p>
+      <p class="review-slide-text">"${lang === 'es' ? textEs : textEn}"</p>
       <div class="review-slide-author"><strong>${name}</strong><span>${meta}</span></div>
     </a>`;
   track.innerHTML = realReviews.map(slide).join('') + realReviews.map(slide).join('');
@@ -204,6 +198,7 @@ initSite({
   }
 });
 renderReviewsCarousel();
+window.onLangChange = function(){ renderReviewsCarousel(); };
 </script>
 </body>
 </html>
