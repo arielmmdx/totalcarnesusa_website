@@ -104,6 +104,7 @@ function renderCatalog(){
     const el = document.getElementById('grid-'+cat);
     if(!el) return;
     el.innerHTML = catalogData[cat].map(([name,price,slug,inStock])=>buildCard(name,price,slug,inStock)).join('');
+    el.querySelectorAll('.fade-in').forEach(card=>card.classList.add('visible'));
   });
 }
 
@@ -111,6 +112,7 @@ function renderBestSellers(targetId, items){
   const el = document.getElementById(targetId);
   if(!el) return;
   el.innerHTML = items.map(([name,price,slug,inStock])=>buildCard(name,price,slug,inStock)).join('');
+  el.querySelectorAll('.fade-in').forEach(card=>card.classList.add('visible'));
 }
 
 const CATALOG_PRICE_MIN = 4;
@@ -134,6 +136,8 @@ function renderCatalogTab(){
   el.innerHTML = items.length
     ? items.map(([name,price,slug,inStock])=>buildCard(name,price,slug,inStock)).join('')
     : '<p style="color:var(--muted);" data-i18n="no_results">No products match these filters.</p>';
+
+  el.querySelectorAll('.fade-in').forEach(card=>card.classList.add('visible'));
 
   const counter = document.getElementById('items-count');
   if(counter) counter.textContent = items.length + (window.tcItemsLabel || ' items');

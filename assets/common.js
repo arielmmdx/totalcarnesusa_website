@@ -3,6 +3,7 @@ const commonI18n = {
     nav_home:"Home", nav_catalog:"Catalog", nav_best:"Best Sellers", nav_about:"Our Story", nav_contact:"Contact",
     nav_cta:"Shop the catalog",
     nav_geo:"📍 Find nearest store",
+    palette_label:"Preview a theme:",
     footer_brand_desc:"Premium Argentine beef and cuts, shipped nationwide in under 24h, with four stores across Miami-Dade.",
     footer_shop:"Shop",
     footer_company:"Company",
@@ -18,6 +19,7 @@ const commonI18n = {
     nav_home:"Inicio", nav_catalog:"Catálogo", nav_best:"Más vendidos", nav_about:"Nuestra historia", nav_contact:"Contacto",
     nav_cta:"Ver catálogo",
     nav_geo:"📍 Encontrar local más cercano",
+    palette_label:"Probar un estilo:",
     footer_brand_desc:"Carne argentina premium, con envío a todo el país en menos de 24h y cuatro locales en Miami-Dade.",
     footer_shop:"Tienda",
     footer_company:"Empresa",
@@ -94,7 +96,7 @@ function initSite(pageI18n){
     if(saved === 'es') setLang('es'); else setLang('en');
 
     const savedTheme = localStorage.getItem('tc_theme');
-    setTheme(savedTheme === 'light' ? 'light' : 'dark');
+    setTheme(savedTheme === 'dark' ? 'dark' : 'light');
 
     const savedPalette = localStorage.getItem('tc_palette') || 'classic';
     setPalette(savedPalette);

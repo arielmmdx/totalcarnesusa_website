@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Catalog — Total Carnes USA</title>
 <meta name="description" content="Full Total Carnes USA catalog: beef, chicken, pork, lamb, grill staples and pantry items, with real prices per pound.">
-<link rel="stylesheet" href="assets/style.css?v=6">
+<link rel="stylesheet" href="assets/style.css?v=7">
 </head>
 <body>
 
@@ -81,10 +81,14 @@
         <div class="price-inline">
           <span class="price-range-display" id="price-range-display">$4 – $190</span>
           <div class="range-slider">
-            <div class="range-track"></div>
-            <div class="range-track-fill" id="range-track-fill"></div>
-            <input type="range" id="price-min" min="4" max="190" value="4" step="1">
-            <input type="range" id="price-max" min="4" max="190" value="190" step="1">
+            <span class="range-min-label">$4</span>
+            <div class="range-slider-track-wrap">
+              <div class="range-track"></div>
+              <div class="range-track-fill" id="range-track-fill"></div>
+              <input type="range" id="price-min" min="4" max="190" value="4" step="1">
+              <input type="range" id="price-max" min="4" max="190" value="190" step="1">
+            </div>
+            <span class="range-max-label">$190</span>
           </div>
         </div>
       </div>
@@ -152,8 +156,8 @@
   </div>
 </footer>
 
-<script src="assets/common.js?v=6"></script>
-<script src="assets/catalog-data.js?v=6"></script>
+<script src="assets/common.js?v=7"></script>
+<script src="assets/catalog-data.js?v=7"></script>
 <script>
 window.onLangChange = function(){ renderCatalogTab(); };
 
