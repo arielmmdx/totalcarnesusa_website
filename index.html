@@ -8,7 +8,7 @@
 <meta property="og:title" content="Total Carnes USA — Premium Argentine Beef">
 <meta property="og:description" content="Argentine beef. Built on quality. Nationwide shipping in under 24h, four Miami-Dade stores.">
 <meta property="og:type" content="website">
-<link rel="stylesheet" href="assets/style.css?v=15">
+<link rel="stylesheet" href="assets/style.css?v=16">
 </head>
 <body>
 
@@ -287,19 +287,11 @@
       <span class="section-tag" data-i18n="test_tag">WHAT CUSTOMERS SAY</span>
       <h2 class="section-title" data-i18n="test_title">The best meat they've found in Miami.</h2>
     </div>
-    <div class="grid">
-      <div class="testimonial-card fade-in">
-        <p data-i18n="test1">"The best meat they found in Miami — every cut is exactly what you'd expect from a real Argentine butcher."</p>
-        <strong data-i18n="test1_name">Verified customer</strong>
-      </div>
-      <div class="testimonial-card fade-in">
-        <p data-i18n="test2">"Attentive staff, strong product knowledge — they actually know the cuts and help you pick the right one."</p>
-        <strong data-i18n="test2_name">Verified customer</strong>
-      </div>
-      <div class="testimonial-card fade-in">
-        <p data-i18n="test3">"Wider selection than I expected — not just meat, the pantry and prepared items round out the order."</p>
-        <strong data-i18n="test3_name">Verified customer</strong>
-      </div>
+    <div class="reviews-carousel fade-in">
+      <div class="reviews-track" id="reviews-track-home"></div>
+    </div>
+    <div class="fade-in" style="margin-top:24px; text-align:center;">
+      <a class="btn btn-secondary" href="reviews.html" data-i18n="reviews_see_more">⭐ See all our Google reviews →</a>
     </div>
   </div>
 </section>
@@ -350,8 +342,8 @@
 </footer>
 
 <script src="assets/cart.js"></script>
-<script src="assets/common.js?v=15"></script>
-<script src="assets/catalog-data.js?v=15"></script>
+<script src="assets/common.js?v=16"></script>
+<script src="assets/catalog-data.js?v=16"></script>
 <script>
 renderBestSellers('home-best-grid', [
   ["Short Ribs (Banderita)", 36.26, "short-ribs-banderita", true],
@@ -359,6 +351,40 @@ renderBestSellers('home-best-grid', [
   ["Ground Beef Premium", 11.54, "ground-beef-premium", true],
   ["Tenderloin", 77.40, "tenderloin", true]
 ]);
+
+const GOOGLE_REVIEWS_LINK = "https://www.google.com/maps/search/Total+Carnes+USA";
+const realReviews = [
+  ["Ivon Fernandez", "Local Guide · 47 opiniones", "Excelente lugar, me encantó, no había estado ahí antes. Muy buena calidad de carnes y muy buena atención de su manager Carol. Volveré sin duda."],
+  ["Javier Mentasti", "9 opiniones", "Toda tipo de carne. Argentina 🇦🇷 el mejor de Miami. Precio, calidad y atención al cliente excelente."],
+  ["Guillermina", "12 opiniones", "Si querés comprar carne con los mejores cortes argentinos, este es el lugar para hacerlo en Miami. Los mejores cortes, la mejor calidad y el mejor servicio."],
+  ["Paul Pupo", "2 opiniones", "Excelente lugar para encontrar lo más rico para agasajar a tus invitados. Carne inmejorable y los vinos son un 100."],
+  ["Gabriel Fabrizio Barrece Guedez", "Local Guide · 48 opiniones", "La mejor carnicería en todo Miami!! Excelente servicio y sobre todo la carne muy rica."],
+  ["Pablo Dominguez", "13 opiniones", "Recomiendo el lugar al 100%. Excelente atención de las chicas, un lugar impecable, con buen ambiente y todo ordenado, con calidades increíbles."],
+  ["Fabian Mateos", "Local Guide · 35 opiniones", "Producto excelente! Somos proveedores de carne para las barbacoas en el chiringuito español de Key Biscayne, y además del gran producto, la atención es ideal."],
+  ["Mica Péndola", "4 opiniones", "Excelente lugar para comprar carne de calidad en Miami. Recomendado."],
+  ["Fausto Guebara", "3 opiniones", "Excelente carne y servicio! Carne argentina de calidad!"],
+  ["josefina martinez", "5 opiniones", "Excelente la calidad y la atención!! Recomiendo mucho."],
+  ["Javier Valderrama", "Local Guide · 125 opiniones", "Excelente carnicería, productos de súper calidad y una atención extraordinaria."],
+  ["Felipe Tomas Garcia Schickendantz", "10 opiniones", "Espectacular variedad, los empleados son muy buena onda, sobre todo la niña de la caja, gracias."],
+  ["Dania Cofiño", "1 opinión", "Gran servicio! La mejor carne de Miami, al mejor precio!"]
+];
+
+function renderReviewsCarousel(){
+  const track = document.getElementById('reviews-track-home');
+  if(!track) return;
+  const slide = ([name, meta, text]) => `
+    <a class="review-slide" href="${GOOGLE_REVIEWS_LINK}" target="_blank" rel="noopener">
+      <div class="review-slide-top">
+        <span class="review-slide-stars">★★★★★</span>
+        <span class="review-slide-google">Google ↗</span>
+      </div>
+      <p class="review-slide-text">"${text}"</p>
+      <div class="review-slide-author"><strong>${name}</strong><span>${meta}</span></div>
+    </a>`;
+  track.innerHTML = realReviews.map(slide).join('') + realReviews.map(slide).join('');
+}
+renderReviewsCarousel();
+
 initSite({
   en:{
     hero_eyebrow:"ARGENTINE BEEF, BUILT ON QUALITY",

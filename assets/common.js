@@ -163,5 +163,12 @@ function initSite(pageI18n){
       });
     }, { threshold: 0.12 });
     document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+
+    document.querySelectorAll('.reviews-carousel').forEach(carousel=>{
+      const track = carousel.querySelector('.reviews-track');
+      if(!track) return;
+      carousel.addEventListener('mouseenter', ()=>track.classList.add('paused'));
+      carousel.addEventListener('mouseleave', ()=>track.classList.remove('paused'));
+    });
   });
 }
