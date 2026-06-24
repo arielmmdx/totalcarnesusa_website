@@ -426,3 +426,28 @@ function initPriceRangeSlider(){
   maxInput.addEventListener('change', update);
   update();
 }
+
+const OFFERS = [
+  { name:'Tomahawk', slug:'tomahawk', compare:48.38, sale:41.12 },
+  { name:'Short Ribs (Banderita)', slug:'short-ribs-banderita', compare:36.26, sale:30.82 },
+  { name:'Empanadas de Carne x 6', slug:'empanadas-de-carne-x-6', tag2x1:true },
+  { name:'Ground Beef Premium', slug:'ground-beef-premium', compare:11.54, sale:10.39 }
+];
+function renderOffersTicker(){
+  const track = document.querySelector('.offers-track');
+  if(!track) return;
+  const card = (o) => `
+    <div class="offer-card">
+      <img src="assets/images/products/${o.slug}.jpg" alt="${getDisplayName(o.name, o.slug)}">
+      <div class="offer-info">
+        <span class="offer-badge" data-i18n="offer_badge">⭐ OFFER</span>
+        <span class="offer-name">${getDisplayName(o.name, o.slug)}</span>
+        ${o.tag2x1
+          ? `<span class="offer-tag2x1" data-i18n="offer_2x1">Buy 1 Get 1 Free</span>`
+          : `<span class="offer-price"><s>$${o.compare.toFixed(2)}</s> $${o.sale.toFixed(2)}</span>`}
+      </div>
+    </div>`;
+  const html = OFFERS.map(card).join('');
+  track.innerHTML = html + html + html + html;
+  if(window.applyI18nTo) window.applyI18nTo(track);
+}
