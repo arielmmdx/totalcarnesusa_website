@@ -16,7 +16,7 @@
 <meta name="twitter:title" content="Contact & Stores | Total Carnes USA">
 <meta name="twitter:description" content="Visit Total Carnes USA in North Miami, Aventura, Pinecrest or Key Biscayne, or send a cut request / order detail through our contact form.">
 <meta name="twitter:image" content="https://totalcarnesusa.pages.dev/assets/images/store/storefront-day.png">
-<link rel="stylesheet" href="assets/style.css?v=40">
+<link rel="stylesheet" href="assets/style.css?v=41">
 </head>
 <body>
 
@@ -310,7 +310,7 @@
 
 <script src="assets/cart.js"></script>
 <script src="assets/common.js?v=24"></script>
-<script src="assets/catalog-data.js?v=26"></script>
+<script src="assets/catalog-data.js?v=27"></script>
 <script>
 let addressDebounce = null;
 
@@ -505,6 +505,11 @@ function renderPhotoGallery(){
 renderPhotoGallery();
 renderReviewsCarousel();
 renderOffersTicker();
+
+if(window.location.hash === '#photos-section'){
+  document.querySelectorAll('a[href="contacto.html"]').forEach(a=>a.classList.remove('current'));
+  document.querySelectorAll('a[href="contacto.html#photos-section"]').forEach(a=>a.classList.add('current'));
+}
 
 window.onLangChange = function(lang){
   renderOffersTicker();

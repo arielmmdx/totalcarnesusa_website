@@ -298,8 +298,8 @@ function renderBestSellers(targetId, items){
   el.querySelectorAll('.fade-in').forEach(card=>card.classList.add('visible'));
 }
 
-const CATALOG_PRICE_MIN = 4;
-const CATALOG_PRICE_MAX = 190;
+const CATALOG_PRICE_MIN = 0;
+const CATALOG_PRICE_MAX = Math.ceil(Math.max(...getAllProducts().map(p=>p[1])) / 10) * 10;
 
 const catalogState = {
   category:'beef', min:CATALOG_PRICE_MIN, max:CATALOG_PRICE_MAX, sort:'default', stock:'all',
@@ -406,7 +406,16 @@ function initPriceRangeSlider(){
   const maxInput = document.getElementById('price-max');
   const display = document.getElementById('price-range-display');
   const fill = document.getElementById('range-track-fill');
+  const minLabel = document.querySelector('.range-min-label');
+  const maxLabel = document.querySelector('.range-max-label');
   if(!minInput || !maxInput) return;
+
+  minInput.min = maxInput.min = CATALOG_PRICE_MIN;
+  minInput.max = maxInput.max = CATALOG_PRICE_MAX;
+  minInput.value = CATALOG_PRICE_MIN;
+  maxInput.value = CATALOG_PRICE_MAX;
+  if(minLabel) minLabel.textContent = '$' + CATALOG_PRICE_MIN;
+  if(maxLabel) maxLabel.textContent = '$' + CATALOG_PRICE_MAX;
 
   function update(){
     let minVal = parseInt(minInput.value, 10);
