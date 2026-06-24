@@ -155,7 +155,7 @@ function initSite(pageI18n){
     const savedTheme = localStorage.getItem('tc_theme_v2');
     setTheme(savedTheme === 'dark' ? 'dark' : 'light');
 
-    const savedPalette = localStorage.getItem('tc_palette') || 'classic';
+    const savedPalette = localStorage.getItem('tc_palette') || 'mundial';
     setPalette(savedPalette);
 
     const burger = document.getElementById('nav-burger');
