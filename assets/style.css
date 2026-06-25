@@ -876,7 +876,8 @@ section{padding:90px 0;}
 .pickup-info a{color:var(--accent2);font-weight:700;}
 
 /* address autocomplete */
-.autocomplete-wrap{position:relative;}
+.autocomplete-wrap{position:relative;width:100%;}
+.autocomplete-wrap input{width:100%;}
 .autocomplete-list{
   position:absolute;top:100%;left:0;right:0;z-index:50;
   background:var(--card);border:1px solid var(--border);border-radius:10px;
@@ -895,6 +896,19 @@ footer{border-top:4px solid var(--accent);background:#121212;padding:52px 0 28px
 .footer-col a, .footer-col p{display:block;color:#9b938a;margin-bottom:8px;}
 .footer-col a:hover{color:var(--accent);}
 .footer-bottom{border-top:1px solid #262626;padding-top:20px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;color:#7a7268;}
+.footer-credit-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.footer-credit-link{
+  display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;
+  border-radius:50%;background:#1c1c1c;border:1px solid #2c2c2c;color:#b8b0a8;transition:all .2s;
+}
+.footer-credit-link svg{width:14px;height:14px;}
+.footer-credit-link:hover{border-color:#0a66c2;color:#0a66c2;}
+.footer-whatsapp{
+  display:inline-flex;align-items:center;gap:6px;width:auto;border-radius:999px;padding:5px 12px;
+  background:#1c1c1c;border:1px solid #25d36633;color:#25d366;font-weight:700;font-size:12px;
+}
+.footer-whatsapp svg{width:14px;height:14px;}
+.footer-whatsapp:hover{background:#25d366;color:#0c1c12;border-color:#25d366;}
 .footer-follow-label{font-size:12px;color:#7a7268;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;display:block;}
 .brand-links{display:flex;gap:14px;}
 .nav-brand{display:none;gap:8px;flex:0 0 auto;}
