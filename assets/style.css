@@ -15,7 +15,7 @@
 }
 
 /* dark mode — softer charcoal/brown, not pure black */
-[data-theme="dark"]{
+html[data-theme="dark"]{
   --bg:#241a16;
   --bg-alt:#2c211c;
   --card:#342621;
@@ -27,21 +27,21 @@
   --accent-soft:rgba(179,64,74,0.16);
   --gold-soft:rgba(201,161,61,0.12);
 }
-[data-theme="dark"] .nav{background:rgba(36,26,22,0.96);}
-[data-theme="light"] .nav{background:rgba(246,242,236,0.96);}
+html[data-theme="dark"] .nav{background:rgba(36,26,22,0.96);}
+html[data-theme="light"] .nav{background:rgba(246,242,236,0.96);}
 .lang-toggle, .theme-toggle{background:rgba(255,255,255,0.6);}
-[data-theme="dark"] .lang-toggle, [data-theme="dark"] .theme-toggle{background:rgba(52,38,33,0.85);}
-[data-theme="light"] .btn-secondary:hover{background:var(--bg-alt);}
+html[data-theme="dark"] .lang-toggle, html[data-theme="dark"] .theme-toggle{background:rgba(52,38,33,0.85);}
+html[data-theme="light"] .btn-secondary:hover{background:var(--bg-alt);}
 
 /* alternate color palettes — distinct hue + tint, not just accent color */
 
 /* Parrilla — vivid fire orange, high-contrast char tones */
-[data-palette="parrilla"]{
+html[data-palette="parrilla"]{
   --accent:#d9480f; --accent2:#e0962a;
   --accent-soft:rgba(217,72,15,0.12); --gold-soft:rgba(224,150,42,0.14);
   --bg:#fdebd6; --bg-alt:#fad9b3; --card:#fffaf3; --border:#f0bd7d;
 }
-[data-theme="dark"][data-palette="parrilla"]{
+html[data-theme="dark"][data-palette="parrilla"]{
   --accent:#ff7a29; --accent2:#ffc24d;
   --accent-soft:rgba(255,122,41,0.22); --gold-soft:rgba(255,194,77,0.16);
   --bg:#1a0f08; --bg-alt:#23140a; --card:#2e190d; --border:#4a2812;
@@ -49,12 +49,12 @@
 }
 
 /* Campo — olive green, earthy cream */
-[data-palette="campo"]{
+html[data-palette="campo"]{
   --accent:#46562b; --accent2:#8a6c30;
   --accent-soft:rgba(70,86,43,0.1); --gold-soft:rgba(138,108,48,0.12);
   --bg:#f3f1e2; --bg-alt:#e7e2c8; --card:#ffffff; --border:#cdc49a;
 }
-[data-theme="dark"][data-palette="campo"]{
+html[data-theme="dark"][data-palette="campo"]{
   --accent:#7c9a52; --accent2:#c9a66b;
   --accent-soft:rgba(124,154,82,0.18); --gold-soft:rgba(201,166,107,0.14);
   --bg:#161a0f; --bg-alt:#1e2415; --card:#272e1c; --border:#3a4527;
@@ -62,12 +62,12 @@
 }
 
 /* Atlántico — teal & navy, coastal */
-[data-palette="atlantico"]{
+html[data-palette="atlantico"]{
   --accent:#0e5a73; --accent2:#9c7a2e;
   --accent-soft:rgba(14,90,115,0.1); --gold-soft:rgba(156,122,46,0.1);
   --bg:#e7f2f5; --bg-alt:#cfe6ec; --card:#ffffff; --border:#a9d2dc;
 }
-[data-theme="dark"][data-palette="atlantico"]{
+html[data-theme="dark"][data-palette="atlantico"]{
   --accent:#3a93b3; --accent2:#d4a13d;
   --accent-soft:rgba(58,147,179,0.18); --gold-soft:rgba(212,161,61,0.14);
   --bg:#081820; --bg-alt:#0d212a; --card:#142e38; --border:#234650;
@@ -75,12 +75,12 @@
 }
 
 /* Medianoche — navy/charcoal with silver, premium/elegant */
-[data-palette="medianoche"]{
+html[data-palette="medianoche"]{
   --accent:#2b3a55; --accent2:#7d8aa3;
   --accent-soft:rgba(43,58,85,0.1); --gold-soft:rgba(125,138,163,0.14);
   --bg:#eceef2; --bg-alt:#dde1e8; --card:#ffffff; --border:#c4cad6;
 }
-[data-theme="dark"][data-palette="medianoche"]{
+html[data-theme="dark"][data-palette="medianoche"]{
   --accent:#5b73a3; --accent2:#c7ccd6;
   --accent-soft:rgba(91,115,163,0.22); --gold-soft:rgba(199,204,214,0.12);
   --bg:#0a0d14; --bg-alt:#10141d; --card:#161b26; --border:#252c3b;
@@ -88,12 +88,12 @@
 }
 
 /* Pampa — terracotta & wheat, warm and neutral */
-[data-palette="pampa"]{
+html[data-palette="pampa"]{
   --accent:#a8542c; --accent2:#c79a4f;
   --accent-soft:rgba(168,84,44,0.1); --gold-soft:rgba(199,154,79,0.14);
   --bg:#f8eee0; --bg-alt:#efdfc4; --card:#ffffff; --border:#ddc295;
 }
-[data-theme="dark"][data-palette="pampa"]{
+html[data-theme="dark"][data-palette="pampa"]{
   --accent:#d37a45; --accent2:#e0bb73;
   --accent-soft:rgba(211,122,69,0.2); --gold-soft:rgba(224,187,115,0.14);
   --bg:#1d140d; --bg-alt:#261b11; --card:#312317; --border:#4a3520;
@@ -101,43 +101,43 @@
 }
 
 /* Retro — 1980s arcade/console: neon magenta + green, pixel font */
-[data-palette="retro"]{
+html[data-palette="retro"]{
   --accent:#d6336c; --accent2:#0891a8;
   --accent-soft:rgba(214,51,108,0.1); --gold-soft:rgba(8,145,168,0.12);
   --bg:#e9e6f7; --bg-alt:#d9d3ef; --card:#ffffff; --border:#bdb3e0;
 }
-[data-theme="dark"][data-palette="retro"]{
+html[data-theme="dark"][data-palette="retro"]{
   --accent:#ff2e88; --accent2:#39ff8c;
   --accent-soft:rgba(255,46,136,0.22); --gold-soft:rgba(57,255,140,0.14);
   --bg:#0a0a18; --bg-alt:#11112a; --card:#181838; --border:#2e2e58;
   --text:#eef0ff; --muted:#9b9bc9;
 }
 /* retro accent font only on big display headings — keeps Fraunces everywhere else */
-[data-palette="retro"] h1{
+html[data-palette="retro"] h1{
   font-family:'VT323', monospace;letter-spacing:1px;text-transform:uppercase;
 }
-[data-palette="retro"] .product-card, [data-palette="retro"] .card, [data-palette="retro"] .location-card{
+html[data-palette="retro"] .product-card, html[data-palette="retro"] .card, html[data-palette="retro"] .location-card{
   border-width:2px;border-style:solid;position:relative;
 }
-[data-theme="dark"][data-palette="retro"] .product-card:hover,
-[data-theme="dark"][data-palette="retro"] .card:hover{
+html[data-theme="dark"][data-palette="retro"] .product-card:hover,
+html[data-theme="dark"][data-palette="retro"] .card:hover{
   box-shadow:0 0 0 2px var(--accent2), 0 0 18px rgba(57,255,140,0.4);
 }
 /* small retro game-icon stickers on cards, decorative only */
-[data-palette="retro"] .product-card::after, [data-palette="retro"] .card::after{
+html[data-palette="retro"] .product-card::after, html[data-palette="retro"] .card::after{
   content:'🕹️';position:absolute;top:10px;right:10px;font-size:15px;opacity:.55;
 }
-[data-palette="retro"] .product-card:nth-child(3n+2)::after, [data-palette="retro"] .card:nth-child(3n+2)::after{content:'👾';}
-[data-palette="retro"] .product-card:nth-child(3n+3)::after, [data-palette="retro"] .card:nth-child(3n+3)::after{content:'🍄';}
-[data-palette="retro"] .eyebrow::before{content:'⭐ ';}
+html[data-palette="retro"] .product-card:nth-child(3n+2)::after, html[data-palette="retro"] .card:nth-child(3n+2)::after{content:'👾';}
+html[data-palette="retro"] .product-card:nth-child(3n+3)::after, html[data-palette="retro"] .card:nth-child(3n+3)::after{content:'🍄';}
+html[data-palette="retro"] .eyebrow::before{content:'⭐ ';}
 
 /* Miami — Inter Miami CF pink & black */
-[data-palette="miami"]{
+html[data-palette="miami"]{
   --accent:#f7b5cd; --accent2:#1a1a1a;
   --accent-soft:rgba(247,181,205,0.18); --gold-soft:rgba(26,26,26,0.08);
   --bg:#fff0f6; --bg-alt:#fde1ec; --card:#ffffff; --border:#f6c4dc;
 }
-[data-theme="dark"][data-palette="miami"]{
+html[data-theme="dark"][data-palette="miami"]{
   --accent:#ff6fb0; --accent2:#f7b5cd;
   --accent-soft:rgba(255,111,176,0.22); --gold-soft:rgba(247,181,205,0.14);
   --bg:#120608; --bg-alt:#1a0b0f; --card:#241016; --border:#3a1c26;
@@ -145,12 +145,12 @@
 }
 
 /* Mundial — Argentina albiceleste, vivid sky blue & navy */
-[data-palette="mundial"]{
+html[data-palette="mundial"]{
   --accent:#3eb6f0; --accent2:#0b2545;
   --accent-soft:rgba(62,182,240,0.14); --gold-soft:rgba(11,37,69,0.08);
   --bg:#eef8fd; --bg-alt:#d6eefa; --card:#ffffff; --border:#a8def5;
 }
-[data-theme="dark"][data-palette="mundial"]{
+html[data-theme="dark"][data-palette="mundial"]{
   --accent:#5cd0ff; --accent2:#ffd54a;
   --accent-soft:rgba(92,208,255,0.22); --gold-soft:rgba(255,213,74,0.14);
   --bg:#040d1a; --bg-alt:#081729; --card:#0d2138; --border:#16385a;
@@ -158,12 +158,12 @@
 }
 
 /* Fuxia — vivid magenta/fuchsia with deep purple */
-[data-palette="fuxia"]{
+html[data-palette="fuxia"]{
   --accent:#c2185b; --accent2:#9c27b0;
   --accent-soft:rgba(194,24,91,0.1); --gold-soft:rgba(156,39,176,0.12);
   --bg:#fdf0f6; --bg-alt:#fbe0ee; --card:#ffffff; --border:#f3b8da;
 }
-[data-theme="dark"][data-palette="fuxia"]{
+html[data-theme="dark"][data-palette="fuxia"]{
   --accent:#ff3d9a; --accent2:#c454e0;
   --accent-soft:rgba(255,61,154,0.22); --gold-soft:rgba(196,84,224,0.16);
   --bg:#1a0a14; --bg-alt:#23101c; --card:#2e1426; --border:#4a1f3c;
@@ -175,7 +175,7 @@
   position:fixed;inset:0;pointer-events:none;z-index:400;overflow:hidden;display:none;
   contain:strict;
 }
-[data-palette="parrilla"] .smoke-layer{display:block;}
+html[data-palette="parrilla"] .smoke-layer{display:block;}
 .smoke-col{position:absolute;bottom:-40px;width:120px;height:100%;}
 .smoke-col.c1{left:2%;}
 .smoke-col.c2{left:22%;}
@@ -189,7 +189,7 @@
   filter:blur(7px);opacity:0;animation:smoke-rise 7s cubic-bezier(.3,.6,.4,1) infinite;
   will-change:transform,opacity;
 }
-[data-theme="dark"] .smoke-puff{
+html[data-theme="dark"] .smoke-puff{
   background:radial-gradient(ellipse at 50% 60%, rgba(225,225,225,0.22) 0%, rgba(190,190,190,0.14) 40%, rgba(160,160,160,0.06) 65%, transparent 80%);
 }
 .smoke-puff.p2{width:80px;height:140px;animation-delay:1.6s;filter:blur(9px);}
@@ -221,7 +221,7 @@
   pointer-events:none;z-index:401;display:none;overflow:visible;
   contain:layout style paint;
 }
-[data-palette="parrilla"] .flame-strip{display:block;}
+html[data-palette="parrilla"] .flame-strip{display:block;}
 .flame-strip::before{
   content:'';position:absolute;bottom:0;left:0;width:100%;height:22px;
   background:linear-gradient(0deg, rgba(255,110,20,0.35), transparent);
@@ -356,7 +356,7 @@
 .swatch-btn:hover{border-color:var(--accent2);}
 .swatch-btn.active{border-color:var(--accent2);color:var(--text);box-shadow:0 0 0 1px var(--accent2);}
 .swatch-dot{width:18px;height:18px;border-radius:50%;flex:0 0 auto;border:1px solid rgba(0,0,0,0.15);}
-[data-theme="dark"] .swatch-dot{border-color:rgba(255,255,255,0.4);}
+html[data-theme="dark"] .swatch-dot{border-color:rgba(255,255,255,0.4);}
 .swatch-dot.sw-classic{background:linear-gradient(135deg,#8e1d2c 50%,#9c7a2e 50%);}
 .swatch-dot.sw-parrilla{background:linear-gradient(135deg,#d9480f 50%,#e0962a 50%);}
 .swatch-dot.sw-campo{background:linear-gradient(135deg,#46562b 50%,#8a6c30 50%);}
@@ -405,8 +405,8 @@ img{max-width:100%;display:block;}
 .theme-toggle:hover{background:var(--accent2);color:#fff;box-shadow:0 0 14px var(--gold-soft);}
 .theme-toggle svg{width:18px;height:18px;}
 .theme-toggle .icon-sun{display:none;}
-[data-theme="light"] .theme-toggle .icon-sun{display:block;}
-[data-theme="light"] .theme-toggle .icon-moon{display:none;}
+html[data-theme="light"] .theme-toggle .icon-sun{display:block;}
+html[data-theme="light"] .theme-toggle .icon-moon{display:none;}
 
 /* nav */
 .nav{
