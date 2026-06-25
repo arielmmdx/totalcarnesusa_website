@@ -897,6 +897,7 @@ footer{border-top:4px solid var(--accent);background:#121212;padding:52px 0 28px
 .footer-col a:hover{color:var(--accent);}
 .footer-bottom{border-top:1px solid #262626;padding-top:20px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;color:#7a7268;}
 .footer-credit-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.footer-credit-row [data-i18n="footer_credit"]{color:#fff;font-weight:600;}
 .footer-credit-link{
   display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;
   border-radius:50%;background:#0a66c2;border:1px solid #0a66c2;color:#fff;transition:all .2s;
