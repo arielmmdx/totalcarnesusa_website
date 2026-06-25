@@ -899,10 +899,10 @@ footer{border-top:4px solid var(--accent);background:#121212;padding:52px 0 28px
 .footer-credit-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
 .footer-credit-link{
   display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;
-  border-radius:50%;background:#1c1c1c;border:1px solid #2c2c2c;color:#b8b0a8;transition:all .2s;
+  border-radius:50%;background:#0a66c2;border:1px solid #0a66c2;color:#fff;transition:all .2s;
 }
 .footer-credit-link svg{width:14px;height:14px;}
-.footer-credit-link:hover{border-color:#0a66c2;color:#0a66c2;}
+.footer-credit-link:hover{background:#0856a3;border-color:#0856a3;}
 .footer-whatsapp{
   display:inline-flex;align-items:center;gap:6px;width:auto;border-radius:999px;padding:5px 12px;
   background:#1c1c1c;border:1px solid #25d36633;color:#25d366;font-weight:700;font-size:12px;
